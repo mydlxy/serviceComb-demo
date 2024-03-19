@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pm.mapper.IPmSyncMapper">
+
+    <resultMap type="com.ca.mfd.prc.pm.entity.PmSyncEntity" id="pmSyncMap">
+        <result property="id" column="PRC_PM_SYNC_ID"/>
+        <result property="prcId" column="PRC_ID"/>
+        <result property="cmcId" column="CMC_ID"/>
+        <result property="dataType" column="DATA_TYPE"/>
+    </resultMap>
+
+
+</mapper>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pm.mapper.IPmWoCharacteristicsMapper">
+
+    <resultMap type="com.ca.mfd.prc.pm.entity.PmWoCharacteristicsEntity" id="pmWoCharacteristicsMap">
+        <result property="id" column="PRC_PM_WO_CHARACTERISTICS_ID"/>
+        <result property="prcCharacteristicsName" column="PRC_CHARACTERISTICS_NAME"/>
+        <result property="descriptionCn" column="DESCRIPTION_CN"/>
+        <result property="prcPmWoCode" column="PRC_PM_WO_CODE"/>
+        <result property="remark" column="REMARK"/>
+        <result property="prcPmWoName" column="PRC_PM_WO_NAME"/>
+    </resultMap>
+
+
+</mapper>

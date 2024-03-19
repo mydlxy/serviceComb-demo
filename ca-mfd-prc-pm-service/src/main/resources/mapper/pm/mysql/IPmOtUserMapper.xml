@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pm.mapper.IPmOtUserMapper">
+
+    <resultMap type="com.ca.mfd.prc.pm.entity.PmOtUserEntity" id="pmOtUserMap">
+        <result property="pmShopId" column="PM_AREA_ID"/>
+        <result property="pmAreaId" column="PM_WORK_CENTER_ID"/>
+        <result property="pmWorkplaceId" column="PM_STATION_ID"/>
+        <result property="pmWorkplaceName" column="PM_STATION_NAME"/>
+        <result property="userName" column="USER_NAME"/>
+        <result property="isEnable" column="IS_ENABLE"/>
+    </resultMap>
+
+
+</mapper>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pm.mapper.IPmShcCalendarAreaMapper">
+
+    <select id="getPmShcCalendarInfos" resultType="com.ca.mfd.prc.pm.entity.PmShcCalendarEntity">
+        SELECT  PRC_PM_SHC_CALENDAR_AREA_ID as id,LINE_CODE lineCode,
+        LINE_NAME lineName, PRC_PM_SHC_SHIFT_ID shcShiftId, SHC_SHIFT_CODE shcShiftCode, SHC_SHIFT_NAME shcShiftName,
+        PRODUCTIVITY productivity, WORK_DAY workDay, SHC_SHIFT_START_DT shcShiftStartDt,
+        SHC_SHIFT_END_DT shcShiftEndDt, OVERTIME overtime, IS_DELETE, CREATION_DATE,
+        CREATED_BY, LAST_UPDATE_DATE, LAST_UPDATED_BY,LAST_UPDATED_TRACEID,WORKSHOP_CODE workshopCode,WORKSHOP_NAME workshopName
+        FROM PRC_PM_SHC_CALENDAR_AREA
+        where IS_DELETE = 0
+        <if test="lineCode != null">
+            and LINE_CODE =#{lineCode}
+        </if>
+        <if test="workDayStart != null and workDayEnd != null ">
+            <![CDATA[
+               and WORK_DAY >= #{workDayStart} AND WORK_DAY <= #{workDayEnd}
+            ]]>
+        </if>
+        <if test="workDayYear != null">
+            and YEAR(WORK_DAY) = #{workDayYear}
+        </if>
+        <if test="workDayDay > 0">
+            and MONTH(WORK_DAY) =#{workDayMonth} and DAY(WORK_DAY)=#{workDayDay}
+        </if>
+        <if test="workDayDay == 0 ">
+            and MONTH(WORK_DAY) in
+            <foreach collection="workDayMonth" item="bet" separator="," open="(" close=")">
+                #{bet}
+            </foreach>
+        </if>
+        order by WORK_DAY,SHC_SHIFT_START_DT
+    </select>
+
+
+</mapper>

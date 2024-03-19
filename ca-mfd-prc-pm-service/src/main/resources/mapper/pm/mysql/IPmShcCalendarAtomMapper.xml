@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pm.mapper.IPmShcCalendarAtomMapper">
+
+
+    <select id="getCalendarSource" resultType="com.ca.mfd.prc.pm.dto.PmCalendarSourceDTO">
+        SELECT             T1.WORKSHOP_CODE as workshopCode,
+               T1.LINE_CODE as lineCode,
+        T1.WORK_DAY as workDay,
+        T2.SHIFT_NAME as shiftName,
+        T2.START_TIME as startTimeShift,
+        T2.END_TIME as endTimeShift,
+        T1.OVERTIME as overTime,
+        T2.IS_DAY_AFTER as isDayAfter,
+        T3.START_TIME as startTimeBreak,
+        T3.END_TIME as endTimeBreak,
+        T1.PRC_PM_SHC_CALENDAR_ID as prcShcCalendarId
+        FROM PRC_PM_SHC_CALENDAR T1
+        JOIN PRC_PM_SHC_SHIFT T2 ON T1.SHC_SHIFT_CODE = T2.SHIFT_CODE
+        LEFT JOIN PRC_PM_SHC_BREAK T3 ON T2.PRC_PM_SHC_SHIFT_ID =T3.PRC_PM_SHC_SHIFT_ID
+        <where>
+            T1.IS_DELETE = 0 and T2.IS_DELETE = 0 and T3.IS_DELETE = 0
+            <if test="workDay != null and workDay !=''">
+                <![CDATA[  and T1.WORK_DAY >= DATE_FORMAT(#{workDay} , '%Y-%m-%d %H:%T:%s') ]]>
+            </if>
+
+        </where>
+    </select>
+
+
+</mapper>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pm.mapper.IPmAviMapper">
+
+    <resultMap type="com.ca.mfd.prc.pm.entity.PmAviEntity" id="pmAviMap">
+        <result property="version" column="VERSION"/>
+        <result property="pmShopId" column="PM_AREA_ID"/>
+        <result property="pmAreaId" column="PM_WORK_CENTER_ID"/>
+        <result property="code" column="CODE"/>
+        <result property="name" column="NAME"/>
+        <result property="aviType" column="AVI_TYPE"/>
+        <result property="aviAttribute" column="AVI_ATTRIBUTE"/>
+        <result property="ipAddress" column="IP_ADDRESS"/>
+        <result property="remark" column="REMARK"/>
+        <result property="isEnable" column="IS_ENABLE"/>
+        <result property="displayNo" column="DISPLAY_NO"/>
+        <result property="isMain" column="IS_MAIN"/>
+        <result property="functions" column="FUNCTIONS"/>
+        <result property="pmWorkplaceId" column="PM_STATION_ID"/>
+        <result property="opcConnector" column="OPC_CONNECTOR"/>
+        <result property="pointDb" column="POINT_DB"/>
+        <result property="db3" column="DB3"/>
+        <result property="db4" column="DB4"/>
+        <result property="defaultPage" column="DEFAULT_PAGE"/>
+    </resultMap>
+    <select id="getEnableSnapshotByShopIdAndVersion" resultType="com.ca.mfd.prc.pm.entity.PmAviEntity">
+        select *,AVI_ID as ID from PM_AVI
+        where PM_AREA_ID = #{shopId} and VERSION = #{version} and IS_ENABLE = 1 and FLAGS = 0
+    </select>
+    <select id="getListByAreaId" resultType="com.ca.mfd.prc.pm.entity.PmAviEntity">
+        select *,AVI_ID as ID from PM_AVI
+        where PM_WORK_CENTER_ID = #{areaId}  and FLAGS = 0
+        order by CODE
+    </select>
+
+</mapper>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pm.mapper.IPmTeamleaderConfigMapper">
+
+    <resultMap type="com.ca.mfd.prc.pm.entity.PmTeamLeaderConfigEntity" id="pmTeamleaderConfigMap">
+        <result property="pmShopId" column="PM_AREA_ID"/>
+        <result property="pmAreaId" column="PM_WORK_CENTER_ID"/>
+        <result property="areaName" column="WORK_CENTER_NAME"/>
+        <result property="teamNo" column="TEAM_NO"/>
+        <result property="ucUserId" column="UC_USER_ID"/>
+        <result property="userName" column="USER_NAME"/>
+    </resultMap>
+
+
+</mapper>

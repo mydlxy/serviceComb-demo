@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pm.mapper.IPmBopMapper">
+
+    <resultMap type="com.ca.mfd.prc.pm.entity.PmBopEntity" id="pmBopMap">
+        <result property="id" column="PRC_PM_BOP_ID"/>
+        <result property="prcPmWorkshopId" column="PRC_PM_WORKSHOP_ID"/>
+        <result property="workshopCode" column="PRC_PM_WORKSHOP_CODE"/>
+        <result property="prcPmLineId" column="PRC_PM_LINE_ID"/>
+        <result property="lineCode" column="PRC_PM_LINE_CODE"/>
+        <result property="lineName" column="PRC_PM_LINE_NAME"/>
+        <result property="prcPmWorkstationId" column="PRC_PM_WORKSTATION_ID"/>
+        <result property="workstationCode" column="PRC_PM_WORKSTATION_CODE"/>
+        <result property="processNo" column="PROCESS_NO"/>
+        <result property="processName" column="PROCESS_NAME"/>
+    </resultMap>
+
+
+    <select id="getBomwd7"  resultType="java.util.HashMap">
+       select * from BOM_${tbname}
+    </select>
+</mapper>

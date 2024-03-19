@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pm.mapper.IPmProductBomMapper">
+
+    <resultMap type="com.ca.mfd.prc.pm.entity.PmProductBomEntity" id="pmProductBomMap">
+        <result property="bomVersionsId" column="BOM_VERSIONS_ID"/>
+        <result property="materialCn" column="MATERIAL_CN"/>
+        <result property="materialEn" column="MATERIAL_EN"/>
+        <result property="quantity" column="QUANTITY"/>
+        <result property="unit" column="UNIT"/>
+        <result property="plantCode" column="PLANT_CODE"/>
+        <result property="shopCode" column="AREA_CODE"/>
+        <result property="areaCode" column="WORK_CENTER_CODE"/>
+        <result property="materialNo" column="MATERIAL_NO"/>
+        <result property="workplaceCode" column="STATION_CODE"/>
+        <result property="weight" column="WEIGHT"/>
+        <result property="weightUnit" column="WEIGHT_UNIT"/>
+        <result property="packageCount" column="PACKAGE_COUNT"/>
+<!--        <result property="stationCode" column="STATION_CODE"/>-->
+    </resultMap>
+
+
+</mapper>

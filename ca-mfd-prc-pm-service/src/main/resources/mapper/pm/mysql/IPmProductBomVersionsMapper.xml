@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pm.mapper.IPmProductBomVersionsMapper">
+
+    <resultMap type="com.ca.mfd.prc.pm.entity.PmProductBomVersionsEntity" id="pmProductBomVersionsMap">
+        <result property="productMaterialNo" column="PRODUCT_MATERIAL_NO"/>
+        <result property="bomVersions" column="BOM_VERSIONS"/>
+        <result property="checkCode" column="CHECK_CODE"/>
+        <result property="isEnable" column="IS_ENABLE"/>
+    </resultMap>
+
+    <select id="getVersionByMaterialNo"
+            resultType="com.ca.mfd.prc.pm.entity.PmProductBomVersionsEntity">
+        select b.*
+        from PRC_PM_PRODUCT_BOM a
+        inner join PRC_PM_PRODUCT_BOM_VERSIONS b on a.BOM_VERSIONS_ID=b.PRC_PM_PRODUCT_BOM_VERSIONS_ID
+        where a.IS_DELETE=0 and b.IS_DELETE=0 and b.IS_ENABLE=1 and a.MATERIAL_NO=#{materialNo} and b.ATTRIBUTE1=#{orderCategory} limit 1
+    </select>
+</mapper>

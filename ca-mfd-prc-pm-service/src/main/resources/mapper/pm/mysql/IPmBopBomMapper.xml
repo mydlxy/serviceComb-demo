@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pm.mapper.IPmBopBomMapper">
+
+    <resultMap type="com.ca.mfd.prc.pm.entity.PmBopBomEntity" id="pmBopBomMap">
+        <result property="id" column="PRC_PM_BOP_BOM_ID"/>
+        <result property="fromMbomId" column="FROM_MBOM_ID"/>
+        <result property="rowNum" column="ROW_NUM"/>
+        <result property="materialCode" column="MATERIAL_CODE"/>
+        <result property="materialName" column="MATERIAL_NAME"/>
+        <result property="masterMaterialCode" column="MASTER_MATERIAL_CODE"/>
+        <result property="vehicleSeries" column="VEHICLE_SERIES"/>
+        <result property="quantity" column="QUANTITY"/>
+        <result property="measureUnit" column="MEASURE_UNIT"/>
+        <result property="materialTypeCode" column="MATERIAL_TYPE_CODE"/>
+        <result property="rdSupplyStatus" column="RD_SUPPLY_STATUS"/>
+        <result property="usageValue" column="USAGE_VALUE"/>
+        <result property="usageDesc" column="USAGE_DESC"/>
+        <result property="moduleCode" column="MODULE_CODE"/>
+        <result property="moduleName" column="MODULE_NAME"/>
+        <result property="compositesNum" column="COMPOSITES_NUM"/>
+        <result property="replaceGroup" column="REPLACE_GROUP"/>
+        <result property="supportGroup" column="SUPPORT_GROUP"/>
+        <result property="employeeidDisplayName" column="EMPLOYEEID_DISPLAY_NAME"/>
+        <result property="manufacturingSupplyStatus" column="MANUFACTURING_SUPPLY_STATUS"/>
+        <result property="usePlant" column="USE_PLANT"/>
+        <result property="useWorkShop" column="USE_WORK_SHOP"/>
+        <result property="manufacturingPlant" column="MANUFACTURING_PLANT"/>
+        <result property="manufacturingWorkshop" column="MANUFACTURING_WORKSHOP"/>
+        <result property="processLevel" column="PROCESS_LEVEL"/>
+        <result property="mbomEngineerName" column="MBOM_ENGINEER_NAME"/>
+        <result property="mbomEngineerUpdatedate" column="MBOM_ENGINEER_UPDATEDATE"/>
+        <result property="technicsEngineerName" column="TECHNICS_ENGINEER_NAME"/>
+        <result property="technicsEngineerUpdatedate" column="TECHNICS_ENGINEER_UPDATEDATE"/>
+        <result property="sourcEchangeCode" column="SOURC_ECHANGE_CODE"/>
+        <result property="changeCode" column="CHANGE_CODE"/>
+        <result property="breakPointCode" column="BREAK_POINT_CODE"/>
+        <result property="breakPointChangesTatus" column="BREAK_POINT_CHANGES_TATUS"/>
+        <result property="effectiveFrom" column="EFFECTIVE_FROM"/>
+        <result property="effectiveTo" column="EFFECTIVE_TO"/>
+    </resultMap>
+
+    <select id="getList" resultType="com.ca.mfd.prc.pm.dto.PmBopBomDto">
+        select ROW_NUM as rowNum,
+               MATERIAL_CODE as materialCode,
+               MATERIAL_NAME as materialName,
+               RD_SUPPLY_STATUS as rdSupplyStatus,
+               QUANTITY as quantity,
+               IF(BREAK_POINT_CODE IS NULL OR BREAK_POINT_CODE = '','否','是') as breakPointFlag
+        from PRC_PM_BOP_BOM
+        where IS_DELETE = 0 order by MATERIAL_CODE
+    </select>
+
+
+</mapper>

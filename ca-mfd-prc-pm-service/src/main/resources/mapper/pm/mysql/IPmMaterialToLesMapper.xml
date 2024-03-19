@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pm.mapper.IPmMaterialToLesMapper">
+    <resultMap type="com.ca.mfd.prc.pm.entity.PmMaterialToLesEntity" id="pmMaterialToLesMap">
+        <result property="id" column="PRC_PM_MATERIAL_TO_LES_ID"/>
+        <result property="productCode" column="PRODUCT_CODE"/>
+        <result property="sigtrueCreate" column="SIGTRUE_CREATE"/>
+        <result property="sigtrue" column="SIGTRUE"/>
+        <result property="materialContetn" column="MATERIAL_CONTETN"/>
+        <result property="pullTime" column="PULL_TIME"/>
+        <result property="remark" column="REMARK"/>
+    </resultMap>
+</mapper>

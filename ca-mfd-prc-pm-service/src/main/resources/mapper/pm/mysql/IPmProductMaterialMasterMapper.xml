@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pm.mapper.IPmProductMaterialMasterMapper">
+
+    <resultMap type="com.ca.mfd.prc.pm.entity.PmProductMaterialMasterEntity" id="pmProductMaterialMasterMap">
+        <result property="plant" column="PLANT"/>
+        <result property="materialNo" column="MATERIAL_NO"/>
+        <result property="chinese" column="CHINESE"/>
+        <result property="english" column="ENGLISH"/>
+        <result property="unit" column="UNIT"/>
+        <result property="packageCount" column="PACKAGE_COUNT"/>
+        <result property="weight" column="WEIGHT"/>
+        <result property="weightUnit" column="WEIGHT_UNIT"/>
+        <result property="partGroup" column="PART_GROUP"/>
+    </resultMap>
+
+
+</mapper>

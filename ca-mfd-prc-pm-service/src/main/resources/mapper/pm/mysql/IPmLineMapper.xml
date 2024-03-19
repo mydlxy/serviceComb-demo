@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pm.mapper.IPmLineMapper">
+
+    <resultMap type="com.ca.mfd.prc.pm.entity.PmLineEntity" id="pmAreaMap">
+        <result property="version" column="VERSION"/>
+        <result property="pmShopId" column="PM_AREA_ID"/>
+        <result property="code" column="CODE"/>
+        <result property="name" column="NAME"/>
+        <result property="remark" column="REMARK"/>
+        <result property="displayNo" column="DISPLAY_NO"/>
+        <result property="workstationCount" column="WORKSTATION_COUNT"/>
+        <result property="beginDistance" column="BEGIN_DISTANCE"/>
+        <result property="endDistance" column="END_DISTANCE"/>
+        <result property="lineType" column="LINE_TYPE"/>
+        <result property="queueDb" column="QUEUE_DB"/>
+        <result property="plcDb3" column="PLC_DB3"/>
+        <result property="andonDb" column="ANDON_DB"/>
+        <result property="opcConnect" column="OPC_CONNECT"/>
+        <result property="frontBufferUpLimit" column="FRONT_BUFFER_UP_LIMIT"/>
+        <result property="frontBufferLowLimit" column="FRONT_BUFFER_LOW_LIMIT"/>
+        <result property="rearBufferUpLimit" column="REAR_BUFFER_UP_LIMIT"/>
+        <result property="rearBufferLowLimit" column="REAR_BUFFER_LOW_LIMIT"/>
+        <result property="stationLength" column="STATION_LENGTH"/>
+        <result property="type" column="TYPE"/>
+        <result property="isEnable" column="IS_ENABLE"/>
+        <result property="jph" column="JPH"/>
+        <result property="receiveAreaCode" column="RECEIVE_WORK_CENTER_CODE"/>
+        <result property="workplaceDb" column="STATION_DB"/>
+        <result property="andonOpcConnect" column="ANDON_OPC_CONNECT"/>
+        <result property="entryDb" column="ENTRY_DB"/>
+        <result property="entryOpcConnect" column="ENTRY_OPC_CONNECT"/>
+    </resultMap>
+    <select id="getEnableSnapshotByShopIdAndVersion" resultType="com.ca.mfd.prc.pm.entity.PmLineEntity">
+        select *,WORK_CENTER_ID as ID from PM_WORK_CENTER
+        where PM_AREA_ID = #{shopId} and VERSION = #{version} and IS_ENABLE = 1 and FLAGS = 0
+    </select>
+    <select id="getAllExcelDatas" resultType="com.ca.mfd.prc.pm.excel.PmAllModel">
+        select
+        (SELECT `TEXT` FROM PRC_SYS_CONFIGURATION WHERE CATEGORY='shopCode' and `VALUE` = pw.WORKSHOP_CODE ) as workshopCode,
+        pw.WORKSHOP_NAME as workshopName,
+        pw.WORKSHOP_DESIGN_JPH as workshopDesignJph,
+        pw.PRODUCT_TIME as workshopProductTime,
+        pl.LINE_CODE as lineCode,
+        pl.LINE_NAME as lineName,
+        pl.STATION_COUNT as stationCount,
+        (CASE
+        WHEN pl.LINE_TYPE = 1 THEN '主线'
+        WHEN pl.LINE_TYPE = 2 THEN '辅线'
+        ELSE '' END) as lineType,
+        (CASE
+        WHEN pl.RUN_TYPE = 1 THEN 'Continue'
+        WHEN pl.RUN_TYPE = 0 THEN 'Stop&amp;Go'
+        WHEN pl.RUN_TYPE = 2 THEN 'AGV'
+        WHEN pl.RUN_TYPE = 4 THEN 'other'
+        WHEN pl.RUN_TYPE = 3 THEN 'Discrete'
+        ELSE '' END) as runType,
+        pl.STATION_LENGTH as stationLength,
+        pl.LINE_DESIGN_JPH as lineDesignJph,
+        pl.END_DISTANCE as lineLength,
+        pl.PRODUCT_TIME as lineProductTime,
+        pl.OPC_CONNECT as opcConnect,
+        pl.QUEUE_DB as queueDb,
+        pl.STATION_DB as stationDb,
+        pl.ANDON_OPC_CONNECT as andonOpcConnect,
+        pl.ANDON_DB as andonDb,
+        pl.IS_ENABLE as lineIsEnable,
+        pl.IS_DELETE as lineIsDelete,
+        ps.WORKSTATION_CODE as workstationCode,
+        ps.WORKSTATION_NAME as workstationName,
+        (SELECT `TEXT` FROM PRC_SYS_CONFIGURATION WHERE CATEGORY='workstaiontype' and `VALUE` = ps.WORKSTATION_TYPE ) as workstationType,
+        ps.WORKSTATION_NO as workstationNo,
+        (SELECT `TEXT` FROM PRC_SYS_CONFIGURATION WHERE CATEGORY='workplacecode' and `VALUE` = ps.DIRECTION ) as direction,
+        (SELECT `TEXT` FROM PRC_SYS_CONFIGURATION WHERE CATEGORY='team' and `VALUE` = ps.TEAM_NO ) as teamNo,
+        ps.BEGIN_DISTANCE as beginDistance,
+        ps.END_DISTANCE as endDistance,
+        ps.ALARM_DISTANCE as alarmDistance,
+        ps.PRODUCT_TIME as workstationProductTime,
+        ps.IS_ENABLE as stationIsEnable,
+        ps.IS_DELETE as stationIsDelete,
+        ps.REMARK as remark
+        FROM PRC_PM_WORKSHOP pw
+        JOIN PRC_PM_LINE pl on pw.PRC_PM_WORKSHOP_ID=pl.PRC_PM_WORKSHOP_ID and pl.IS_DELETE=0
+        LEFT JOIN PRC_PM_WORK_STATION ps on ps.PRC_PM_LINE_ID=pl.PRC_PM_LINE_ID and ps.IS_DELETE=0
+        WHERE pw.PRC_PM_WORKSHOP_ID = ${shopId} and pw.IS_DELETE = 0
+        ORDER BY pl.LINE_DISPLAY_NO,pl.LINE_CODE,ps.WORKSTATION_NO,ps.DIRECTION
+    </select>
+
+</mapper>

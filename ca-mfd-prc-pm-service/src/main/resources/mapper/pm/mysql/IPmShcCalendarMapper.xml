@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pm.mapper.IPmShcCalendarMapper">
+
+    <select id="getcalendarsource" resultType="com.ca.mfd.prc.pm.dto.PmCalendarSource">
+        SELECT T1.WORKSHOP_CODE as pmShopCode,
+        T1.WORK_DAY as WorkDay,
+        T2.`SHIFT_NAME` as shiftName,
+        T2.START_TIME as startTimeShift,
+        T2.END_TIME as endTimeShift,
+        T1.OVERTIME as overTime,
+        T2.IS_DAY_AFTER as isDayAfter,
+        T3.START_TIME as startTimeBreak,
+        T3.END_TIME as endTimeBreak,
+        T1.PRC_PM_SHC_CALENDAR_ID as shcCalendarId
+        FROM PRC_PM_SHC_CALENDAR T1
+        JOIN PRC_PM_SHC_SHIFT T2 ON T1.SHC_SHIFT_CODE = T2.SHIFT_CODE
+        JOIN PRC_PM_SHC_BREAK T3 ON T2.PRC_PM_SHC_SHIFT_ID =T3.PRC_PM_SHC_SHIFT_ID
+        <where>
+            T1.IS_DELETE = 0 and T2.IS_DELETE = 0 and T3.IS_DELETE = 0
+            <if test="startDay != null and startDay !=''">
+                <![CDATA[  and T1.WORK_DAY >= DATE_FORMAT(#{startDay} , '%Y-%m-%d %H:%T:%s') ]]>
+            </if>
+            <if test="endDay != null and endDay !=''">
+                <![CDATA[  and T1.WORK_DAY <= DATE_FORMAT(#{endDay} , '%Y-%m-%d %H:%T:%s') ]]>
+            </if>
+            <if test="shopCode != null and shopCode !=''">
+                and T1.WORKSHOP_CODE =#{shopCode}
+            </if>
+        </where>
+    </select>
+
+    <select id="getShiftInfo" resultType="com.ca.mfd.prc.pm.dto.ShiftDTO">
+        select b.PRC_PM_SHC_SHIFT_ID    as shiftId,
+               a.WORKSHOP_CODE          as pmShopCode,
+               b.SHIFT_NAME             as name,
+               b.IS_DAY_AFTER           as isDayAfter,
+               b.START_TIME             as startTime,
+               b.END_TIME               as endTime,
+               b.IS_DAY_BEFORE          as isDayBefore,
+               a.WORK_DAY               as workDay,
+               a.PRODUCTIVITY           as productivity,
+               b.SHIFT_CODE             as shiftCode,
+               a.OVERTIME               as overtime,
+               a.PRC_PM_SHC_CALENDAR_ID as shcCalenderId
+        from PRC_PM_SHC_CALENDAR a
+                 inner join PRC_PM_SHC_SHIFT b on a.SHC_SHIFT_CODE = b.SHIFT_CODE
+        where a.WORKSHOP_CODE = #{pmShopCode}
+          and a.LINE_CODE = #{pmLineCode}
+          and a.WORK_DAY >= #{minWorkDay}
+          and a.IS_DELETE = 0
+          and b.IS_DELETE = 0
+    </select>
+
+    <select id="getPmShcCalendarInfos" resultType="com.ca.mfd.prc.pm.entity.PmShcCalendarEntity">
+        SELECT PRC_PM_SHC_CALENDAR_ID as id,WORKSHOP_CODE workshopCode,
+        WORKSHOP_NAME workshopName,LINE_CODE lineCode ,LINE_NAME lineName, SHC_SHIFT_CODE shcShiftCode, SHC_SHIFT_NAME
+        shcShiftName,
+        PRODUCTIVITY productivity, WORK_DAY workDay, SHC_SHIFT_START_DT shcShiftStartDt,
+        SHC_SHIFT_END_DT shcShiftEndDt, OVERTIME overtime, IS_DELETE, CREATION_DATE,
+        CREATED_BY, LAST_UPDATE_DATE, LAST_UPDATED_BY,LAST_UPDATED_TRACEID
+        FROM PRC_PM_SHC_CALENDAR
+        where IS_DELETE = 0
+        <if test="pmShopCode != null ">
+            and WORKSHOP_CODE =#{pmShopCode} and LINE_CODE = ""
+        </if>
+        <if test="pmShopCodeList!=null and pmShopCodeList.size() > 0 ">
+            and LINE_CODE = "" and WORKSHOP_CODE in
+            <foreach collection="pmShopCodeList" item="item" separator="," open="(" close=")">
+                #{item}
+            </foreach>
+        </if>
+        <if test="pmShopNameList!=null and pmShopNameList.size() > 0 ">
+            and LINE_CODE = "" and WORKSHOP_NAME in
+            <foreach collection="pmShopNameList" item="item" separator="," open="(" close=")">
+                #{item}
+            </foreach>
+        </if>
+        <if test="pmLineCode != null ">
+            and LINE_CODE =#{pmLineCode}
+        </if>
+        <if test="workDayStart != null and workDayEnd != null ">
+            <![CDATA[
+               and WORK_DAY >= #{workDayStart} AND WORK_DAY <= #{workDayEnd}
+            ]]>
+        </if>
+        <if test="workDayYear != null and workDayYear>0 ">
+            and YEAR(WORK_DAY) = #{workDayYear}
+        </if>
+        <if test="workDayDay > 0">
+            and MONTH(WORK_DAY) =#{workDayMonth} and DAY(WORK_DAY)=#{workDayDay}
+        </if>
+        <if test="workDayDay == 0 ">
+            and MONTH(WORK_DAY) in
+            <foreach collection="workDayMonth" item="bet" separator="," open="(" close=")">
+                #{bet}
+            </foreach>
+        </if>
+        order by WORK_DAY,SHC_SHIFT_START_DT
+    </select>
+    <select id="getShcCalTempInfo" resultType="com.ca.mfd.prc.pm.dto.ShcCalTempInfo">
+        SELECT pmShcCalInfo.PRC_PM_SHC_CALENDAR_ID as Id,
+               shcShiftInfo.IS_DAY_BEFORE          as isDayBefore,
+               shcShiftInfo.IS_DAY_AFTER           as isDayAfter,
+               pmShcCalInfo.WORK_DAY               as workDay,
+               pmShcCalInfo.Overtime               as overTime,
+               shcBreakInfo.START_TIME             as breakStartTime,
+               shcBreakInfo.END_TIME               as breakEndTime,
+               shcShiftInfo.PRC_PM_SHC_SHIFT_ID    as shiftId,
+               shcShiftInfo.`SHIFT_NAME`           as shiftName,
+               shcShiftInfo.START_TIME             as shiftStartTime,
+               shcShiftInfo.END_TIME               as shiftEndTime,
+               pmShcCalInfo.PRODUCTIVITY           as productivity
+        FROM PRC_PM_SHC_CALENDAR pmShcCalInfo
+                 INNER JOIN PRC_PM_SHC_SHIFT shcShiftInfo ON pmShcCalInfo.SHC_SHIFT_CODE = shcShiftInfo.SHIFT_CODE
+                 LEFT JOIN PRC_PM_SHC_BREAK shcBreakInfo
+                           ON shcShiftInfo.PRC_PM_SHC_SHIFT_ID = shcBreakInfo.PRC_PM_SHC_SHIFT_ID
+        WHERE pmShcCalInfo.IS_DELETE = 0
+          and shcShiftInfo.IS_DELETE = 0
+          and shcBreakInfo.IS_DELETE = 0
+          and pmShcCalInfo.WORKSHOP_CODE = #{shopCode}
+          and pmShcCalInfo.WORK_DAY &gt;= #{beginDt}
+          and pmShcCalInfo.WORK_DAY &lt;= #{endDt}
+        ORDER BY pmShcCalInfo.WORK_DAY
+    </select>
+
+    <select id="getCalendarCountByShiftIds" resultType="java.lang.Integer">
+        SELECT count(1) FROM PRC_PM_SHC_CALENDAR a join PRC_PM_SHC_SHIFT b on a.SHC_SHIFT_CODE = b.SHIFT_CODE
+        WHERE a.IS_DELETE = 0 and
+        b.PRC_PM_SHC_SHIFT_ID in
+        <foreach collection="shiftIds" item="bet" separator="," open="(" close=")">
+            #{bet}
+        </foreach>
+
+    </select>
+
+
+</mapper>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pm.mapper.IPmPullCordMapper">
+
+    <resultMap type="com.ca.mfd.prc.pm.entity.PmPullCordEntity" id="pmPullcordMap">
+        <result property="version" column="VERSION"/>
+        <result property="pmShopId" column="PM_AREA_ID"/>
+        <result property="pmAreaId" column="PM_WORK_CENTER_ID"/>
+        <result property="pmWorkplaceId" column="PM_STATION_ID"/>
+        <result property="name" column="NAME"/>
+        <result property="type" column="TYPE"/>
+        <result property="isEnable" column="IS_ENABLE"/>
+        <result property="stopType" column="STOP_TYPE"/>
+        <result property="timeDelay" column="TIME_DELAY"/>
+        <result property="remark" column="REMARK"/>
+        <result property="pullcordSequence" column="PULLCORD_SEQUENCE"/>
+    </resultMap>
+    <select id="getEnableSnapshotByShopIdAndVersion"
+            resultType="com.ca.mfd.prc.pm.entity.PmPullCordEntity">
+        select *, PULLCORD_ID as ID from PM_PULLCORD
+        where PM_AREA_ID = #{shopId} and VERSION = #{version} and IS_ENABLE = 1 and FLAGS = 0
+    </select>
+
+
+</mapper>

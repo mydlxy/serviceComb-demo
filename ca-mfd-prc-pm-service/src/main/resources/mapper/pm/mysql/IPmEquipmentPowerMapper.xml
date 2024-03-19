@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pm.mapper.IPmEquipmentPowerMapper">
+
+    <resultMap id="pmEquipmentPowerMap" type="com.ca.mfd.prc.pm.entity.PmEquipmentPowerEntity" >
+        <result property="id" column="PRC_PM_EQUIPMENT_ID"/>
+        <result property="workstationCode" column="PRC_PM_WORKSTATION_CODE"/>
+        <result property="equipmentCode" column="EQUIPMENT_CODE"/>
+        <result property="equipmentName" column="EQUIPMENT_NAME"/>
+        <result property="powerType" column="POWER_TYPE"/>
+        <result property="standardValue" column="STANDARD_VALUE"/>
+        <result property="maxValue" column="MAX_VALUE"/>
+        <result property="minValue" column="MIN_VALUE"/>
+        <result property="unit" column="UNIT"/>
+    </resultMap>
+
+
+    <select id="getEquipmentPowersByShopId"  resultMap="pmEquipmentPowerMap">
+        select
+        A.PRC_PM_EQUIPMENT_ID as PRC_PM_EQUIPMENT_ID,
+        A.PRC_PM_WORKSTATION_CODE as PRC_PM_WORKSTATION_CODE,
+        A.EQUIPMENT_CODE as EQUIPMENT_CODE,
+        A.EQUIPMENT_NAME as EQUIPMENT_NAME,
+        B.POWER_TYPE as POWER_TYPE,
+        B.STANDARD_VALUE as STANDARD_VALUE,
+        B.MAX_VALUE as MAX_VALUE,
+        B.MIN_VALUE as MIN_VALUE,
+        B.UNIT as UNIT
+        from
+        PRC_PM_EQUIPMENT as a
+        LEFT JOIN PRC_PM_EQUIPMENT_POWER as b
+        ON a.PRC_PM_EQUIPMENT_ID = b.PRC_PM_EQUIPMENT_ID AND b.IS_DELETE =0
+        where  a.IS_DELETE =0
+        and a.PRC_PM_WORKSHOP_ID = #{workshopId}
+    </select>
+</mapper>

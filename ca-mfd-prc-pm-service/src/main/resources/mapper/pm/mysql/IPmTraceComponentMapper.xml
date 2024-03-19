@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pm.mapper.IPmTraceComponentMapper">
+
+    <resultMap type="com.ca.mfd.prc.pm.entity.PmTraceComponentEntity" id="pmTraceComponentMap">
+        <result property="code" column="CODE"/>
+        <result property="description" column="DESCRIPTION"/>
+        <result property="isKeyParts" column="IS_KEY_PARTS"/>
+        <result property="enabledUpload" column="ENABLED_UPLOAD"/>
+        <result property="category" column="CATEGORY"/>
+        <result property="categoryDesc" column="CATEGORY_DESC"/>
+    </resultMap>
+
+
+</mapper>

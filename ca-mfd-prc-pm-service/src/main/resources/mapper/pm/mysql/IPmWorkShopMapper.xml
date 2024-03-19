@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pm.mapper.IPmWorkShopMapper">
+
+    <resultMap type="com.ca.mfd.prc.pm.entity.PmWorkShopEntity" id="pmShopMap">
+        <result property="version" column="VERSION"/>
+        <result property="pmPlantId" column="PM_PLANT_ID"/>
+        <result property="code" column="CODE"/>
+        <result property="name" column="NAME"/>
+        <result property="displayNo" column="DISPLAY_NO"/>
+        <result property="remark" column="REMARK"/>
+        <result property="vehicleCount" column="VEHICLE_COUNT"/>
+        <result property="bufferCount" column="BUFFER_COUNT"/>
+        <result property="bufferCountLowLimt" column="BUFFER_COUNT_LOW_LIMT"/>
+        <result property="jph" column="JPH"/>
+        <result property="vehicleMin" column="VEHICLE_MIN"/>
+        <result property="vehicleMax" column="VEHICLE_MAX"/>
+    </resultMap>
+    <select id="getByShopIdAndVersion" resultType="com.ca.mfd.prc.pm.entity.PmWorkShopEntity">
+        select *,PRC_PM_WORKSHOP_ID as ID from PRC_PM_WORKSHOP
+        where PRC_PM_WORKSHOP_ID = #{shopId} and VERSION = #{version} and IS_DELETE = 0;
+    </select>
+
+
+</mapper>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pm.mapper.IPmWorkStationMapper">
+
+    <resultMap type="com.ca.mfd.prc.pm.entity.PmWorkStationEntity" id="pmWorkplaceMap">
+        <result property="version" column="VERSION"/>
+        <result property="pmShopId" column="PM_SHOP_ID"/>
+        <result property="pmAreaId" column="PM_AREA_ID"/>
+        <result property="pmStationId" column="PM_STATION_ID"/>
+        <result property="code" column="CODE"/>
+        <result property="name" column="NAME"/>
+        <result property="type" column="TYPE"/>
+        <result property="beginDistance" column="BEGIN_DISTANCE"/>
+        <result property="alarmDistance" column="ALARM_DISTANCE"/>
+        <result property="endDistance" column="END_DISTANCE"/>
+        <result property="routePath" column="ROUTE_PATH"/>
+        <result property="routeCheck" column="ROUTE_CHECK"/>
+        <result property="pmStations" column="PM_STATIONS"/>
+        <result property="isEnable" column="IS_ENABLE"/>
+        <result property="remark" column="REMARK"/>
+        <result property="isAvi" column="IS_AVI"/>
+        <result property="teamNo" column="TEAM_NO"/>
+    </resultMap>
+    <select id="getEnableSnapshotByShopIdAndVersion"
+            resultType="com.ca.mfd.prc.pm.entity.PmWorkStationEntity">
+        select *, PRC_PM_WORK_STATION_ID as ID from PRC_PM_WORK_STATION
+        where PRC_PM_WORKSHOP_ID = #{shopId} and VERSION = #{version} and IS_ENABLE = 1 and IS_DELETE = 0
+    </select>
+
+    <select id="getCurrentStationList"  resultType="com.ca.mfd.prc.pm.dto.VcurrentWorkStationInfo">
+        select  a.PRC_PM_WORK_STATION_ID as Id,
+                a.WORKSTATION_CODE as workstationCode,
+                a.WORKSTATION_NAME as workstationName,
+               a.WORKSTATION_TYPE as workstationType,
+               a.BEGIN_DISTANCE as beginDistance,
+               a.ALARM_DISTANCE as alarmDistance,
+               a.END_DISTANCE as endDistance,
+               a.ROUTE_PATH as routhPath,
+               a.ROUTE_CHECK as routeCheck,
+               a.PM_STATIONS as stations,
+               a.REMARK as remark
+        from PRC_PM_WORK_STATION a
+        JOIN PRC_PM_WORKSHOP s on a.PRC_PM_WORKSHOP_ID = s.ID
+                                      AND s.IS_DELETE = 0
+                                      AND a.IS_DELETE = 0
+        join PRC_PM_VERSION b on s.VERSION = b.VERSION
+                                     and s.WORKSHOP_CODE = b.WORKSHOP_CODE
+                                     and b.IS_DELETE = 0
+                                     and b.IS_ENABLED = 1
+        <include refid="com.ca.mfd.prc.common.CommMapper.wheresql">
+            <property name="where" value="pms.wheresa"/>
+        </include>
+        <if test='pms.order !=null and pms.order.size()>0'>
+            ${@com.ca.mfd.prc.common.utils.MpSqlUtils@getSortStr(pms.order)}
+        </if>
+
+    </select>
+
+</mapper>

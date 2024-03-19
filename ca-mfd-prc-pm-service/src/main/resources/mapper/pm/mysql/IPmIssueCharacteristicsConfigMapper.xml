@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pm.mapper.IPmIssueCharacteristicsConfigMapper">
+
+    <resultMap type="com.ca.mfd.prc.pm.entity.PmIssueCharacteristicsConfigEntity" id="pmIssueCharacteristicsConfigMap">
+        <result property="prcPmIssueCharacteristicsConfigId" column="PRC_PM_ISSUE_CHARACTERISTICS_CONFIG_ID"/>
+        <result property="subKey" column="SUB_KEY"/>
+        <result property="featureKey" column="FEATURE_KEY"/>
+        <result property="relevanceType" column="RELEVANCE_TYPE"/>
+        <result property="featureName" column="FEATURE_NAME"/>
+    </resultMap>
+
+
+</mapper>

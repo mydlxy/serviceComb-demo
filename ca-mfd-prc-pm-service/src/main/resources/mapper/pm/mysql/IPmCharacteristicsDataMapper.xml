@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pm.mapper.IPmCharacteristicsDataMapper">
+
+    <resultMap type="com.ca.mfd.prc.pm.entity.PmCharacteristicsDataEntity" id="prcPmCharacteristicsDataMap">
+        <result property="prcPmCharacteristicsDataId" column="PRC_PM_CHARACTERISTICS_DATA_ID"/>
+        <result property="characteristicsName" column="CHARACTERISTICS_NAME"/>
+        <result property="descriptionCn" column="DESCRIPTION_CN"/>
+        <result property="descriptionEn" column="DESCRIPTION_EN"/>
+        <result property="characteristicsCode" column="CHARACTERISTICS_CODE"/>
+        <result property="characteristicsValue" column="CHARACTERISTICS_VALUE"/>
+        <result property="valueCn" column="VALUE_CN"/>
+        <result property="valueEn" column="VALUE_EN"/>
+        <result property="source" column="SOURCE"/>
+    </resultMap>
+
+
+</mapper>
