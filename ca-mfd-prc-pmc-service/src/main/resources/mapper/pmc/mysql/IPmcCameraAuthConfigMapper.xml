@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pmc.mapper.IPmcCameraAuthConfigMapper">
+
+    <resultMap type="com.ca.mfd.prc.pmc.entity.PmcCameraAuthConfigEntity" id="pmcCameraAuthConfigMap">
+        <result property="id" column="PRC_PMC_CAMERA_AUTH_CONFIG_ID"/>
+        <result property="workstationCode" column="WORKSTATION_CODE"/>
+        <result property="authorities" column="AUTHORITIES"/>
+    </resultMap>
+
+
+</mapper>

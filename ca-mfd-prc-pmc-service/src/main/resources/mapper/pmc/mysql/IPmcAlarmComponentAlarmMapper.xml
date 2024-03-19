@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pmc.mapper.IPmcAlarmComponentAlarmMapper">
+
+    <resultMap type="com.ca.mfd.prc.pmc.entity.PmcAlarmComponentAlarmEntity" id="pmcAlarmComponentAlarmMap">
+        <result property="id" column="PRC_PMC_ALARM_COMPONENT_ALARM_ID"/>
+        <result property="alarmComponentAlarmCode" column="ALARM_COMPONENT_ALARM_CODE"/>
+        <result property="prcPmcAlarmEquipmntModelId" column="PRC_PMC_ALARM_EQUIPMNT_MODEL_ID"/>
+        <result property="status" column="status"/>
+        <result property="position" column="position"/>
+        <result property="alarmComponentAlarmDescription" column="ALARM_COMPONENT_ALARM_DESCRIPTION"/>
+        <result property="alarmLevel" column="ALARM_LEVEL"/>
+        <result property="alarmDt" column="ALARM_DT"/>
+        <result property="duration" column="DURATION"/>
+        <result property="workshopCode" column="WORKSHOP_CODE"/>
+        <result property="isDataDown" column="IS_DATA_DOWN"/>
+        <result property="winccCounter" column="WINCC_COUNTER"/>
+    </resultMap>
+
+    <select id="getAndonData" resultType="com.ca.mfd.prc.pmc.dto.AndonSourceDataDTO">
+        SELECT distinct concat('=', LINE_CODE, '++', WORKSTATION_NAME,'+',WORKSTATION_NAME,'_Andon_', convert(TYPE,
+        CHAR)) AS position
+        , LINE_CODE AS areaCode
+        , WORKSTATION_NAME AS stationName
+        , WORKSTATION_NAME AS workplaceName
+        , START_DT AS startDt
+        , END_DT AS endDt
+        , CASE WHEN ANDON_PULLCORD_RECORD_TYPE = 1 THEN 1
+        WHEN ANDON_PULLCORD_RECORD_TYPE = 2 THEN 2
+        WHEN ANDON_PULLCORD_RECORD_TYPE = 3 THEN 3
+        WHEN ANDON_PULLCORD_RECORD_TYPE = 4 THEN 4
+        WHEN ANDON_PULLCORD_RECORD_TYPE = 5 THEN 5
+        WHEN ANDON_PULLCORD_RECORD_TYPE = 6 THEN 6
+        WHEN ANDON_PULLCORD_RECORD_TYPE = 20 THEN 7
+        WHEN ANDON_PULLCORD_RECORD_TYPE = 30 THEN 8
+        ELSE 9
+        END AS alarmLevel
+        , CASE WHEN ANDON_PULLCORD_RECORD_TYPE = 1 THEN N'线体暂停呼叫'
+        WHEN ANDON_PULLCORD_RECORD_TYPE = 2 THEN N'停机呼叫'
+        WHEN ANDON_PULLCORD_RECORD_TYPE = 3 THEN N'物料呼叫'
+        WHEN ANDON_PULLCORD_RECORD_TYPE = 4 THEN N'急停呼叫'
+        WHEN ANDON_PULLCORD_RECORD_TYPE = 5 THEN N'班长呼叫'
+        WHEN ANDON_PULLCORD_RECORD_TYPE = 6 THEN N'设备呼叫'
+        WHEN ANDON_PULLCORD_RECORD_TYPE = 20 THEN N'EP停线'
+        WHEN ANDON_PULLCORD_RECORD_TYPE = 30 THEN N'质量呼叫'
+        ELSE N'其他'
+        END AS Description
+        , DURATION AS duration
+        , 2 AS type
+        FROM PRC_ANDON_PULLCORD_RECORD
+        <where>
+            IS_DELETE = 0 AND TRIGGER_TYPE = 1
+            <if test="startTime != null and startTime !=''">
+                <![CDATA[  and LAST_UPDATED_DATE >= DATE_FORMAT(#{startTime} , '%Y-%m-%d %H:%T:%s') ]]>
+            </if>
+            <if test="endTime != null and endTime !=''">
+                <![CDATA[  and LAST_UPDATED_DATE < DATE_FORMAT(#{endTime} , '%Y-%m-%d %H:%T:%s') ]]>
+            </if>
+            <if test="andonTypes != null and andonTypes !=''">
+                and ANDON_PULLCORD_RECORD_TYPE =#{andonTypes}
+            </if>
+        </where>
+
+    </select>
+
+
+</mapper>

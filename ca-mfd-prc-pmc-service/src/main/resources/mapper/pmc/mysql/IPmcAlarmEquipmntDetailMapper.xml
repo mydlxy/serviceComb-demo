@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pmc.mapper.IPmcAlarmEquipmntDetailMapper">
+
+    <resultMap type="com.ca.mfd.prc.pmc.entity.PmcAlarmEquipmntDetailEntity" id="pmcAlarmEquipmntDetailMap">
+        <result property="id" column="PRC_PMC_ALARM_EQUIPMNT_DETAIL_ID"/>
+        <result property="position" column="POSITION"/>
+        <result property="alarmLevel" column="ALARM_LEVEL"/>
+        <result property="beginDt" column="BEGIN_DT"/>
+        <result property="endDt" column="END_DT"/>
+        <result property="alarmEquipmntDetailCode" column="ALARM_EQUIPMNT_DETAIL_CODE"/>
+        <result property="alarmEquipmntDetailDescription" column="ALARM_EQUIPMNT_DETAIL_DESCRIPTION"/>
+        <result property="duration" column="DURATION"/>
+        <result property="workshopCode" column="WORKSHOP_CODE"/>
+        <result property="isDataDown" column="IS_DATA_DOWN"/>
+        <result property="alarmEquipmntDetailType" column="ALARM_EQUIPMNT_DETAIL_TYPE"/>
+        <result property="isFill" column="IS_FILL"/>
+        <result property="stopCode" column="STOP_CODE"/>
+        <result property="stopName" column="STOP_NAME"/>
+        <result property="stopType" column="STOP_TYPE"/>
+        <result property="stopDepartment" column="STOP_DEPARTMENT"/>
+        <result property="stopCauseType" column="STOP_CAUSE_TYPE"/>
+        <result property="stopCodeDesc" column="STOP_CODE_DESC"/>
+        <result property="lineCode" column="LINE_CODE"/>
+        <result property="workplaceName" column="WORKPLACE_NAME"/>
+        <result property="fillUserNo" column="FILL_USER_NO"/>
+        <result property="fillUserNick" column="FILL_USER_NICK"/>
+        <result property="stopTypeCode" column="STOP_TYPE_CODE"/>
+    </resultMap>
+
+
+</mapper>

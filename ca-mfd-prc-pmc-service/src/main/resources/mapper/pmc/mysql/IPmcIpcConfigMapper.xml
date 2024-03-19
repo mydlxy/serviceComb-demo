@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pmc.mapper.IPmcIpcConfigMapper">
+
+    <resultMap type="com.ca.mfd.prc.pmc.entity.PmcIpcConfigEntity" id="pmcIpcConfigMap">
+        <result property="id" column="PRC_PMC_IPC_CONFIG_ID"/>
+        <result property="workshopCode" column="WORKSHOP_CODE"/>
+        <result property="name" column="NAME"/>
+        <result property="code" column="CODE"/>
+        <result property="ipAddress" column="IP_ADDRESS"/>
+        <result property="port" column="PORT"/>
+        <result property="username" column="USERNAME"/>
+        <result property="password" column="PASSWORD"/>
+    </resultMap>
+
+
+</mapper>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pmc.mapper.IPmcStopCodeMapper">
+
+    <resultMap type="com.ca.mfd.prc.pmc.entity.PmcStopCodeEntity" id="pmcStopCodeMap">
+        <result property="id" column="PRC_PMC_STOP_CODE_ID"/>
+        <result property="stopType" column="STOP_TYPE"/>
+        <result property="stopName" column="STOP_NAME"/>
+        <result property="stopCode" column="STOP_CODE"/>
+        <result property="stopCodeDesc" column="STOP_CODE_DESC"/>
+        <result property="stopDepartment" column="STOP_DEPARTMENT"/>
+        <result property="stopCauseType" column="STOP_CAUSE_TYPE"/>
+        <result property="stopTypeCode" column="STOP_TYPE_CODE"/>
+    </resultMap>
+
+
+</mapper>

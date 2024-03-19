@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pmc.mapper.IPmcCameraAlarmMapper">
+
+    <resultMap type="com.ca.mfd.prc.pmc.entity.PmcCameraAlarmEntity" id="pmcCameraAlarmMap">
+        <result property="id" column="PRC_PMC_CAMERA_ALARM_ID"/>
+        <result property="prcPmcCameraConfigId" column="PRC_PMC_CAMERA_CONFIG_ID"/>
+        <result property="alarmTime" column="ALARM_TIME"/>
+        <result property="type" column="TYPE"/>
+        <result property="content" column="CONTENT"/>
+    </resultMap>
+
+
+</mapper>

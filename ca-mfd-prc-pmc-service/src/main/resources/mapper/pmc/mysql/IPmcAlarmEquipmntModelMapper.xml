@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pmc.mapper.IPmcAlarmEquipmntModelMapper">
+
+    <resultMap type="com.ca.mfd.prc.pmc.entity.PmcAlarmEquipmntModelEntity" id="pmcAlarmEquipmntModelMap">
+        <result property="id" column="PRC_PMC_ALARM_EQUIPMNT_MODEL_ID"/>
+        <result property="alarmEquipmntModelCode" column="ALARM_EQUIPMNT_MODEL_CODE"/>
+        <result property="alarmEquipmntModelName" column="ALARM_EQUIPMNT_MODEL_NAME"/>
+        <result property="workshopName" column="WORKSHOP_NAME"/>
+        <result property="workshopCode" column="WORKSHOP_CODE"/>
+        <result property="level" column="LEVEL"/>
+        <result property="position" column="POSITION"/>
+    </resultMap>
+
+
+</mapper>

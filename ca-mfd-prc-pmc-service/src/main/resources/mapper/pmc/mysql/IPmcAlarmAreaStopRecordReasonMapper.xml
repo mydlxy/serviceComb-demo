@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pmc.mapper.IPmcAlarmAreaStopRecordReasonMapper">
+
+    <resultMap type="com.ca.mfd.prc.pmc.entity.PmcAlarmAreaStopRecordReasonEntity" id="pmcAlarmAreaStopRecordReasonMap">
+        <result property="id" column="PRC_PMC_ALARM_AREA_STOP_RECORD_REASON_ID"/>
+        <result property="status" column="STATUS"/>
+        <result property="shopCode" column="SHOP_CODE"/>
+        <result property="positions" column="POSITIONS"/>
+        <result property="reasonAnalysis" column="REASON_ANALYSIS"/>
+        <result property="startDt" column="START_DT"/>
+        <result property="endDt" column="END_DT"/>
+        <result property="duration" column="DURATION"/>
+        <result property="shortTermMeasure" column="SHORT_TERM_MEASURE"/>
+        <result property="longTermMeasure" column="LONG_TERM_MEASURE"/>
+        <result property="shortMeasureAuditStatus" column="SHORT_MEASURE_AUDIT_STATUS"/>
+        <result property="longMeasureAuditStatus" column="LONG_MEASURE_AUDIT_STATUS"/>
+        <result property="auditPrcPmcUserId" column="AUDIT_PRC_PMC_USER_ID"/>
+        <result property="auditPrcPmcUserName" column="AUDIT_PRC_PMC_USER_NAME"/>
+        <result property="auditTime" column="AUDIT_TIME"/>
+        <result property="prcPmcAlarmAreaStopSetId" column="PRC_PMC_ALARM_AREA_STOP_SET_ID"/>
+        <result property="alarmAreaStopSetName" column="ALARM_AREA_STOP_SET_NAME"/>
+        <result property="sendDt" column="SEND_DT"/>
+        <result property="sendTimes" column="SEND_TIMES"/>
+        <result property="stopType" column="STOP_TYPE"/>
+        <result property="stopTypeCode" column="STOP_TYPE_CODE"/>
+        <result property="stopCauseType" column="STOP_CAUSE_TYPE"/>
+        <result property="stopDepartment" column="STOP_DEPARTMENT"/>
+        <result property="stopName" column="STOP_NAME"/>
+        <result property="stopCode" column="STOP_CODE"/>
+        <result property="stopCodeDesc" column="STOP_CODE_DESC"/>
+    </resultMap>
+
+
+</mapper>
