@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.rc.rcbdc.mapper.IRcBdcRouteAreaAttachMapper">
+
+    <resultMap type="com.ca.mfd.prc.rc.rcbdc.entity.RcBdcRouteAreaAttachEntity" id="rcBdcRouteAreaAttachMap">
+        <result property="id" column="PRC_BDC_ROUTE_AREA_ATTACH_ID"/>
+        <result property="prcRcBdcRouteAreaId" column="PRC_BDC_ROUTE_AREA_ID"/>
+        <result property="attachId" column="ATTACH_ID"/>
+        <result property="attachCode" column="ATTACH_CODE"/>
+        <result property="attachName" column="ATTACH_NAME"/>
+        <result property="attachType" column="ATTACH_TYPE"/>
+        <result property="attachRoute" column="ATTACH_ROUTE"/>
+    </resultMap>
+
+</mapper>

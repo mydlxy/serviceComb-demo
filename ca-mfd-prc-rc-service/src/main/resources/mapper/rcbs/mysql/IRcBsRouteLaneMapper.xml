@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.rc.rcbs.mapper.IRcBsRouteLaneMapper">
+
+    <resultMap type="com.ca.mfd.prc.rc.rcbs.entity.RcBsRouteLaneEntity" id="rcBsRouteLaneMap">
+        <result property="id" column="PRC_RC_BS_ROUTE_LANE_ID"/>
+        <result property="prcRcBsRouteAreaId" column="PRC_RC_BS_ROUTE_AREA_ID"/>
+        <result property="laneCode" column="LANE_CODE"/>
+        <result property="laneName" column="LANE_NAME"/>
+        <result property="laneType" column="LANE_TYPE"/>
+        <result property="maxValue" column="MAX_VALUE"/>
+        <result property="maxLevel" column="MAX_LEVEL"/>
+        <result property="allowIn" column="ALLOW_IN"/>
+        <result property="allowOut" column="ALLOW_OUT"/>
+        <result property="ext1" column="EXT1"/>
+        <result property="ext2" column="EXT2"/>
+        <result property="ext3" column="EXT3"/>
+        <result property="buttonIn" column="BUTTON_IN"/>
+        <result property="buttonOut" column="BUTTON_OUT"/>
+        <result property="displayNo" column="DISPLAY_NO"/>
+    </resultMap>
+
+
+</mapper>

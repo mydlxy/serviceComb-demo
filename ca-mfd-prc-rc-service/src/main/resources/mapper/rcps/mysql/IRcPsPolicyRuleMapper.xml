@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.rc.rcps.mapper.IRcPsPolicyRuleMapper">
+
+    <resultMap type="com.ca.mfd.prc.rc.rcps.entity.RcPsPolicyRuleEntity" id="rcPsPolicyRuleMap">
+        <result property="id" column="PRC_RC_PS_POLICY_RULE_ID"/>
+        <result property="prcRcPsRouteAreaId" column="PRC_RC_PS_ROUTE_AREA_ID"/>
+        <result property="prcRcPsPolicyId" column="PRC_RC_PS_POLICY_ID"/>
+        <result property="prcRcPsRuleId" column="PRC_RC_PS_RULE_ID"/>
+        <result property="paramName" column="PARAM_NAME"/>
+        <result property="paramValue" column="PARAM_VALUE"/>
+        <result property="dynamicValue" column="DYNAMIC_VALUE"/>
+        <result property="level" column="LEVEL"/>
+        <result property="laneCode" column="LANE_CODE"/>
+        <result property="isNot" column="IS_NOT"/>
+    </resultMap>
+
+
+</mapper>

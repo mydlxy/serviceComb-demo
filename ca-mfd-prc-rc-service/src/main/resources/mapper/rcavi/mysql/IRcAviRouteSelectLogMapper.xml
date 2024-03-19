@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.rc.rcavi.mapper.IRcAviRouteSelectLogMapper">
+
+    <resultMap type="com.ca.mfd.prc.rc.rcavi.entity.RcAviRouteSelectLogEntity" id="rcAviRouteSelectLogMap">
+        <result property="id" column="PRC_RC_AVI_ROUTE_SELECT_LOG_ID"/>
+        <result property="prcRcAviRouteAreaId" column="PRC_RC_AVI_ROUTE_AREA_ID"/>
+        <result property="areaCode" column="AREA_CODE"/>
+        <result property="areaName" column="AREA_NAME"/>
+        <result property="prcRcAviRouteSelectId" column="PRC_RC_AVI_ROUTE_SELECT_ID"/>
+        <result property="selectCode" column="SELECT_CODE"/>
+        <result property="selectName" column="SELECT_NAME"/>
+        <result property="attachId" column="ATTACH_ID"/>
+        <result property="attachCode" column="ATTACH_CODE"/>
+        <result property="attachName" column="ATTACH_NAME"/>
+        <result property="operation" column="OPERATION"/>
+        <result property="operationLever" column="OPERATION_LEVER"/>
+        <result property="operationName" column="OPERATION_NAME"/>
+        <result property="operationDt" column="OPERATION_DT"/>
+    </resultMap>
+
+
+</mapper>

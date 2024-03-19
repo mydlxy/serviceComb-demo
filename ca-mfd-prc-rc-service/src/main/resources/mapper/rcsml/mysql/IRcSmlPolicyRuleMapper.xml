@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.rc.rcsml.mapper.IRcSmlPolicyRuleMapper">
+
+    <resultMap type="com.ca.mfd.prc.rc.rcsml.entity.RcSmlPolicyRuleEntity" id="rcSmlPolicyRuleMap">
+        <result property="id" column="PRC_RC_SML_POLICY_RULE_ID"/>
+        <result property="prcRcSmlPolicyId" column="PRC_RC_SML_POLICY_ID"/>
+        <result property="policyCode" column="POLICY_CODE"/>
+        <result property="policyName" column="POLICY_NAME"/>
+        <result property="prcRcSmlRuleId" column="PRC_RC_SML_RULE_ID"/>
+        <result property="ruleCode" column="RULE_CODE"/>
+        <result property="ruleName" column="RULE_NAME"/>
+        <result property="paramName" column="PARAM_NAME"/>
+        <result property="paramValue" column="PARAM_VALUE"/>
+        <result property="dynamicValue" column="DYNAMIC_VALUE"/>
+        <result property="level" column="LEVEL"/>
+        <result property="laneCode" column="LANE_CODE"/>
+        <result property="isNot" column="IS_NOT"/>
+    </resultMap>
+
+
+</mapper>

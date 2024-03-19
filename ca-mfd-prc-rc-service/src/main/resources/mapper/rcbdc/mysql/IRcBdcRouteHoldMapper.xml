@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.rc.rcbdc.mapper.IRcBdcRouteHoldMapper">
+
+    <resultMap type="com.ca.mfd.prc.rc.rcbdc.entity.RcBdcRouteHoldEntity" id="rcBdcRouteHoldMap">
+        <result property="id" column="PRC_BDC_ROUTE_HOLD_ID"/>
+        <result property="prcRcBdcRouteAreaId" column="PRC_BDC_ROUTE_AREA_ID"/>
+        <result property="bufferCode" column="BUFFER_CODE"/>
+        <result property="areaCode" column="AREA_CODE"/>
+        <result property="areaName" column="AREA_NAME"/>
+        <result property="holdReason" column="HOLD_REASON"/>
+        <result property="holdDt" column="HOLD_DT"/>
+        <result property="holdId" column="HOLD_ID"/>
+        <result property="holdName" column="HOLD_NAME"/>
+        <result property="sn" column="SN"/>
+    </resultMap>
+
+
+</mapper>

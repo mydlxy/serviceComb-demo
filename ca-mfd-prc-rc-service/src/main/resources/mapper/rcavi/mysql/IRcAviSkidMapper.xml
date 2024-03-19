@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.rc.rcavi.mapper.IRcAviSkidMapper">
+
+    <resultMap type="com.ca.mfd.prc.rc.rcavi.entity.RcAviSkidEntity" id="rcAviSkidMap">
+        <result property="id" column="PRC_RC_AVI_SKID_ID"/>
+        <result property="workshopCode" column="WORKSHOP_CODE"/>
+        <result property="skidCode" column="SKID_CODE"/>
+        <result property="skidType" column="SKID_TYPE"/>
+        <result property="useQty" column="USE_QTY"/>
+        <result property="isClean" column="IS_CLEAN"/>
+    </resultMap>
+
+
+</mapper>

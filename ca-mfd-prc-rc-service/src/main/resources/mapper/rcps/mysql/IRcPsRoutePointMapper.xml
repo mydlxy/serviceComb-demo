@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.rc.rcps.mapper.IRcPsRoutePointMapper">
+    <resultMap type="com.ca.mfd.prc.rc.rcps.entity.RcPsRoutePointEntity" id="rcPsRoutePointMap">
+        <result property="id" column="PRC_RC_PS_ROUTE_POINT_ID"/>
+        <result property="prcRcPsRouteAreaId" column="PRC_RC_PS_ROUTE_AREA_ID"/>
+        <result property="prcRcPsPolicyId" column="PRC_RC_PS_POLICY_ID"/>
+        <result property="pointCode" column="POINT_CODE"/>
+        <result property="pointName" column="POINT_NAME"/>
+        <result property="pointType" column="POINT_TYPE"/>
+        <result property="dbName" column="DB_NAME"/>
+        <result property="mode" column="MODE"/>
+        <result property="isEnable" column="IS_ENABLE"/>
+        <result property="isPublish" column="IS_PUBLISH"/>
+        <result property="hasStage" column="HAS_STAGE"/>
+        <result property="stageMode" column="STAGE_MODE"/>
+    </resultMap>
+</mapper>

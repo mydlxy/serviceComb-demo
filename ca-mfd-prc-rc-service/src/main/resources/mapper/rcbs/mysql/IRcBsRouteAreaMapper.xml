@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.rc.rcbs.mapper.IRcBsRouteAreaMapper">
+
+    <resultMap type="com.ca.mfd.prc.rc.rcbs.entity.RcBsRouteAreaEntity" id="rcBsRouteAreaMap">
+        <result property="id" column="PRC_RC_BS_ROUTE_AREA_ID"/>
+        <result property="areaCode" column="AREA_CODE"/>
+        <result property="areaName" column="AREA_NAME"/>
+        <result property="bufferCode" column="BUFFER_CODE"/>
+        <result property="vehicleDb" column="VEHICLE_DB"/>
+        <result property="workshopCode" column="WORKSHOP_CODE"/>
+        <result property="plcConnecter" column="PLC_CONNECTER"/>
+    </resultMap>
+</mapper>

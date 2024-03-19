@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.rc.rcbs.mapper.IRcBsPolicyMapper">
+
+    <resultMap type="com.ca.mfd.prc.rc.rcbs.entity.RcBsPolicyEntity" id="rcBsPolicyMap">
+        <result property="id" column="PRC_RC_BS_POLICY_ID"/>
+        <result property="prcRcBsRouteAreaId" column="PRC_RC_BS_ROUTE_AREA_ID"/>
+        <result property="policyCode" column="POLICY_CODE"/>
+        <result property="policyName" column="POLICY_NAME"/>
+        <result property="policyType" column="POLICY_TYPE"/>
+        <result property="displayNo" column="DISPLAY_NO"/>
+    </resultMap>
+
+
+</mapper>

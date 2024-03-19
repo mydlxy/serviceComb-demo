@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.rc.rcbdc.mapper.IRcBdcRouteCacheLogMapper">
+
+    <resultMap type="com.ca.mfd.prc.rc.rcbdc.entity.RcBdcRouteCacheLogEntity" id="rcBdcRouteCacheLogMap">
+        <result property="id" column="PRC_BDC_ROUTE_CACHE_LOG_ID"/>
+        <result property="prcRcBdcRouteAreaId" column="PRC_BDC_ROUTE_AREA_ID"/>
+        <result property="areaCode" column="AREA_CODE"/>
+        <result property="areaName" column="AREA_NAME"/>
+        <result property="bufferCode" column="BUFFER_CODE"/>
+        <result property="sn" column="SN"/>
+        <result property="displayNo" column="DISPLAY_NO"/>
+        <result property="endDt" column="END_DT"/>
+        <result property="prcRcBdcRouteLaneId" column="PRC_BDC_ROUTE_LANE_ID"/>
+        <result property="laneCode" column="LANE_CODE"/>
+        <result property="beginDt" column="BEGIN_DT"/>
+    </resultMap>
+
+
+</mapper>

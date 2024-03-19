@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.rc.rcps.mapper.IRcPsRoutePointLogMapper">
+
+    <resultMap type="com.ca.mfd.prc.rc.rcps.entity.RcPsRoutePointLogEntity" id="rcPsRoutePointLogMap">
+        <result property="id" column="PRC_RC_PS_ROUTE_POINT_LOG_ID"/>
+        <result property="prcRcPsRouteAreaId" column="PRC_RC_PS_ROUTE_AREA_ID"/>
+        <result property="areaCode" column="AREA_CODE"/>
+        <result property="areaName" column="AREA_NAME"/>
+        <result property="bufferCode" column="BUFFER_CODE"/>
+        <result property="prcRcPsRoutePointId" column="PRC_RC_PS_ROUTE_POINT_ID"/>
+        <result property="pointCode" column="POINT_CODE"/>
+        <result property="pointName" column="POINT_NAME"/>
+        <result property="attachId" column="ATTACH_ID"/>
+        <result property="attachCode" column="ATTACH_CODE"/>
+        <result property="attachName" column="ATTACH_NAME"/>
+        <result property="operation" column="OPERATION"/>
+        <result property="operationLever" column="OPERATION_LEVER"/>
+        <result property="operationName" column="OPERATION_NAME"/>
+        <result property="operationDt" column="OPERATION_DT"/>
+    </resultMap>
+
+
+</mapper>

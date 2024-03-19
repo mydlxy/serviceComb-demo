@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.rc.rcavi.mapper.IRcAviRouteSelectMapper">
+
+    <resultMap type="com.ca.mfd.prc.rc.rcavi.entity.RcAviRouteSelectEntity" id="rcAviRouteSelectMap">
+        <result property="id" column="PRC_RC_AVI_ROUTE_SELECT_ID"/>
+        <result property="selectCode" column="SELECT_CODE"/>
+        <result property="selectName" column="SELECT_NAME"/>
+        <result property="prcRcAviRouteAreaId" column="PRC_RC_AVI_ROUTE_AREA_ID"/>
+        <result property="dbName" column="DB_NAME"/>
+        <result property="dbOffset" column="DB_OFFSET"/>
+        <result property="isEnable" column="IS_ENABLE"/>
+        <result property="position" column="POSITION"/>
+    </resultMap>
+
+
+</mapper>

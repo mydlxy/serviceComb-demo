@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.rc.rcbs.mapper.IRcBsRoutePublishLogMapper">
+
+    <resultMap type="com.ca.mfd.prc.rc.rcbs.entity.RcBsRoutePublishLogEntity" id="rcBsRoutePublishLogMap">
+        <result property="id" column="PRC_RC_BS_ROUTE_PUBLISH_LOG_ID"/>
+        <result property="bufferCode" column="BUFFER_CODE"/>
+        <result property="sn" column="SN"/>
+        <result property="displayNo" column="DISPLAY_NO"/>
+        <result property="beginDt" column="BEGIN_DT"/>
+        <result property="endDt" column="END_DT"/>
+    </resultMap>
+
+</mapper>

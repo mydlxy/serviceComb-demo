@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.rc.rcavi.mapper.IRcAviRouteAreaAttachMapper">
+
+    <resultMap type="com.ca.mfd.prc.rc.rcavi.entity.RcAviRouteAreaAttachEntity" id="rcAviRouteAreaAttachMap">
+        <result property="id" column="PRC_RC_AVI_ROUTE_AREA_ATTACH_ID"/>
+        <result property="prcRcAviRouteAreaId" column="PRC_RC_AVI_ROUTE_AREA_ID"/>
+        <result property="attachId" column="ATTACH_ID"/>
+        <result property="attachCode" column="ATTACH_CODE"/>
+        <result property="attachName" column="ATTACH_NAME"/>
+        <result property="attachType" column="ATTACH_TYPE"/>
+    </resultMap>
+
+    <select id="getAttachShowList" resultType="com.ca.mfd.prc.rc.rcavi.dto.RcRouteAreaAttachShowVO">
+        select ATTACH_ID AttachId, ATTACH_CODE AttachCode, MAX(ATTACH_NAME) AttachName
+        from PRC_RC_AVI_ROUTE_AREA_ATTACH rrpa
+        where IS_DELETE = 0
+        group by rrpa.ATTACH_ID, rrpa.ATTACH_CODE
+    </select>
+
+</mapper>

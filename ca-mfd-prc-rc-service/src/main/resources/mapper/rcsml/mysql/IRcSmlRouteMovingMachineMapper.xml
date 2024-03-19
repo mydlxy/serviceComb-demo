@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.rc.rcsml.mapper.IRcSmlRouteMovingMachineMapper">
+
+    <resultMap type="com.ca.mfd.prc.rc.rcsml.entity.RcSmlRouteMovingMachineEntity" id="rcSmlRouteMovingMachineMap">
+        <result property="id" column="PRC_RC_SML_ROUTE_MOVING_MACHINE_ID"/>
+        <result property="prcRcSmlRoutePointId" column="PRC_RC_SML_ROUTE_POINT_ID"/>
+        <result property="pointCode" column="POINT_CODE"/>
+        <result property="pointName" column="POINT_NAME"/>
+        <result property="movingMachineCode" column="MOVING_MACHINE_CODE"/>
+        <result property="movingMachineName" column="MOVING_MACHINE_NAME"/>
+        <result property="movingMachineType" column="MOVING_MACHINE_TYPE"/>
+        <result property="laneCodeHome" column="LANE_CODE_HOME"/>
+        <result property="laneCode" column="LANE_CODE"/>
+    </resultMap>
+
+
+</mapper>

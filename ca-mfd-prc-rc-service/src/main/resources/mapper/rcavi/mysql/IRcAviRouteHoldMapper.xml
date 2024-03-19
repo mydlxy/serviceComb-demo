@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.rc.rcavi.mapper.IRcAviRouteHoldMapper">
+
+    <resultMap type="com.ca.mfd.prc.rc.rcavi.entity.RcAviRouteHoldEntity" id="rcAviRouteHoldMap">
+        <result property="id" column="PRC_RC_AVI_ROUTE_HOLD_ID"/>
+        <result property="prcRcAviRoutePointId" column="PRC_RC_AVI_ROUTE_POINT_ID"/>
+        <result property="pointCode" column="POINT_CODE"/>
+        <result property="pointName" column="POINT_NAME"/>
+        <result property="prcRcAviRouteAreaId" column="PRC_RC_AVI_ROUTE_AREA_ID"/>
+        <result property="bufferCode" column="BUFFER_CODE"/>
+        <result property="areaCode" column="AREA_CODE"/>
+        <result property="areaName" column="AREA_NAME"/>
+        <result property="holdId" column="HOLD_ID"/>
+        <result property="holdName" column="HOLD_NAME"/>
+        <result property="holdDt" column="HOLD_DT"/>
+        <result property="holdReason" column="HOLD_REASON"/>
+        <result property="sn" column="SN"/>
+    </resultMap>
+
+</mapper>

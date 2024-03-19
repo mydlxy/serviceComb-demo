@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.rc.rcavi.mapper.IRcAviRoutePointAttachMapper">
+
+    <resultMap type="com.ca.mfd.prc.rc.rcavi.entity.RcAviRoutePointAttachEntity" id="rcAviRoutePointAttachMap">
+        <result property="id" column="PRC_RC_AVI_ROUTE_POINT_ATTACH_ID"/>
+        <result property="prcRcAviRouteAreaId" column="PRC_RC_AVI_ROUTE_AREA_ID"/>
+        <result property="prcRcAviRoutePointId" column="PRC_RC_AVI_ROUTE_POINT_ID"/>
+        <result property="attachId" column="ATTACH_ID"/>
+        <result property="attachCode" column="ATTACH_CODE"/>
+        <result property="attachName" column="ATTACH_NAME"/>
+    </resultMap>
+
+
+</mapper>
