@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.ca.mfd.prc.common.obs.config.ObsClientStrategy,\
+com.ca.mfd.prc.common.obs.config.LocalUploadProperties
+ 

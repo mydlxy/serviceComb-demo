@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ca.mfd.prc.common.CommMapper">
+
+    <!-- 通用where -->
+    <sql id="wheresql">
+        <if test="${where}!=null and ${where}.size()>0">
+            <where>
+                <foreach collection="@com.ca.mfd.prc.common.utils.MpSqlUtils@getConditionGroup(${where})" item="groups"
+                         index="gpkey">
+                    ${@com.ca.mfd.prc.common.utils.MpSqlUtils@getGroupRel(gpkey)} (
+                    <foreach collection="groups" item="item" index="cindex">
+                        <if test="item.dbval != null">
+                            <choose>
+                                <when test="item.operator != null and item.operator.value ==@com.ca.mfd.prc.common.enums.ConditionOper@Equal.value ">
+                                    ${@com.ca.mfd.prc.common.utils.MpSqlUtils@getRelation(item,cindex)}
+                                    ${item.columnName} = #{item.dbval}
+                                </when>
+                                <when test="item.operator != null and item.operator.value ==@com.ca.mfd.prc.common.enums.ConditionOper@Unequal.value ">
+                                    ${@com.ca.mfd.prc.common.utils.MpSqlUtils@getRelation(item,cindex)}
+                                    ${item.columnName} != #{item.dbval}
+                                </when>
+                                <when test="item.operator != null and item.operator.value ==@com.ca.mfd.prc.common.enums.ConditionOper@In.value ">
+                                    ${@com.ca.mfd.prc.common.utils.MpSqlUtils@getRelation(item,cindex)}
+                                    ${item.columnName} in
+                                    <foreach collection="item.dbval" item="bet" separator="," open="(" close=")">
+                                        #{bet}
+                                    </foreach>
+                                </when>
+                                <when test="item.operator != null and item.operator.value ==@com.ca.mfd.prc.common.enums.ConditionOper@NotIn.value ">
+                                    ${@com.ca.mfd.prc.common.utils.MpSqlUtils@getRelation(item,cindex)}
+                                    ${item.columnName} not in
+                                    <foreach collection="item.dbval" item="bet" separator="," open="(" close=")">
+                                        #{bet}
+                                    </foreach>
+                                </when>
+                                <when test="item.operator != null and item.operator.value ==@com.ca.mfd.prc.common.enums.ConditionOper@GreaterThan.value ">
+                                    ${@com.ca.mfd.prc.common.utils.MpSqlUtils@getRelation(item,cindex)}
+                                    ${item.columnName} > #{item.dbval}
+                                </when>
+                                <when test="item.operator != null and item.operator.value ==@com.ca.mfd.prc.common.enums.ConditionOper@GreaterThanEqual.value ">
+                                    ${@com.ca.mfd.prc.common.utils.MpSqlUtils@getRelation(item,cindex)}
+                                    ${item.columnName} >= #{item.dbval}
+                                </when>
+                                <when test="item.operator != null and item.operator.value ==@com.ca.mfd.prc.common.enums.ConditionOper@LessThanEqual.value ">
+                                    ${@com.ca.mfd.prc.common.utils.MpSqlUtils@getRelation(item,cindex)}
+                                    <![CDATA[ ${item.columnName} <= #{item.dbval}]]>
+                                </when>
+                                <when test="item.operator != null and item.operator.value ==@com.ca.mfd.prc.common.enums.ConditionOper@LessThan.value ">
+                                    ${@com.ca.mfd.prc.common.utils.MpSqlUtils@getRelation(item,cindex)}
+                                    <![CDATA[ ${item.columnName} < #{item.dbval}]]>
+                                </when>
+                                <when test="item.operator != null and item.operator.value ==@com.ca.mfd.prc.common.enums.ConditionOper@LeftLike.value ">
+                                    ${@com.ca.mfd.prc.common.utils.MpSqlUtils@getRelation(item,cindex)}
+                                    ${item.columnName} like concat('%',#{item.dbval})
+                                </when>
+                                <when test="item.operator != null and item.operator.value ==@com.ca.mfd.prc.common.enums.ConditionOper@RightLike.value ">
+                                    ${@com.ca.mfd.prc.common.utils.MpSqlUtils@getRelation(item,cindex)}
+                                    ${item.columnName} like concat(#{item.dbval},'%')
+                                </when>
+                                <when test="item.operator != null and item.operator.value ==@com.ca.mfd.prc.common.enums.ConditionOper@AllLike.value ">
+                                    ${@com.ca.mfd.prc.common.utils.MpSqlUtils@getRelation(item,cindex)}
+                                    ${item.columnName} like concat('%',#{item.dbval},'%')
+                                </when>
+                                <when test="item.operator != null and item.operator.value ==@com.ca.mfd.prc.common.enums.ConditionOper@Exclusive.value ">
+                                    ${@com.ca.mfd.prc.common.utils.MpSqlUtils@getRelation(item,cindex)}
+                                    instr(${item.columnName},#{item.dbval}) =0
+                                </when>
+                                <when test="item.operator != null and item.operator.value ==@com.ca.mfd.prc.common.enums.ConditionOper@Exists.value ">
+                                    ${@com.ca.mfd.prc.common.utils.MpSqlUtils@getRelation(item,cindex)} exists (select 1
+                                    from dual where ${item.columnName} = #{item.dbval})
+                                </when>
+                                <when test="item.operator != null and item.operator.value ==@com.ca.mfd.prc.common.enums.ConditionOper@NotExists.value ">
+                                    ${@com.ca.mfd.prc.common.utils.MpSqlUtils@getRelation(item,cindex)} not exists
+                                    (select 1 from dual where ${item.columnName} = #{item.dbval})
+                                </when>
+                                <otherwise>
+                                </otherwise>
+                            </choose>
+                        </if>
+                        <!--  空值不生成查询 -->
+                        <!--                    <if test="item.dbval == null">-->
+                        <!--                        <choose>-->
+                        <!--                         <when test="item.operator != null and item.operator.value ==@ConditionOper@Equal.value ">-->
+                        <!--                            ${@com.ca.mfd.prc.common.utils.MpSqlUtils@getRelation(item,cindex)} ${item.columnName} is null-->
+                        <!--                         </when>-->
+                        <!--                         <when test="item.operator != null and item.operator.value ==@ConditionOper@Unequal.value ">-->
+                        <!--                            ${@com.ca.mfd.prc.common.utils.MpSqlUtils@getRelation(item,cindex)} ${item.columnName} is not null-->
+                        <!--                         </when>-->
+                        <!--                         <otherwise>-->
+                        <!--                         </otherwise>-->
+                        <!--                        </choose>-->
+                        <!--                    </if>-->
+                    </foreach>
+                    )
+                </foreach>
+            </where>
+        </if>
+    </sql>
+
+
+</mapper>

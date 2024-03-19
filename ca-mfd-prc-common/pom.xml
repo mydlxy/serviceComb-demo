@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>ca-mfd-prc</artifactId>
+        <groupId>com.ca.cloud</groupId>
+        <version>${revision}</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>ca-mfd-prc-common</artifactId>
+    <packaging>pom</packaging>
+    <description>ca-mfd-prc-common</description>
+    <modules>
+        <module>ca-mfd-prc-common-core</module>
+        <module>ca-mfd-prc-common-obs</module>
+        <module>ca-mfd-prc-common-orm</module>
+        <module>ca-mfd-prc-common-web</module>
+    </modules>
+
+</project>
