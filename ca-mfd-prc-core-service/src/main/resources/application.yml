@@ -1,0 +1,19 @@
+server:
+  port: 19103
+
+ca:
+  cloud:
+    obs:
+      enable: false
+      buckets:
+        - code: private
+          bucket-name: obs-yb-mfd-mom-56338-p-001
+          end-point: obsv3.ca-global-1.camcloud.changan.com
+          ak: LXFZHLKBTLND01ZXSAGC
+          sk: brHHYUwk0o60eOE9sjNxX001Lv6BcA6Da3TvBoIZ
+        - code: public
+          bucket-name: obs-yb-mfd-mom-56338-p-001
+          end-point: obsv3.ca-global-1.camcloud.changan.com
+          ak: LXFZHLKBTLND01ZXSAGC
+          sk: brHHYUwk0o60eOE9sjNxX001Lv6BcA6Da3TvBoIZ
+

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.core.communication.mapper.IMidIccApiMapper">
+
+    <resultMap type="com.ca.mfd.prc.core.communication.entity.MidIccApiEntity" id="midIccApiMap">
+        <result property="id" column="PRC_MID_ICC_API_ID"/>
+        <result property="prcMidApiLogId" column="PRC_MID_API_LOG_ID"/>
+        <result property="iccVrtCode" column="ICC_VRT_CODE"/>
+        <result property="iccVrtName" column="ICC_VRT_NAME"/>
+        <result property="iccVfgCode" column="ICC_VFG_CODE"/>
+        <result property="iccVfgName" column="ICC_VFG_NAME"/>
+        <result property="iccCccCode" column="ICC_CCC_CODE"/>
+        <result property="iccCccName" column="ICC_CCC_NAME"/>
+        <result property="iccParts" column="ICC_PARTS"/>
+        <result property="iccModel" column="ICC_MODEL"/>
+        <result property="iccCode" column="ICC_CODE"/>
+        <result property="iccFaultName" column="ICC_FAULT_NAME"/>
+        <result property="iccTaxonomyCode" column="ICC_TAXONOMY_CODE"/>
+        <result property="iccTaxonomyName" column="ICC_TAXONOMY_NAME"/>
+        <result property="iccGrade" column="ICC_GRADE"/>
+        <result property="iccScore" column="ICC_SCORE"/>
+        <result property="iccRemark" column="ICC_REMARK"/>
+        <result property="checkResult" column="CHECK_RESULT"/>
+        <result property="checkResultDesc" column="CHECK_RESULT_DESC"/>
+        <result property="status" column="STATUS"/>
+        <result property="subId" column="SUB_ID"/>
+        <result property="opCode" column="OP_CODE"/>
+    </resultMap>
+
+
+</mapper>

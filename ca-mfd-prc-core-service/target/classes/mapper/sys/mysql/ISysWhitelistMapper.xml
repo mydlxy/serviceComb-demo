@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.core.main.mapper.ISysWhitelistMapper">
+
+    <resultMap type="com.ca.mfd.prc.core.main.entity.SysWhitelistEntity" id="sysWhitelistMap">
+        <result property="ipAddress" column="IP_ADDRESS"/>
+        <result property="isEnable" column="IS_ENABLE"/>
+    </resultMap>
+
+
+</mapper>

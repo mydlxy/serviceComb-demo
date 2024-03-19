@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.core.prm.mapper.IPrmRolePermissionMapper">
+
+    <resultMap type="com.ca.mfd.prc.core.prm.entity.PrmRolePermissionEntity" id="prmRolePermissionMap">
+        <result property="prcPrmPermissionId" column="prcPrmPermissionId"/>
+        <result property="prcPrmRoleId" column="PRC_PRM_ROLE_ID"/>
+    </resultMap>
+
+    <select id="getRolePermissionRemoves" resultType="java.lang.String">
+        SELECT A.PRC_PRM_ROLE_PERMISSION_ID AS id
+        FROM PRC_PRM_ROLE_PERMISSION A
+                 LEFT JOIN PRC_PRM_PERMISSION B ON A.PRC_PRM_PERMISSION_ID = B.PRC_PRM_PERMISSION_ID
+        WHERE B.PRC_PRM_PERMISSION_ID IS NULL
+          AND A.IS_DELETE = 0
+          AND B.IS_DELETE = 0
+    </select>
+</mapper>

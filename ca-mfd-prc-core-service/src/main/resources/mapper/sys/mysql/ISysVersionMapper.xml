@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.core.main.mapper.ISysVersionMapper">
+
+    <resultMap type="com.ca.mfd.prc.core.main.entity.SysVersionEntity" id="sysVersionMap">
+        <result property="workshopCode" column="WORK_SHOP_CODE"/>
+        <result property="workshopName" column="WORK_SHOP_NAME"/>
+        <result property="lineCode" column="LINE_CODE"/>
+        <result property="lineName" column="lineName"/>
+        <result property="type" column="TYPE"/>
+        <result property="name" column="NAME"/>
+        <result property="code" column="CODE"/>
+        <result property="ip" column="IP"/>
+        <result property="version" column="VERSION"/>
+        <result property="refreshDt" column="REFRESH_DT"/>
+    </resultMap>
+
+
+</mapper>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.core.prm.mapper.IPrmDepartmentMapper">
+
+    <resultMap type="com.ca.mfd.prc.core.prm.entity.PrmDepartmentEntity" id="prmDepartmentMap">
+        <result property="organizationName" column="ORGANIZATION_NAME"/>
+        <result property="departmentName" column="DEPARTMENT_NAME"/>
+        <result property="departmentCode" column="DEPARTMENT_CODE"/>
+        <result property="isEnable" column="IS_ENABLE"/>
+        <result property="seqNumber" column="SEQ_NUMBER"/>
+        <result property="remark" column="REMARK"/>
+        <result property="position" column="POSITION"/>
+    </resultMap>
+
+
+</mapper>

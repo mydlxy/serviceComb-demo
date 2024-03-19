@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.core.prm.mapper.IPrmUserOpenMapper">
+
+    <resultMap type="com.ca.mfd.prc.core.prm.entity.PrmUserOpenEntity" id="prmUserOpenMap">
+        <result property="prcPrmUserId" column="PRC_PRM_USER_ID"/>
+        <result property="userType" column="USER_TYPE"/>
+        <result property="type" column="TYPE"/>
+        <result property="openCode" column="OPEN_CODE"/>
+        <result property="unionCode" column="UNION_CODE"/>
+        <result property="expiresIn" column="EXPIRES_IN"/>
+        <result property="activeDt" column="ACTIVE_DT"/>
+        <result property="accessToken" column="ACCESS_TOKEN"/>
+        <result property="refreshToken" column="REFRESH_TOKEN"/>
+        <result property="scope" column="SCOPE"/>
+        <result property="extData" column="EXT_DATA"/>
+    </resultMap>
+
+
+</mapper>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.core.main.mapper.ISysNetworkMonitorMapper">
+
+    <resultMap type="com.ca.mfd.prc.core.main.entity.SysNetworkMonitorEntity" id="sysNetworkMonitorMap">
+        <result property="name" column="NAME"/>
+        <result property="ip" column="IP"/>
+        <result property="monitorType" column="MONITOR_TYPE"/>
+        <result property="description" column="DESCRIPTION"/>
+        <result property="groupName" column="GROUP_NAME"/>
+        <result property="renark" column="RENARK"/>
+        <result property="ordernum" column="ORDERNUM"/>
+        <result property="code" column="CODE"/>
+        <result property="isEnabled" column="IS_ENABLED"/>
+        <result property="address" column="ADDRESS"/>
+    </resultMap>
+
+
+</mapper>

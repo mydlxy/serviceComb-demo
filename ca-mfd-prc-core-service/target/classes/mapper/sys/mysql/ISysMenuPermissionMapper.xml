@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.core.main.mapper.ISysMenuPermissionMapper">
+
+    <resultMap type="com.ca.mfd.prc.core.main.entity.SysMenuPermissionEntity" id="sysMenuPermissionMap">
+        <result property="prcPrmPermissionId" column="PRC_PRM_PERMISSION_ID"/>
+        <result property="prcPrmMenuItemId" column="PRC_PRM_MENU_ITEM_ID"/>
+    </resultMap>
+
+
+</mapper>

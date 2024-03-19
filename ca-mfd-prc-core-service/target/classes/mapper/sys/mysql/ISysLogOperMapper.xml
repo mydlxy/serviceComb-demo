@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.core.main.mapper.ISysLogOperMapper">
+
+    <resultMap type="com.ca.mfd.prc.core.main.entity.SysLogOperEntity" id="sysLogOperMap">
+        <result property="caetgory" column="CAETGORY"/>
+        <result property="operUserCode" column="OPER_USER_CODE"/>
+        <result property="operUserName" column="OPER_USER_NAME"/>
+        <result property="operUserId" column="OPER_USER_ID"/>
+        <result property="operDt" column="OPER_DT"/>
+        <result property="oper" column="OPER"/>
+        <result property="content" column="CONTENT"/>
+        <result property="remark" column="REMARK"/>
+    </resultMap>
+
+
+</mapper>

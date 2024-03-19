@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.core.prm.mapper.IPrmRoleMapper">
+
+    <resultMap type="com.ca.mfd.prc.core.prm.entity.PrmRoleEntity" id="prmRoleMap">
+        <result property="roleCode" column="ROLE_CODE"/>
+        <result property="roleName" column="ROLE_NAME"/>
+        <result property="groupName" column="GROUP_NAME"/>
+        <result property="remark" column="REMARK"/>
+    </resultMap>
+
+    <select id="getPermissions" resultType="com.ca.mfd.prc.core.prm.entity.PrmPermissionEntity">
+        SELECT PERMISSION.*
+             , PERMISSION.PRC_PRM_PERMISSION_ID AS id
+             , PERMISSION.PERMISSION_NAME
+             , PERMISSION.PERMISSION_CODE
+        FROM PRC_PRM_PERMISSION PERMISSION
+                 INNER JOIN PRC_PRM_ROLE_PERMISSION ROLEPERMISSION
+                            ON ROLEPERMISSION.PRC_PRM_PERMISSION_ID = PERMISSION.PRC_PRM_PERMISSION_ID
+        WHERE PERMISSION.IS_DELETE = 0
+          AND ROLEPERMISSION.IS_DELETE = 0
+          AND ROLEPERMISSION.PRC_PRM_ROLE_ID = #{roleId}
+        ORDER BY PERMISSION.MODEL, PERMISSION.PERMISSION_NAME
+    </select>
+
+    <select id="getRolePermisions" resultType="com.ca.mfd.prc.core.prm.entity.PrmPermissionEntity">
+        SELECT PERMISSION.PRC_PRM_PERMISSION_ID AS id,
+               PERMISSION.PERMISSION_NAME,
+               PERMISSION.PERMISSION_CODE,
+               PERMISSION.MODEL,
+               ROLE.ROLE_NAME                   AS ROLENAME,
+               ROLE.GROUP_NAME                  AS GROUPNAME
+        FROM PRC_PRM_PERMISSION PERMISSION
+                 INNER JOIN PRC_PRM_ROLE_PERMISSION ROLEPERMISSION
+                            ON ROLEPERMISSION.PRC_PRM_PERMISSION_ID = PERMISSION.PRC_PRM_PERMISSION_ID
+                 INNER JOIN PRC_PRM_ROLE ROLE ON ROLEPERMISSION.PRC_PRM_ROLE_ID = ROLE.PRC_PRM_ROLE_ID
+        WHERE PERMISSION.IS_DELETE = 0
+          AND ROLEPERMISSION.IS_DELETE = 0
+          AND ROLE.IS_DELETE = 0
+        ORDER BY ROLE.ROLE_NAME, PERMISSION.MODEL, PERMISSION.PERMISSION_NAME
+    </select>
+</mapper>

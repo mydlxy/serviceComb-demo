@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.core.prm.mapper.IPrmUserMapper">
+
+    <resultMap type="com.ca.mfd.prc.core.prm.entity.PrmUserEntity" id="prmUserMap">
+        <result property="userName" column="USER_NAME"/>
+        <result property="password" column="PASSWORD"/>
+        <result property="nickName" column="NICK_NAME"/>
+        <result property="cnName" column="CN_NAME"/>
+        <result property="enName" column="EN_NAME"/>
+        <result property="no" column="NO"/>
+        <result property="jobNo" column="JOB_NO"/>
+        <result property="groupName" column="GROUP_NAME"/>
+        <result property="idCard" column="ID_CARD"/>
+        <result property="phone" column="PHONE"/>
+        <result property="email" column="EMAIL"/>
+        <result property="enGroupName" column="EN_GROUP_NAME"/>
+        <result property="cnGroupName" column="CN_GROUP_NAME"/>
+        <result property="fullName" column="FULL_NAME"/>
+        <result property="passExpireDt" column="PASS_EXPIRE_DT"/>
+        <result property="isActive" column="IS_ACTIVE"/>
+        <result property="remark" column="REMARK"/>
+        <result property="userType" column="USER_TYPE"/>
+        <result property="frozenDt" column="FROZEN_DT"/>
+        <result property="status" column="STATUS"/>
+        <result property="isEdit" column="IS_EDIT"/>
+        <result property="expiredDt" column="EXPIRED_DT"/>
+    </resultMap>
+
+    <select id="getUserTemporaryPermissions" resultType="com.ca.mfd.prc.core.prm.entity.PrmPermissionEntity">
+        SELECT A.PRC_PRM_PERMISSION_ID AS id, A.PERMISSION_CODE, A.PERMISSION_NAME, A.MODEL, A.REMARK, B.RECYCLE_DT
+        FROM PRC_PRM_PERMISSION A
+                 INNER JOIN (SELECT *
+                             FROM PRC_PRM_USER_PERMISSION
+                             WHERE PRC_PRM_USER_ID = #{userId} AND IS_DELETE = 0) B
+                            ON A.PRC_PRM_PERMISSION_ID = B.PRC_PRM_PERMISSION_ID
+        WHERE A.IS_DELETE = 0
+        ORDER BY A.MODEL, A.PERMISSION_NAME
+    </select>
+
+    <select id="getPrmUserInfos" resultType="com.ca.mfd.prc.core.prm.entity.PrmUserEntity">
+        SELECT DISTINCT C.PRC_PRM_USER_ID AS id,
+                        C.*
+        FROM PRC_PRM_PERMISSION A
+                 INNER JOIN PRC_PRM_USER_PERMISSION B ON A.PRC_PRM_PERMISSION_ID = B.PRC_PRM_PERMISSION_ID
+                 INNER JOIN PRC_PRM_USER C ON B.PRC_PRM_USER_ID = C.PRC_PRM_USER_ID
+        WHERE A.IS_DELETE = 0
+          AND B.IS_DELETE = 0
+          AND C.IS_DELETE = 0
+    </select>
+
+    <select id="prmPermissionInfos" resultType="com.ca.mfd.prc.core.prm.entity.PrmPermissionEntity">
+        SELECT
+        C.PRC_PRM_USER_ID AS PRMUSERID,
+        A.MODEL AS PERMISSIONMODEL,
+        A.PERMISSION_NAME AS PERMISSIONNAME,
+        B.RECYCLE_DT AS RECYCLEDT,
+        C.JOB_NO AS USERNO,
+        C.CN_NAME AS USERNAME
+        FROM PRC_PRM_PERMISSION A
+        INNER JOIN PRC_PRM_USER_PERMISSION B ON A.PRC_PRM_PERMISSION_ID = B.PRC_PRM_PERMISSION_ID
+        INNER JOIN PRC_PRM_USER C ON B.PRC_PRM_USER_ID = C.PRC_PRM_USER_ID
+        WHERE A.IS_DELETE=0 AND B.IS_DELETE=0 AND C.IS_DELETE=0
+        <if test="userId!=null and userId!=''">
+            AND B.PRC_PRM_USER_ID = #{userId}
+        </if>
+    </select>
+
+    <select id="getPrmPermissionUserIdInfos" resultType="java.lang.String">
+        SELECT DISTINCT B.PRC_PRM_USER_ID AS id
+        FROM PRC_PRM_PERMISSION A
+                 INNER JOIN PRC_PRM_USER_PERMISSION B ON A.PRC_PRM_PERMISSION_ID = B.PRC_PRM_PERMISSION_ID
+        WHERE A.IS_DELETE = 0
+          AND B.IS_DELETE = 0
+    </select>
+
+    <select id="getUserRoles" resultType="com.ca.mfd.prc.core.prm.entity.PrmRoleEntity">
+        SELECT DISTINCT A.*, A.PRC_PRM_ROLE_ID AS id, A.ROLE_CODE, A.ROLE_NAME
+        FROM PRC_PRM_ROLE A
+                 INNER JOIN PRC_PRM_USER_ROLE B ON A.PRC_PRM_ROLE_ID = B.PRC_PRM_ROLE_ID
+        WHERE B.PRC_PRM_USER_ID = #{userId}
+          AND A.IS_DELETE = 0
+          AND B.IS_DELETE = 0
+    </select>
+
+    <select id="getPermissions" resultType="java.lang.String">
+        SELECT C.PERMISSION_CODE
+        FROM PRC_PRM_USER_ROLE A
+                 INNER JOIN PRC_PRM_ROLE_PERMISSION B ON A.PRC_PRM_ROLE_ID = B.PRC_PRM_ROLE_ID
+                 INNER JOIN PRC_PRM_PERMISSION C ON B.PRC_PRM_PERMISSION_ID = C.PRC_PRM_PERMISSION_ID
+        WHERE A.PRC_PRM_USER_ID = #{userId}
+          AND A.IS_DELETE = 0
+          AND B.IS_DELETE = 0
+          AND C.IS_DELETE = 0
+        UNION
+        SELECT B.PERMISSION_CODE
+        FROM PRC_PRM_USER_PERMISSION A
+                 INNER JOIN PRC_PRM_PERMISSION B ON A.PRC_PRM_PERMISSION_ID = B.PRC_PRM_PERMISSION_ID
+        WHERE A.PRC_PRM_USER_ID = #{userId}
+          AND A.RECYCLE_DT > #{recycleDt}
+          AND A.IS_DELETE = 0
+          AND B.IS_DELETE = 0
+    </select>
+
+    <select id="getUsers" resultType="com.ca.mfd.prc.core.prm.entity.PrmUserEntity">
+        SELECT U.PRC_PRM_USER_ID AS id,
+               U.USER_NAME,
+               U.PHONE,
+               U.JOB_NO,
+               U.EN_NAME,
+               U.CN_NAME,
+               U.GROUP_NAME,
+               U.EN_GROUP_NAME,
+               U.CN_GROUP_NAME
+        FROM (SELECT * FROM PRC_PRM_USER_ROLE WHERE IS_DELETE = 0 AND PRC_PRM_ROLE_ID = #{roleId}) USERROLE
+                 INNER JOIN PRC_PRM_USER U ON USERROLE.PRC_PRM_USER_ID = U.PRC_PRM_USER_ID
+        WHERE U.IS_DELETE = 0
+    </select>
+    <select id="userTempPermissionQuery" resultType="com.ca.mfd.prc.core.prm.entity.PrmUserEntity">
+        SELECT U.PRC_PRM_USER_ID AS id,
+               U.USER_NAME,
+               U.PHONE,
+               U.JOB_NO,
+               U.EN_NAME,
+               U.CN_NAME,
+               U.GROUP_NAME,
+               U.EN_GROUP_NAME,
+               U.CN_GROUP_NAME
+        FROM PRC_PRM_USER_PERMISSION a
+                 INNER JOIN PRC_PRM_PERMISSION b ON a.PRC_PRM_PERMISSION_ID = b.PRC_PRM_PERMISSION_ID
+                 INNER JOIN PRC_PRM_ROLE_PERMISSION c ON a.PRC_PRM_PERMISSION_ID = c.PRC_PRM_PERMISSION_ID
+                 INNER JOIN PRC_PRM_USER U ON a.PRC_PRM_USER_ID = U.PRC_PRM_USER_ID
+        WHERE a.RECYCLE_DT > NOW()
+          and U.IS_DELETE = 0
+    </select>
+    <select id="getRoleUsers" resultType="com.ca.mfd.prc.core.prm.entity.PrmUserEntity">
+        SELECT U.NO
+             , U.EN_NAME
+             , U.CN_NAME
+             , U.GROUP_NAME
+             , U.EN_GROUP_NAME
+             , U.CN_GROUP_NAME
+             , R.ROLE_NAME  AS ROLENAME
+             , R.GROUP_NAME AS ROLEGROUPNAME
+        FROM PRC_PRM_USER_ROLE USERROLE
+                 INNER JOIN PRC_PRM_USER U ON USERROLE.PRC_PRM_USER_ID = U.PRC_PRM_USER_ID
+                 INNER JOIN PRC_PRM_ROLE R ON USERROLE.PRC_PRM_ROLE_ID = R.PRC_PRM_ROLE_ID
+        WHERE U.IS_DELETE = 0
+          AND R.IS_DELETE = 0
+          AND USERROLE.IS_DELETE = 0
+    </select>
+
+    <select id="getUsersByRoleId" resultType="com.ca.mfd.prc.common.entity.UserData">
+        SELECT DISTINCT A.PRC_PRM_USER_ID AS id,
+                        A.JOB_NO          AS CODE,
+                        A.EMAIL           AS EMAIL,
+                        A.FROZEN_DT       AS FROZENDT,
+                        A.IS_EDIT         AS ISEDIT,
+                        A.USER_NAME       AS USERNAME,
+                        A.CREATION_DATE,
+                        A.`STATUS`        AS STATUS,
+                        A.USER_TYPE       AS USERTYPE,
+                        A.PHONE           AS PHONE,
+                        A.EN_GROUP_NAME   AS ENGROUPNAME,
+                        A.CN_NAME         AS CNNAME,
+                        A.CN_GROUP_NAME   AS CNGROUPNAME,
+                        A.EN_NAME         AS ENNAME,
+                        A.GROUP_NAME      AS GROUPNAME,
+                        A.ID_CARD         AS IDCARD,
+                        A.IS_ACTIVE       AS ISACTIVE,
+                        A.NICK_NAME       AS NICKNAME,
+                        A.`NO` AS NO,
+	        A.REMARK AS REMARK
+        FROM PRC_PRM_USER A
+            INNER JOIN PRC_PRM_USER_ROLE B
+        ON A.PRC_PRM_USER_ID = B.PRC_PRM_USER_ID
+        WHERE B.PRC_PRM_ROLE_ID IN (#{ids})
+    </select>
+
+</mapper>

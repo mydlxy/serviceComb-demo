@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.core.prm.mapper.IPrmUserPermissionMapper">
+
+    <resultMap type="com.ca.mfd.prc.core.prm.entity.PrmUserPermissionEntity" id="prmUserPermissionMap">
+        <result property="prcPrmPermissionId" column="PRC_PRM_PERMISSION_ID"/>
+        <result property="prcPrmUserId" column="PRC_PRM_USER_ID"/>
+        <result property="recycleDt" column="RECYCLE_DT"/>
+    </resultMap>
+
+    <select id="getUserPermissionRemoves" resultType="java.lang.String">
+        SELECT A.PRC_PRM_USER_PERMISSION_ID AS id
+        FROM PRC_PRM_USER_PERMISSION A
+                 LEFT JOIN PRC_PRM_PERMISSION B ON A.PRC_PRM_PERMISSION_ID = B.PRC_PRM_PERMISSION_ID
+        WHERE B.PRC_PRM_PERMISSION_ID IS NULL
+          AND A.IS_DELETE = 0
+          AND B.IS_DELETE = 0
+    </select>
+
+    <select id="getUserPermissions" resultType="com.ca.mfd.prc.core.prm.dto.PrmUserPermissionView">
+        SELECT DISTINCT BB.PERMISSION_CODE as CODE, AA.RECYCLE_DT
+        FROM PRC_PRM_USER_PERMISSION AA
+                 INNER JOIN PRC_PRM_PERMISSION BB ON AA.PRC_PRM_PERMISSION_ID = BB.PRC_PRM_PERMISSION_ID
+        WHERE AA.PRC_PRM_USER_ID = #{userId}
+          AND AA.IS_DELETE = 0
+          AND BB.IS_DELETE = 0
+    </select>
+
+</mapper>

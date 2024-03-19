@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.core.main.mapper.ISysConfigurationMapper">
+
+    <resultMap type="com.ca.mfd.prc.core.main.entity.SysConfigurationEntity" id="sysConfigurationMap">
+        <result property="value" column="VALUE"/>
+        <result property="text" column="TEXT"/>
+        <result property="displayNo" column="DISPLAY_NO"/>
+        <result property="category" column="CATEGORY"/>
+        <result property="remark" column="REMARK"/>
+        <result property="isHide" column="IS_HIDE"/>
+        <result property="groupName" column="GROUP_NAME"/>
+        <result property="paramsJson" column="PARAMS_JSON"/>
+    </resultMap>
+
+
+</mapper>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.core.main.mapper.ISysRequestConfigMapper">
+
+    <resultMap type="com.ca.mfd.prc.core.main.entity.SysRequestConfigEntity" id="sysRequestConfigMap">
+        <result property="requestKey" column="REQUEST_KEY"/>
+        <result property="serviceDomainKey" column="SERVICE_DOMAIN_KEY"/>
+        <result property="requestUrl" column="REQUEST_URL"/>
+        <result property="remark" column="REMARK"/>
+        <result property="requestMethod" column="REQUEST_METHOD"/>
+        <result property="status" column="STATUS"/>
+        <result property="bodyPar" column="BODY_PAR"/>
+    </resultMap>
+
+
+</mapper>

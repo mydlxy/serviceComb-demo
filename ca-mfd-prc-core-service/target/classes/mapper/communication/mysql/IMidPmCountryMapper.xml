@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.core.communication.mapper.IMidPmCountryMapper">
+
+    <resultMap type="com.ca.mfd.prc.core.communication.entity.MidPmCountryEntity" id="midPmCountryMap">
+        <result property="id" column="PRC_MID_PM_COUNTRY_ID"/>
+        <result property="prcMidApiLogId" column="PRC_MID_API_LOG_ID"/>
+        <result property="nationCode" column="NATION_CODE"/>
+        <result property="nationName" column="NATION_NAME"/>
+        <result property="nationRemark" column="NATION_REMARK"/>
+        <result property="exeStatus" column="EXE_STATUS"/>
+        <result property="exeMsg" column="EXE_MSG"/>
+        <result property="exeTime" column="EXE_TIME"/>
+        <result property="status" column="STATUS"/>
+        <result property="subId" column="SUB_ID"/>
+        <result property="opCode" column="OP_CODE"/>
+        <result property="checkResult" column="CHECK_RESULT"/>
+        <result property="checkResultDesc" column="CHECK_RESULT_DESC"/>
+    </resultMap>
+
+
+</mapper>

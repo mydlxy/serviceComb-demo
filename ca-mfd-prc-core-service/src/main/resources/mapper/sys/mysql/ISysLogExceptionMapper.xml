@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.core.main.mapper.ISysLogExceptionMapper">
+
+    <resultMap type="com.ca.mfd.prc.core.main.entity.SysLogExceptionEntity" id="sysLogExceptionMap">
+        <result property="app" column="APP"/>
+        <result property="level" column="LEVEL"/>
+        <result property="message" column="MESSAGE"/>
+        <result property="logger" column="LOGGER"/>
+        <result property="content" column="CONTENT"/>
+        <result property="logDt" column="LOG_DT"/>
+        <result property="isSend" column="IS_SEND"/>
+    </resultMap>
+
+
+</mapper>

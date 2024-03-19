@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.core.main.mapper.ISysSchedulingTaskMapper">
+
+    <resultMap type="com.ca.mfd.prc.core.main.entity.SysSchedulingTaskEntity" id="sysSchedulingTaskMap">
+        <result property="taskGroupName" column="TASK_GROUP_NAME"/>
+        <result property="appId" column="APP_ID"/>
+        <result property="taskName" column="TASK_NAME"/>
+        <result property="taskUrl" column="TASK_URL"/>
+        <result property="taskRequest" column="TASK_REQUEST"/>
+        <result property="taskCron" column="TASK_CRON"/>
+        <result property="taskDescribe" column="TASK_DESCRIBE"/>
+        <result property="taskType" column="TASK_TYPE"/>
+        <result property="remark" column="REMARK"/>
+    </resultMap>
+
+
+</mapper>

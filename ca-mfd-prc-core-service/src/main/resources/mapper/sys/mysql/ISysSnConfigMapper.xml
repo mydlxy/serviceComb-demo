@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.core.main.mapper.ISysSnConfigMapper">
+
+    <resultMap type="com.ca.mfd.prc.core.main.entity.SysSnConfigEntity" id="sysSnConfigMap">
+        <result property="category" column="CATEGORY"/>
+        <result property="model" column="MODEL"/>
+        <result property="length" column="LENGTH"/>
+        <result property="displayNo" column="DISPLAY_NO"/>
+        <result property="param1" column="PARAM1"/>
+        <result property="param2" column="PARAM2"/>
+        <result property="param3" column="PARAM3"/>
+        <result property="remark" column="REMARK"/>
+    </resultMap>
+
+
+</mapper>

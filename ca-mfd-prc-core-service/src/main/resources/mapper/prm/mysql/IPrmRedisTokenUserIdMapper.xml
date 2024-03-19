@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.core.prm.mapper.IPrmRedisTokenUserIdMapper">
+
+    <resultMap type="com.ca.mfd.prc.core.prm.entity.PrmRedisTokenUserIdEntity" id="prmToTokenMap">
+        <result property="token" column="TOKEN"/>
+        <result property="caUserId" column="CA_USER_ID"/>
+        <result property="expireDt" column="EXPIRE_DT"/>
+    </resultMap>
+</mapper>

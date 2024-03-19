@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.core.main.mapper.ISysLogOperateMapper">
+
+    <resultMap type="com.ca.mfd.prc.core.main.entity.SysLogOperateEntity" id="sysLogOperateMap">
+        <result property="app" column="APP"/>
+        <result property="userId" column="USER_ID"/>
+        <result property="userName" column="USER_NAME"/>
+        <result property="nickName" column="NICK_NAME"/>
+        <result property="sessionId" column="SESSION_ID"/>
+        <result property="path" column="PATH"/>
+        <result property="message" column="MESSAGE"/>
+        <result property="method" column="METHOD"/>
+        <result property="request" column="REQUEST"/>
+        <result property="response" column="RESPONSE"/>
+        <result property="statusCode" column="STATUS_CODE"/>
+        <result property="ipAddress" column="IP_ADDRESS"/>
+        <result property="port" column="PORT"/>
+        <result property="elapsed" column="ELAPSED"/>
+        <result property="module" column="MODULE"/>
+        <result property="actionname" column="ACTIONNAME"/>
+        <result property="template" column="TEMPLATE"/>
+        <result property="olddata" column="OLDDATA"/>
+    </resultMap>
+
+
+</mapper>

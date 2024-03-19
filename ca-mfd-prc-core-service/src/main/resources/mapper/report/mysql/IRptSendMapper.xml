@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.core.report.mapper.IRptSendMapper">
+    <resultMap type="com.ca.mfd.prc.core.report.entity.RptSendEntity" id="rptSendMap">
+        <result property="id" column="PRC_RPT_SEND_ID"/>
+        <result property="targetId" column="TARGET_ID"/>
+        <result property="targetType" column="TARGET_TYPE"/>
+        <result property="bizCode" column="BIZ_CODE"/>
+        <result property="parameters" column="PARAMETERS"/>
+        <result property="sendTimes" column="SEND_TIMES"/>
+        <result property="status" column="STATUS"/>
+        <result property="printDt" column="PRINT_DT"/>
+        <result property="sendDt" column="SEND_DT"/>
+        <result property="remark" column="REMARK"/>
+        <result property="sendRemark" column="SEND_REMARK"/>
+        <result property="printNumber" column="PRINT_NUMBER"/>
+    </resultMap>
+</mapper>

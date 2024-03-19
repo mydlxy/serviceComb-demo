@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.core.prm.mapper.IPrmInterfacePermissionMapper">
+
+    <resultMap type="com.ca.mfd.prc.core.prm.entity.PrmInterfacePermissionEntity" id="prmInterfacePermissionMap">
+        <result property="prcPrmPermissionId" column="PRC_PRM_PERMISSION_ID"/>
+        <result property="path" column="PATH"/>
+        <result property="remark" column="REMARK"/>
+        <result property="type" column="TYPE"/>
+    </resultMap>
+
+    <select id="getInterfaceDatas" resultType="com.ca.mfd.prc.core.prm.dto.PrmInterfacePermissionListInfo">
+        SELECT * FROM (SELECT
+        I.PRC_PRM_INTERFACE_PERMISSION_ID AS id, P.PERMISSION_CODE,P.PERMISSION_NAME,I.PATH, I.PRC_PRM_PERMISSION_ID,
+        P.MODEL, P.REMARK AS DESCRIPTION,I.TYPE, I.REMARK AS REMARK,I.CREATION_DATE,
+        I.CREATED_BY, I.IS_DELETE, I.LAST_UPDATE_DATE,
+        I.LAST_UPDATED_BY
+        FROM PRC_PRM_INTERFACE_PERMISSION I
+        INNER JOIN PRC_PRM_PERMISSION P ON I.PRC_PRM_PERMISSION_ID=P.PRC_PRM_PERMISSION_ID
+        WHERE I.IS_DELETE = #{isDelete} AND P.IS_DELETE= #{isDelete}
+        ORDER BY I.CREATION_DATE
+        ) A
+        <include refid="com.ca.mfd.prc.common.CommMapper.wheresql">
+            <property name="where" value="pms.wheresa"/>
+        </include>
+        <if test='pms.order !=null and pms.order.size()>0'>
+            ${@com.ca.mfd.prc.common.utils.MpSqlUtils@getSortStr(pms.order)}
+        </if>
+    </select>
+
+    <select id="getInterfacePageDatas" resultType="com.ca.mfd.prc.core.prm.dto.PrmInterfacePermissionListInfo">
+        SELECT * FROM (SELECT
+        I.PRC_PRM_INTERFACE_PERMISSION_ID AS id, P.PERMISSION_CODE, P.PERMISSION_NAME,I.PATH, I.PRC_PRM_PERMISSION_ID,
+        P.MODEL, P.REMARK AS DESCRIPTION,I.TYPE, I.REMARK AS REMARK,I.CREATION_DATE,
+        I.CREATED_BY, I.IS_DELETE, I.LAST_UPDATE_DATE,
+        I.LAST_UPDATED_BY
+        FROM PRC_PRM_INTERFACE_PERMISSION I
+        INNER JOIN PRC_PRM_PERMISSION P ON I.PRC_PRM_PERMISSION_ID=P.PRC_PRM_PERMISSION_ID
+        ORDER BY I.CREATION_DATE
+        ) A
+        <include refid="com.ca.mfd.prc.common.CommMapper.wheresql">
+            <property name="where" value="pms.wheresa"/>
+        </include>
+        <if test='pms.order !=null and pms.order.size()>0'>
+            ${@com.ca.mfd.prc.common.utils.MpSqlUtils@getSortStr(pms.order)}
+        </if>
+    </select>
+
+    <select id="getInterfacePermissionRemoves" resultType="java.lang.String">
+        SELECT A.PRC_PRM_INTERFACE_PERMISSION_ID AS id
+        FROM PRC_PRM_INTERFACE_PERMISSION A
+                 LEFT JOIN PRC_PRM_PERMISSION B ON A.PRC_PRM_PERMISSION_ID = B.PRC_PRM_PERMISSION_ID
+        WHERE B.PRC_PRM_PERMISSION_ID IS NULL
+          AND A.IS_DELETE = 0
+          AND B.IS_DELETE = 0
+    </select>
+
+    <select id="getApiSessionData" resultType="com.ca.mfd.prc.common.entity.ApiSession">
+        SELECT DISTINCT B.PERMISSION_CODE AS CODE,
+                        A.TYPE            AS TYPE,
+                        A.REMARK          AS REMARK,
+                        A.PATH            AS PATH
+        FROM PRC_PRM_INTERFACE_PERMISSION A
+                 LEFT JOIN PRC_PRM_PERMISSION B ON A.PRC_PRM_PERMISSION_ID = B.PRC_PRM_PERMISSION_ID
+        WHERE A.IS_DELETE = 0
+          AND B.IS_DELETE = 0
+        ORDER BY B.PERMISSION_CODE
+    </select>
+</mapper>

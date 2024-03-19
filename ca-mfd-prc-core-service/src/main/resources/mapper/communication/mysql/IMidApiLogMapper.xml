@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.core.communication.mapper.IMidApiLogMapper">
+
+    <resultMap type="com.ca.mfd.prc.core.communication.entity.MidApiLogEntity" id="midApiLogMap">
+        <result property="id" column="PRC_MID_API_LOG_ID"/>
+        <result property="requestStartTime" column="REQUEST_START_TIME"/>
+        <result property="requestStopTime" column="REQUEST_STOP_TIME"/>
+        <result property="dataLineNo" column="DATA_LINE_NO"/>
+        <result property="status" column="STATUS"/>
+        <result property="apiType" column="API_TYPE"/>
+        <result property="remark" column="REMARK"/>
+    </resultMap>
+
+
+</mapper>

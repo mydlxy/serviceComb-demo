@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.core.main.mapper.ISysQueueNoteMapper">
+
+    <resultMap type="com.ca.mfd.prc.core.main.entity.SysQueueNoteEntity" id="sysQueueNoteMap">
+        <result property="groupName" column="GROUP_NAME"/>
+        <result property="content" column="CONTENT"/>
+        <result property="onlineUser" column="ONLINE_USER"/>
+    </resultMap>
+
+
+</mapper>

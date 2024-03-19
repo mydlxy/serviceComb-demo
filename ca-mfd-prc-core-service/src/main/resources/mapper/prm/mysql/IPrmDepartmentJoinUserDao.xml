@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.core.prm.mapper.IPrmDepartmentJoinUserMapper">
+
+    <resultMap type="com.ca.mfd.prc.core.prm.entity.PrmDepartmentJoinUserEntity" id="prmDepartmentJoinUserMap">
+        <result property="prcPrmDepartmentId" column="PRC_PRM_DEPARTMENT_ID"/>
+        <result property="prcPrmUserId" column="PRC_PRM_USER_ID"/>
+    </resultMap>
+
+    <select id="getPrmUserByDepartmentId" resultType="com.ca.mfd.prc.core.prm.entity.PrmDepartmentEntity">
+        SELECT DEP.*, DEP.PRC_PRM_DEPARTMENT_ID AS id
+        FROM (SELECT * FROM PRC_PRM_DEPARTMENT_JOIN_USER WHERE IS_DELETE = 0 AND PRC_PRM_USER_ID = #{userId}) DEPARJOIN
+                 INNER JOIN PRC_PRM_DEPARTMENT DEP ON DEPARJOIN.PRC_PRM_DEPARTMENT_ID = DEP.PRC_PRM_DEPARTMENT_ID
+        WHERE DEP.IS_DELETE = 0 LIMIT 1
+    </select>
+
+    <select id="getPrmDepartmentJoinUser" resultType="com.ca.mfd.prc.common.entity.UserData">
+        SELECT
+        USER.PRC_PRM_USER_ID AS id,USER.JOB_NO,USER.EMAIL, USER.FROZEN_DT,
+        USER.IS_EDIT,
+        USER.USER_NAME,
+        USER.CREATION_DATE,
+        USER.STATUS,
+        USER.USER_TYPE,
+        USER.PHONE,
+        USER.EN_GROUP_NAME,
+        USER.CN_NAME,
+        USER.CN_GROUP_NAME,
+        USER.EN_NAME,
+        USER.GROUP_NAME,
+        USER.ID_CARD,
+        USER.IS_ACTIVE,
+        USER.NICK_NAME,
+        USER.NO,
+        USER.REMARK
+        FROM ( SELECT * FROM PRC_PRM_DEPARTMENT_JOIN_USER WHERE IS_DELETE = 0 and PRC_PRM_DEPARTMENT_ID IN
+        <foreach collection="itemIds" item="bet" separator="," open="(" close=")">
+            #{bet}
+        </foreach>
+        ) DEPAR
+        INNER JOIN PRC_PRM_USER USER ON DEPAR.PRC_PRM_USER_ID = USER.PRC_PRM_USER_ID where USER.IS_DELETE = 0
+    </select>
+
+    <select id="getUserPageDatas" resultType="com.ca.mfd.prc.core.prm.dto.PrmUserjoinDepartDto">
+
+        SELECT USER.PRC_PRM_USER_ID AS id,USER.NO,
+        USER.JOB_NO,USER.EMAIL,USER.PHONE,
+        USER.ID_CARD,
+        USER.USER_NAME,
+        USER.NICK_NAME,
+        USER.CN_NAME,
+        USER.EN_NAME,
+        USER.CN_GROUP_NAME,
+        USER.EN_GROUP_NAME,
+        USER.GROUP_NAME,
+        DEPAR.PRC_PRM_DEPARTMENT_JOIN_USER_ID AS DEPARTJOINID,
+        DEPAR.PRC_PRM_DEPARTMENT_ID AS DEPARTID
+        FROM ( SELECT * FROM PRC_PRM_DEPARTMENT_JOIN_USER
+        <if test="pms.prcPrmDepartmentId!= null and pms.prcPrmDepartmentId !=''">
+            where( PRC_PRM_DEPARTMENT_ID = #{pms.prcPrmDepartmentId} AND IS_DELETE = 0)
+        </if>
+        ORDER BY LAST_UPDATE_DATE DESC
+        ) DEPAR INNER JOIN
+        (SELECT * FROM PRC_PRM_USER
+        <if test="pms.userName!= null and pms.userName !=''">
+            WHERE(
+            USER_NAME LIKE concat( '%', #{pms.userName}, '%' )
+            OR NICK_NAME LIKE concat( '%', #{pms.userName}, '%' ))
+            AND IS_DELETE = 0
+        </if>
+        <if test="pms.userName== null ">
+            WHERE IS_DELETE = 0
+        </if>
+        ) USER ON DEPAR.PRC_PRM_USER_ID = USER.PRC_PRM_USER_ID
+        WHERE USER.USER_NAME != 'superadmin' AND USER.USER_NAME != 'AdAdminUserName'
+    </select>
+</mapper>

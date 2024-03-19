@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.core.prm.mapper.IPrmTokenMapper">
+
+    <resultMap type="com.ca.mfd.prc.core.prm.entity.PrmTokenEntity" id="prmTokenMap">
+        <result property="groupName" column="GROUP_NAME"/>
+        <result property="token" column="TOKEN"/>
+        <result property="tokenName" column="TOKEN_NAME"/>
+        <result property="expireDt" column="EXPIRE_DT"/>
+        <result property="remark" column="REMARK"/>
+        <result property="tokenEnable" column="TOKEN_ENABLE"/>
+    </resultMap>
+
+
+    <select id="getPermissions" resultType="com.ca.mfd.prc.core.prm.entity.PrmPermissionEntity">
+        SELECT PERMISSION.PRC_PRM_PERMISSION_ID AS id,
+               PERMISSION.PERMISSION_NAME,
+               PERMISSION.PERMISSION_CODE,
+               PERMISSION.*
+        FROM PRC_PRM_PERMISSION PERMISSION
+                 INNER JOIN PRC_PRM_TOKEN_PERMISSION TOKENPERMISSION
+                            ON TOKENPERMISSION.PRC_PRM_PERMISSION_ID = PERMISSION.PRC_PRM_PERMISSION_ID
+        WHERE PERMISSION.IS_DELETE = 0
+          AND TOKENPERMISSION.IS_DELETE = 0
+          AND TOKENPERMISSION.PRC_PRM_TOKEN_ID = #{tokenId}
+        ORDER BY PERMISSION.MODEL, PERMISSION.PERMISSION_NAME
+    </select>
+
+
+    <select id="getTokenPermisions" resultType="com.ca.mfd.prc.core.prm.entity.PrmPermissionEntity">
+        SELECT PERMISSION.PRC_PRM_PERMISSION_ID AS id,
+               PERMISSION.PERMISSION_NAME,
+               PERMISSION.PERMISSION_CODE,
+               PERMISSION.MODEL,
+               TOKEN.TOKEN_NAME                 AS ROLENAME,
+               TOKEN.GROUP_NAME
+        FROM PRC_PRM_PERMISSION PERMISSION
+                 INNER JOIN PRC_PRM_TOKEN_PERMISSION TOKENPERMISSION
+                            ON TOKENPERMISSION.PRC_PRM_PERMISSION_ID = PERMISSION.PRC_PRM_PERMISSION_ID
+                 INNER JOIN PRC_PRM_TOKEN TOKEN ON TOKENPERMISSION.PRC_PRM_TOKEN_ID = TOKEN.PRC_PRM_TOKEN_ID
+        WHERE PERMISSION.IS_DELETE = 0
+          AND TOKENPERMISSION.IS_DELETE = 0
+          AND TOKEN.IS_DELETE = 0
+        ORDER BY TOKEN.TOKEN_NAME, PERMISSION.MODEL, PERMISSION.PERMISSION_NAME
+    </select>
+
+</mapper>

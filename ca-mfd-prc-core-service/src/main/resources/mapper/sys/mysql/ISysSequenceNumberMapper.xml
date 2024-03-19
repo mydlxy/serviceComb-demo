@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.core.main.mapper.ISysSequenceNumberMapper">
+
+    <resultMap type="com.ca.mfd.prc.core.main.entity.SysSequenceNumberEntity" id="sysSequenceNumberMap">
+        <result property="sequenceType" column="SEQUENCE_TYPE"/>
+        <result property="sequencenumberLen" column="SEQUENCENUMBER_LEN"/>
+        <result property="resetType" column="RESET_TYPE"/>
+        <result property="separator" column="SEPARATOR"/>
+        <result property="prefix" column="PREFIX"/>
+        <result property="partYearFmt" column="PART_YEAR_FMT"/>
+        <result property="partMonthFmt" column="PART_MONTH_FMT"/>
+        <result property="partDayFmt" column="PART_DAY_FMT"/>
+        <result property="midfix" column="MIDFIX"/>
+        <result property="curMaxSequenceNumber" column="CUR_MAX_SEQUENCE_NUMBER"/>
+        <result property="curMaxDate" column="CUR_MAX_DATE"/>
+        <result property="suffix" column="SUFFIX"/>
+        <result property="minValue" column="MIN_VALUE"/>
+        <result property="maxValue" column="MAX_VALUE"/>
+        <result property="rulesValue" column="RULES_VALUE"/>
+    </resultMap>
+    <select id="getSeqNumNewByMysql" resultType="java.lang.String" parameterType="java.util.Map"
+            statementType="CALLABLE">
+        call sp_Get_Sequence_Number_New( #{sequenceType,mode=IN,jdbcType=VARCHAR},
+            #{sequenceNum,mode=IN,jdbcType=INTEGER},
+            #{midKey,mode=IN,jdbcType=VARCHAR},
+            #{vdate,mode=IN,jdbcType=DATE}
+            )
+    </select>
+    <select id="getSeqNumNewBySqlServer" resultType="java.lang.String" statementType="CALLABLE"
+            parameterType="java.util.Map">
+        EXEC sp_Get_Sequence_Number_New(
+        #{sequenceType,mode=IN,jdbcType=VARCHAR},
+        #{midKey,mode=IN,jdbcType=VARCHAR},
+        #{midKey,mode=IN,jdbcType=VARCHAR},
+        #{vdate,mode=IN,jdbcType=DATE}
+        )
+    </select>
+
+
+</mapper>

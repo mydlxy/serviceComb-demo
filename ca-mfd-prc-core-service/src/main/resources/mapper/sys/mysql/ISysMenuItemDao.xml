@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.core.main.mapper.ISysMenuItemMapper">
+
+    <resultMap type="com.ca.mfd.prc.core.main.entity.SysMenuItemEntity" id="sysMenuItemMap">
+        <result property="prcPrmMenuId" column="PRC_PRM_MENU_ID"/>
+        <result property="itemName" column="ITEM_NAME"/>
+        <result property="url" column="URL"/>
+        <result property="position" column="POSITION"/>
+        <result property="openType" column="OPEN_TYPE"/>
+        <result property="isHide" column="IS_HIDE"/>
+        <result property="icon" column="ICON"/>
+    </resultMap>
+
+
+</mapper>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.core.prm.mapper.IDcPageConfigMapper">
+
+    <select id="getDcDetail" resultType="com.ca.mfd.prc.core.dc.dto.DcDetail">
+        SELECT t1.PRC_DC_PAGE_CONFIG_ID   as id,
+               t1.PAGE_KEY                as pageKey,
+               t1.PAGE_NAME               as pageName,
+               t1.AUTHORIZATION_CODE      as authorizationCode,
+               t2.PRC_DC_BUTTON_CONFIG_ID as buttonId,
+               t2.AUTHORIZATION_CODE      as buttonAuthorizationCode,
+               t2.BUTTON_KEY              as buttonKey,
+               t2.BUTTON_NAME             as buttonName,
+               t2.DISPLAY_NO              as displayNo
+        FROM PRC_DC_PAGE_CONFIG t1
+                 LEFT JOIN PRC_DC_BUTTON_CONFIG t2 ON t1.PRC_DC_PAGE_CONFIG_ID = t2.PRC_DC_PAGE_CONFIG_ID
+        WHERE (t1.IS_DELETE = 0 and t1.IS_DELETE = 0) and t1.AUTHORIZATION_CODE = #{code}
+           OR t2.AUTHORIZATION_CODE = #{code}
+    </select>
+</mapper>

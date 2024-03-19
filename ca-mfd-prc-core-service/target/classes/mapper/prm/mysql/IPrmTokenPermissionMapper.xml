@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.core.prm.mapper.IPrmTokenPermissionMapper">
+
+    <resultMap type="com.ca.mfd.prc.core.prm.entity.PrmTokenPermissionEntity" id="prmTokenPermissionMap">
+        <result property="prcPrmPermissionId" column="PRC_PRM_PERMISSION_ID"/>
+        <result property="prcPrmTokenId" column="PRC_PRM_TOKEN_ID"/>
+    </resultMap>
+
+    <select id="getTokenPermissions" resultType="com.ca.mfd.prc.core.prm.dto.TokenPermissionDTO">
+        SELECT A.PRC_PRM_TOKEN_PERMISSION_ID AS id,
+               A.PRC_PRM_TOKEN_ID            AS TEMPID,
+               B.TOKEN_NAME                  AS NAME,
+               B.TOKEN_NAME,
+               B.GROUP_NAME,
+               B.TOKEN_ENABLE
+        FROM PRC_PRM_TOKEN_PERMISSION A
+                 INNER JOIN PRC_PRM_TOKEN B ON A.PRC_PRM_TOKEN_ID = B.PRC_PRM_TOKEN_ID
+        WHERE A.IS_DELETE = 0
+          AND B.IS_DELETE = 0
+          AND A.PRC_PRM_PERMISSION_ID = #{permissionId}
+    </select>
+
+    <select id="getTokenPermissionRemoves" resultType="java.lang.String">
+        SELECT A.PRC_PRM_TOKEN_PERMISSION_ID
+        FROM PRC_PRM_TOKEN_PERMISSION A
+                 LEFT JOIN PRC_PRM_PERMISSION B ON A.PRC_PRM_PERMISSION_ID = B.PRC_PRM_PERMISSION_ID
+        WHERE B.PRC_PRM_PERMISSION_ID IS NULL
+          AND A.IS_DELETE = 0
+          AND B.IS_DELETE = 0
+    </select>
+
+    <select id="getPermissionQuery" resultType="com.ca.mfd.prc.core.prm.dto.UserRoleMsg">
+        SELECT DISTINCT B.PERMISSION_CODE AS NAME
+        FROM PRC_PRM_TOKEN_PERMISSION A
+                 INNER JOIN PRC_PRM_PERMISSION B ON A.PRC_PRM_PERMISSION_ID = B.PRC_PRM_PERMISSION_ID
+        WHERE A.PRC_PRM_TOKEN_ID = #{dataId}
+          AND A.IS_DELETE = 0
+          AND B.IS_DELETE = 0
+    </select>
+
+    <select id="getPathQuery" resultType="com.ca.mfd.prc.core.prm.dto.UserRoleMsg">
+        SELECT DISTINCT B.PATH AS NAME
+        FROM PRC_PRM_TOKEN_PERMISSION A
+                 INNER JOIN PRC_PRM_INTERFACE_PERMISSION B ON A.PRC_PRM_PERMISSION_ID = B.PRC_PRM_PERMISSION_ID
+        WHERE A.PRC_PRM_TOKEN_ID = #{dataId}
+          AND (B.TYPE = 1 OR B.TYPE = 3)
+          AND A.IS_DELETE = 0
+          AND B.IS_DELETE = 0
+    </select>
+
+</mapper>

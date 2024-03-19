@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.core.main.mapper.ISysLocalizationMapper">
+
+    <resultMap type="com.ca.mfd.prc.core.main.entity.SysLocalizationEntity" id="sysLocalizationMap">
+        <result property="cn" column="CN"/>
+        <result property="en" column="EN"/>
+        <result property="lang" column="LANG"/>
+    </resultMap>
+
+
+</mapper>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.core.main.mapper.ISysServiceHostManagerMapper">
+
+    <resultMap type="com.ca.mfd.prc.core.main.entity.SysServiceHostManagerEntity" id="sysServiceHostManagerMap">
+        <result property="name" column="NAME"/>
+        <result property="ip" column="IP"/>
+        <result property="serviceHostType" column="SERVICE_HOST_TYPE"/>
+        <result property="status" column="STATUS"/>
+        <result property="serviceRunCount" column="SERVICE_RUN_COUNT"/>
+        <result property="serviceCount" column="SERVICE_COUNT"/>
+        <result property="newVersion" column="NEW_VERSION"/>
+        <result property="description" column="DESCRIPTION"/>
+        <result property="remark" column="REMARK"/>
+    </resultMap>
+
+
+</mapper>
