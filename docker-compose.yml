@@ -1,0 +1,184 @@
+version: '3.7'
+services:
+  ca-mfd-prc-andon:
+    image: eql-yum.eq2iqm.com/changanmes/ca-mfd-prc-andon-service:latest
+    container_name: ca-mfd-prc-andon-service
+    volumes:
+      - /home/logs/ca-mfd-prc-andon:/tmp
+    ports:
+      - "19104:19104"
+    environment:
+      TZ: "Asia/Shanghai"
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+
+  ca-mfd-prc-avi:
+    image: eql-yum.eq2iqm.com/changanmes/ca-mfd-prc-avi-service:latest
+    container_name: ca-mfd-prc-avi-service
+    volumes:
+      - /home/logs/ca-mfd-prc-avi:/tmp
+    ports:
+      - "19110:19110"
+    environment:
+      TZ: "Asia/Shanghai"
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+
+  ca-mfd-prc-pmc:
+    image: eql-yum.eq2iqm.com/changanmes/ca-mfd-prc-pmc-service:latest
+    container_name: ca-mfd-prc-pmc-service
+    volumes:
+      - /home/logs/ca-mfd-prc-pmc:/tmp
+    ports:
+      - "19120:19120"
+    environment:
+      TZ: "Asia/Shanghai"
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+
+  ca-mfd-prc-pps:
+    image: eql-yum.eq2iqm.com/changanmes/ca-mfd-prc-pps-service:latest
+    container_name: ca-mfd-prc-pps-service
+    volumes:
+      - /home/logs/ca-mfd-prc-pps:/tmp
+    ports:
+      - "19122:19122"
+    environment:
+      TZ: "Asia/Shanghai"
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+
+  ca-mfd-prc-pqs:
+    image: eql-yum.eq2iqm.com/changanmes/ca-mfd-prc-pqs-service:latest
+    container_name: ca-mfd-prc-pqs-service
+    volumes:
+      - /home/logs/ca-mfd-prc-pqs:/tmp
+    ports:
+      - "19123:19123"
+    environment:
+      TZ: "Asia/Shanghai"
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+
+  ca-mfd-prc-pm:
+    image: eql-yum.eq2iqm.com/changanmes/ca-mfd-prc-pm-service:latest
+    container_name: ca-mfd-prc-pm-service
+    volumes:
+      - /home/logs/ca-mfd-prc-pm:/tmp
+    ports:
+      - "19118:19118"
+    environment:
+      TZ: "Asia/Shanghai"
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+
+  ca-mfd-prc-core:
+    image: eql-yum.eq2iqm.com/changanmes/ca-mfd-prc-core-service:latest
+    container_name: ca-mfd-prc-core-service
+    volumes:
+      - /home/logs/ca-mfd-prc-core:/tmp
+      - /home/fs:/fs
+    ports:
+      - "19103:19103"
+    environment:
+      TZ: "Asia/Shanghai"
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+
+  ca-mfd-prc-gateway:
+    image: eql-yum.eq2iqm.com/changanmes/ca-mfd-prc-gateway:latest
+    container_name: ca-mfd-prc-gateway
+    volumes:
+      - /home/logs/ca-mfd-prc-gateway:/tmp
+    ports:
+      - "8080:8080"
+    environment:
+      TZ: "Asia/Shanghai"
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+
+  ca-mfd-prc-eps:
+    image: eql-yum.eq2iqm.com/changanmes/ca-mfd-prc-eps-service:latest
+    container_name: ca-mfd-prc-eps-service
+    volumes:
+      - /home/logs/ca-mfd-prc-eps:/tmp
+    ports:
+      - "19113:19113"
+    environment:
+      TZ: "Asia/Shanghai"
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+
+  ca-mfd-prc-rc:
+    image: eql-yum.eq2iqm.com/changanmes/ca-mfd-prc-rc-service:latest
+    container_name: ca-mfd-prc-rc-service
+    volumes:
+      - /home/logs/ca-mfd-prc-rc:/tmp
+    ports:
+      - "19152:19152"
+    environment:
+      TZ: "Asia/Shanghai"
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+
+  ca-mfd-prc-bdc:
+    image: eql-yum.eq2iqm.com/changanmes/ca-mfd-prc-bdc-service:latest
+    container_name: ca-mfd-prc-bdc-service
+    volumes:
+      - /home/logs/ca-mfd-prc-bdc:/tmp
+    ports:
+      - "19193:19193"
+    environment:
+      TZ: "Asia/Shanghai"
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+
+  ca-mfd-prc-scheduler:
+    image: eql-yum.eq2iqm.com/changanmes/ca-mfd-prc-scheduler-service:latest
+    container_name: ca-mfd-prc-scheduler-service
+    volumes:
+      - /home/logs/ca-mfd-prc-scheduler:/tmp
+    ports:
+      - "19149:19149"
+    environment:
+      TZ: "Asia/Shanghai"
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+
+  ca-mfd-prc-audit:
+    image: eql-yum.eq2iqm.com/changanmes/ca-mfd-prc-audit-service:latest
+    container_name: ca-mfd-prc-audit-service
+    volumes:
+      - /home/logs/ca-mfd-prc-audit:/tmp
+    ports:
+      - "19195:19195"
+    environment:
+      TZ: "Asia/Shanghai"
+    deploy:
+      resources:
+        limits:
+          memory: 2G
