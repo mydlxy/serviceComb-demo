@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.audit.mapper.IPqsAuditDefectComponentMapper">
+
+    <resultMap type="com.ca.mfd.prc.audit.entity.PqsAuditDefectComponentEntity" id="pqsAuditDefectComponentMap">
+        <result property="id" column="PRC_PQS_AUDIT_DEFECT_COMPONENT_ID"/>
+        <result property="groupName" column="GROUP_NAME"/>
+        <result property="subGroupName" column="SUB_GROUP_NAME"/>
+        <result property="defectComponentCode" column="DEFECT_COMPONENT_CODE"/>
+        <result property="defectComponentDescription" column="DEFECT_COMPONENT_DESCRIPTION"/>
+        <result property="shortCode" column="SHORT_CODE"/>
+        <result property="source" column="SOURCE"/>
+    </resultMap>
+
+
+</mapper>

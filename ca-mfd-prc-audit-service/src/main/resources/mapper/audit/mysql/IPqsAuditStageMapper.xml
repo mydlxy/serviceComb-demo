@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.audit.mapper.IPqsAuditStageMapper">
+
+    <resultMap type="com.ca.mfd.prc.audit.entity.PqsAuditStageEntity" id="pqsAuditStageMap">
+        <result property="id" column="PRC_PQS_AUDIT_STAGE_ID"/>
+        <result property="stageCode" column="STAGE_CODE"/>
+        <result property="stageName" column="STAGE_NAME"/>
+        <result property="displayNo" column="DISPLAY_NO"/>
+        <result property="remark" column="REMARK"/>
+    </resultMap>
+
+
+</mapper>

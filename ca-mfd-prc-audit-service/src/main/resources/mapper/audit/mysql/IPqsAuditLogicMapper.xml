@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.audit.mapper.IPqsAuditLogicMapper">
+
+
+
+    <select id="getQualityMatrikByWorkstationCode" resultType="com.ca.mfd.prc.common.model.base.dto.ComboInfoDTO">
+        select pqm.PRC_AUDIT_QUALITY_MATRIK_ID as Value,
+            pqm.ITEM_NAME as Text
+        from PRC_AUDIT_QUALITY_MATRIK pqm
+            inner join PRC_AUDIT_QUALITY_MATRIK_WORKSTATION pqmw
+        on pqm.PRC_AUDIT_QUALITY_MATRIK_ID = pqmw.PRC_AUDIT_QUALITY_MATRIK_ID
+            inner join PRC_AUDIT_QUALITY_MATRIK_TC tc on pqm.PRC_AUDIT_QUALITY_MATRIK_ID = tc.PRC_AUDIT_QUALITY_MATRIK_ID
+        where pqmw.WORKSTATION_CODE = #{workstationCode}
+          and tc.MODEL = #{model}
+          and pqm.IS_DELETE = 0
+          and pqmw.IS_DELETE = 0
+          and tc.IS_DELETE = 0
+        order by pqm.DISPLAY_NO desc
+    </select>
+
+    <select id="getShowQGMatrikDataByRecordNo" resultType="com.ca.mfd.prc.audit.dto.DefectAnomalyDto">
+        select pda.DEFECT_ANOMALY_CODE        as defectAnomalyCode,
+               pda.DEFECT_ANOMALY_DESCRIPTION as defectAnomalyDescription,
+               pda.GRADE_CODE                 as gradeCode,
+               pda.GRADE_NAME                 as gradeName,
+               pda.RESPONSIBLE_DEPT_CODE      as responsibleDeptCode,
+               pda.RESPONSIBLE_DEPT_NAME      as responsibleDeptName,
+               pda.SHORT_CODE                 as shortCode,
+               (CASE WHEN pvda.PRC_PQS_AUDIT_ENTRY_DEFECT_ANOMALY_ID IS NULL THEN FALSE ELSE TRUE END)   as isActived
+        from PRC_AUDIT_QUALITY_MATRIK_ANOMALY pqma
+                 inner join PRC_PQS_AUDIT_DEFECT_ANOMALY pda on pqma.DEFECT_ANOMALY_CODE = pda.DEFECT_ANOMALY_CODE
+                 left join (SELECT *
+                            FROM PRC_PQS_AUDIT_ENTRY_DEFECT_ANOMALY
+                            WHERE STATUS != 4 AND AUDIT_RECORD_NO = #{recordNo} AND IS_DELETE = 0) pvda
+                           on pqma.DEFECT_ANOMALY_CODE = pvda.DEFECT_ANOMALY_CODE
+        where pqma.PRC_AUDIT_QUALITY_MATRIK_ID = #{qualityMatrikId}
+          and pqma.IS_DELETE = 0
+          and pda.IS_DELETE = 0
+        order by pda.DEFECT_ANOMALY_DESCRIPTION desc
+    </select>
+
+
+
+    <select id="getQualityGateByWorkstationCode"
+            resultType="com.ca.mfd.prc.common.model.base.dto.ComboInfoDTO">
+          select pqg.PRC_AUDIT_QUALITY_GATE_ID as Value,
+            pqg.ITEM_NAME as Text
+        from PRC_AUDIT_QUALITY_GATE_WORKSTATION pqgw
+            inner join PRC_AUDIT_QUALITY_GATE pqg
+        on pqgw.PRC_AUDIT_QUALITY_GATE_ID = pqg.PRC_AUDIT_QUALITY_GATE_ID
+            inner join PRC_AUDIT_QUALITY_GATE_TC tc on pqg.PRC_AUDIT_QUALITY_GATE_ID = tc.PRC_AUDIT_QUALITY_GATE_ID
+        where pqgw.WORKSTATION_CODE = #{workstationCode}
+          and tc.MODEL = #{model}
+          and pqgw.IS_DELETE = 0
+          and pqg.IS_DELETE = 0
+          and tc.IS_DELETE = 0
+        order by pqg.DISPLAY_NO desc
+
+
+
+    </select>
+
+    <select id="getGateAnomalyByGateBlankIdAndRecordNo" resultType="com.ca.mfd.prc.audit.dto.DefectAnomalyDto">
+        select pda.DEFECT_ANOMALY_CODE        as defectAnomalyCode,
+               pda.DEFECT_ANOMALY_DESCRIPTION as defectAnomalyDescription,
+               pda.GRADE_CODE                 as gradeCode,
+               pda.GRADE_NAME                 as gradeName,
+               pda.RESPONSIBLE_DEPT_CODE      as responsibleDeptCode,
+               pda.RESPONSIBLE_DEPT_NAME      as responsibleDeptName,
+               pda.SHORT_CODE                 as shortCode,
+               (CASE WHEN pvda.PRC_PQS_AUDIT_ENTRY_DEFECT_ANOMALY_ID IS NULL THEN FALSE ELSE TRUE END)   as isActived
+        from PRC_AUDIT_QUALITY_GATE_ANOMALY pqga
+                 inner join PRC_PQS_AUDIT_DEFECT_ANOMALY pda on pqga.DEFECT_ANOMALY_CODE = pda.DEFECT_ANOMALY_CODE
+                 left join (SELECT *
+                            FROM PRC_PQS_AUDIT_ENTRY_DEFECT_ANOMALY
+                            WHERE STATUS != 4 AND AUDIT_RECORD_NO = #{recordNo} AND IS_DELETE = 0) pvda
+                           on pqga.DEFECT_ANOMALY_CODE = pvda.DEFECT_ANOMALY_CODE
+        where pqga.PRC_AUDIT_QUALITY_GATE_BLANK_ID = #{qualityGateBlankId}
+          and pqga.IS_DELETE = 0
+          and pda.IS_DELETE = 0
+        order by pda.DEFECT_ANOMALY_DESCRIPTION desc
+
+
+    </select>
+
+</mapper>

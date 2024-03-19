@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.audit.mapper.IAuditQualityGateWorkstationMapper">
+
+    <resultMap type="com.ca.mfd.prc.audit.entity.AuditQualityGateWorkstationEntity" id="auditQualityGateWorkstationMap">
+        <result property="id" column="PRC_AUDIT_QUALITY_GATE_WORKSTATION_ID"/>
+        <result property="prcAuditQualityGateId" column="PRC_AUDIT_QUALITY_GATE_ID"/>
+        <result property="workstationCode" column="WORKSTATION_CODE"/>
+        <result property="workstationName" column="WORKSTATION_NAME"/>
+    </resultMap>
+
+
+</mapper>

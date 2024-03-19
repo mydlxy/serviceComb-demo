@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.audit.mapper.IPqsAuditDefectAnomalyMapper">
+
+    <resultMap type="com.ca.mfd.prc.audit.entity.PqsAuditDefectAnomalyEntity" id="pqsAuditDefectAnomalyMap">
+        <result property="id" column="PRC_PQS_AUDIT_DEFECT_ANOMALY_ID"/>
+        <result property="defectAnomalyCode" column="DEFECT_ANOMALY_CODE"/>
+        <result property="defectAnomalyDescription" column="DEFECT_ANOMALY_DESCRIPTION"/>
+        <result property="responsibleDeptCode" column="RESPONSIBLE_DEPT_CODE"/>
+        <result property="responsibleDeptName" column="RESPONSIBLE_DEPT_NAME"/>
+        <result property="gradeCode" column="GRADE_CODE"/>
+        <result property="gradeName" column="GRADE_NAME"/>
+        <result property="componentCode" column="COMPONENT_CODE"/>
+        <result property="componentDescription" column="COMPONENT_DESCRIPTION"/>
+        <result property="defectCode" column="DEFECT_CODE"/>
+        <result property="defectName" column="DEFECT_NAME"/>
+        <result property="defectPositionCode" column="DEFECT_POSITION_CODE"/>
+        <result property="defectPositionDescription" column="DEFECT_POSITION_DESCRIPTION"/>
+        <result property="source" column="SOURCE"/>
+        <result property="shortCode" column="SHORT_CODE"/>
+    </resultMap>
+
+
+</mapper>
