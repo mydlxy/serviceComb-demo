@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.eps.mapper.IEpsModuleBoardVerifyMapper">
+
+    <resultMap type="com.ca.mfd.prc.eps.entity.EpsModuleBoardVerifyEntity" id="epsModuleBoardVerifyMap">
+        <result property="id" column="PRC_EPS_MODULE_BOARD_VERIFY_ID"/>
+        <result property="carrierBarcode" column="CARRIER_BARCODE"/>
+        <result property="orificeLocation" column="ORIFICE_LOCATION"/>
+        <result property="packModel" column="PACK_MODEL"/>
+    </resultMap>
+
+
+</mapper>

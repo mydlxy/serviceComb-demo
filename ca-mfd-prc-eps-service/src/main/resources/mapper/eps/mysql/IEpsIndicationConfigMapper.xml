@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.eps.mapper.IEpsIndicationConfigMapper">
+
+    <resultMap type="com.ca.mfd.prc.eps.entity.EpsIndicationConfigEntity" id="epsIndicationConfigMap">
+        <result property="id" column="PRC_EPS_INDICATION_CONFIG_ID"/>
+        <result property="sn" column="SN"/>
+        <result property="workstationName" column="WORKSTATION_NAME"/>
+        <result property="workstationCode" column="WORKSTATION_CODE"/>
+        <result property="queueSubscribeCode" column="QUEUE_SUBSCRIBE_CODE"/>
+        <result property="addressIp" column="ADDRESS_IP"/>
+        <result property="dataDb" column="DATA_DB"/>
+        <result property="completeCount" column="COMPLETE_COUNT"/>
+        <result property="unfinishedCount" column="UNFINISHED_COUNT"/>
+        <result property="triggerType" column="TRIGGER_TYPE"/>
+        <result property="componentName" column="COMPONENT_NAME"/>
+        <result property="componentCode" column="COMPONENT_CODE"/>
+        <result property="verifyMaterialCount" column="VERIFY_MATERIAL_COUNT"/>
+        <result property="countDown" column="COUNT_DOWN"/>
+        <result property="showTemplate" column="SHOW_TEMPLATE"/>
+    </resultMap>
+
+
+</mapper>

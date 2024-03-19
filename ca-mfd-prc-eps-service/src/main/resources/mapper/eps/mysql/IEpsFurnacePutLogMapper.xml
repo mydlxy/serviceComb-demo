@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.eps.mapper.IEpsFurnacePutLogMapper">
+
+    <resultMap type="com.ca.mfd.prc.eps.entity.EpsFurnacePutLogEntity" id="epsFurnacePutLogMap">
+        <result property="id" column="PRC_EPS_FURNACE_PUT_LOG_ID"/>
+        <result property="furnaceNo" column="FURNACE_NO"/>
+        <result property="shiftId" column="SHIFT_ID"/>
+        <result property="shiftName" column="SHIFT_NAME"/>
+        <result property="lotNo" column="LOT_NO"/>
+        <result property="putType" column="PUT_TYPE"/>
+        <result property="weight" column="WEIGHT"/>
+        <result property="source" column="SOURCE"/>
+        <result property="requestFlag" column="REQUEST_FLAG"/>
+    </resultMap>
+
+
+</mapper>

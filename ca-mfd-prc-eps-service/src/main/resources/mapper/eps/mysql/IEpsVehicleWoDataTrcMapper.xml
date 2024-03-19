@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.eps.mapper.IEpsVehicleWoDataTrcMapper">
+
+
+    <select id="getCommunicationTrc2" resultType="com.ca.mfd.prc.eps.dto.CommunicationTrcModel">
+        select
+        o.BARCODE as Vin,
+        t1.PRC_EPS_VEHICLE_WO_ID as EpsVehicleWoId,
+        t1.WO_CODE as WoCode,
+        t1.WO_DESCRIPTION as WoName,
+        left(t3.BARCODE,8) as BarCode,
+        t3.BARCODE as FullBarCode,
+        t3.PARTS_NUMBER as PartsNumber,
+        t3.SERIAL_NUMBER as SerialNumber,
+        t3.BATCH_NUMBER as BatchNumber,
+        t3.VENDOR_NUMBER as VendorNumber,
+        t3.COMPONENT_CODE as ComponentCode ,
+        t3.CREATION_DATE
+        from PRC_EPS_VEHICLE_WO t1
+        inner join PRC_PPS_ORDER o on t1.SN = o.SN
+        left join PRC_EPS_VEHICLE_WO_DATA_TRC t3 on t1.PRC_EPS_VEHICLE_WO_ID = t3.PRC_EPS_VEHICLE_WO_ID
+        where t1.IS_DELETE=0 and o.IS_DELETE=0 and t3.IS_DELETE=0 and t1.SN = #{sn} and t1.WO_CODE in
+        <foreach collection="woCodes" item="bet" separator="," open="(" close=")">
+            #{bet}
+        </foreach>
+        order by t3.CREATION_DATE desc
+    </select>
+
+    <select id="getWoCodeTrc" resultType="com.ca.mfd.prc.eps.dto.VehicleBatteryInfoDTO">
+        select
+        o.BARCODE as vin,
+        t3.BARCODE as barCode
+        from PRC_EPS_VEHICLE_WO t1
+        inner join PRC_PPS_ORDER o on t1.SN = o.SN
+        left join PRC_EPS_VEHICLE_WO_DATA_TRC t3 on t1.PRC_EPS_VEHICLE_WO_ID = t3.PRC_EPS_VEHICLE_WO_ID
+        where t1.IS_DELETE=0 and o.IS_DELETE=0 and t1.WO_CODE in
+        <foreach collection="woCode" item="bet" separator="," open="(" close=")">
+            #{bet}
+        </foreach>
+        and o.BARCODE in
+        <foreach collection="vin" item="x" separator="," open="(" close=")">
+            #{x}
+        </foreach>
+        order by t3.CREATION_DATE desc
+    </select>
+
+
+</mapper>

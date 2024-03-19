@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.eps.mapper.IEpsModuleGelatinizeLogMapper">
+
+    <resultMap type="com.ca.mfd.prc.eps.entity.EpsModuleGelatinizeLogEntity" id="epsModuleGelatinizeLogMap">
+        <result property="id" column="PRC_EPS_MODULE_GELATINIZE_LOG_ID"/>
+        <result property="rin" column="RIN"/>
+        <result property="gelatinizeStationCode" column="GELATINIZE_STATION_CODE"/>
+        <result property="gelatinizeTime" column="GELATINIZE_TIME"/>
+        <result property="inboxStations" column="INBOX_STATIONS"/>
+        <result property="validIntervalTime" column="VALID_INTERVAL_TIME"/>
+    </resultMap>
+
+
+</mapper>

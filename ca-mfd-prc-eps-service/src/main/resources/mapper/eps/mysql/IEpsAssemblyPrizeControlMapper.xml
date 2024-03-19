@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.eps.mapper.IEpsAssemblyPrizeControlMapper">
+
+    <resultMap type="com.ca.mfd.prc.eps.entity.EpsAssemblyPrizeControlEntity" id="epsAssemblyPrizeControlMap">
+        <result property="id" column="PRC_EPS_ASSEMBLY_PRIZE_CONTROL_ID"/>
+        <result property="controlPointName" column="CONTROL_POINT_NAME"/>
+        <result property="controlPointCode" column="CONTROL_POINT_CODE"/>
+        <result property="emptyPrizeNum" column="EMPTY_PRIZE_NUM"/>
+        <result property="isDown" column="IS_DOWN"/>
+    </resultMap>
+
+
+</mapper>

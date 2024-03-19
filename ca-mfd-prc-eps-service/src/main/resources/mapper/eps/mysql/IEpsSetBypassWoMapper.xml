@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.eps.mapper.IEpsSetBypassWoMapper">
+
+    <resultMap type="com.ca.mfd.prc.eps.entity.EpsSetBypassWoEntity" id="epsSetBypassWoMap">
+        <result property="id" column="PRC_EPS_SET_BYPASS_WO_ID"/>
+        <result property="woName" column="WO_NAME"/>
+        <result property="woCode" column="WO_CODE"/>
+        <result property="workstationCode" column="WORKSTATION_CODE"/>
+    </resultMap>
+
+
+</mapper>

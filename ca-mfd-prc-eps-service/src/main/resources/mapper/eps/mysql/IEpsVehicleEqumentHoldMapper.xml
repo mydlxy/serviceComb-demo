@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.eps.mapper.IEpsVehicleEqumentHoldMapper">
+
+    <resultMap type="com.ca.mfd.prc.eps.entity.EpsVehicleEqumentHoldEntity" id="epsVehicleEqumentHoldMap">
+        <result property="id" column="PRC_EPS_VEHICLE_EQUMENT_HOLD_ID"/>
+        <result property="prcEpsVehicleEqumentConfigId" column="PRC_EPS_VEHICLE_EQUMENT_CONFIG_ID"/>
+        <result property="equmentNo" column="EQUMENT_NO"/>
+        <result property="woData" column="WO_DATA"/>
+    </resultMap>
+
+
+</mapper>

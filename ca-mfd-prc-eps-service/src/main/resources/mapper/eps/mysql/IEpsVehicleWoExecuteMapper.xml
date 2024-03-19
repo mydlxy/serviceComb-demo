@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.eps.mapper.IEpsVehicleWoExecuteMapper">
+
+    <resultMap type="com.ca.mfd.prc.eps.entity.EpsVehicleWoExecuteEntity" id="epsVehicleWoExecuteMap">
+        <result property="id" column="PRC_EPS_VEHICLE_WO_EXECUTE_ID"/>
+        <result property="prcEpsVehicleWoId" column="PRC_EPS_VEHICLE_WO_ID"/>
+        <result property="sn" column="SN"/>
+        <result property="workstationCode" column="WORKSTATION_CODE"/>
+        <result property="prcPmWoId" column="PRC_PM_WO_ID"/>
+        <result property="woCode" column="WO_CODE"/>
+        <result property="prcPmToolId" column="PRC_PM_TOOL_ID"/>
+        <result property="toolCode" column="TOOL_CODE"/>
+        <result property="toolName" column="TOOL_NAME"/>
+        <result property="toolToolType" column="TOOL_TOOL_TYPE"/>
+        <result property="toolType" column="TOOL_TYPE"/>
+        <result property="jobNo" column="JOB_NO"/>
+        <result property="toolIp" column="TOOL_IP"/>
+        <result property="jobPort" column="JOB_PORT"/>
+        <result property="traceComponentCode" column="TRACE_COMPONENT_CODE"/>
+        <result property="toolBrand" column="TOOL_BRAND"/>
+    </resultMap>
+
+
+</mapper>

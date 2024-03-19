@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.eps.mapper.IEpsCarrierLogMapper">
+
+    <resultMap type="com.ca.mfd.prc.eps.entity.EpsCarrierLogEntity" id="epsCarrierLogMap">
+        <result property="id" column="PRC_EPS_CARRIER_LOG_ID"/>
+        <result property="prcEpsCarrierId" column="PRC_EPS_CARRIER_ID"/>
+        <result property="carrierBarcode" column="CARRIER_BARCODE"/>
+        <result property="batchNumber" column="BATCH_NUMBER"/>
+        <result property="materialNo" column="MATERIAL_NO"/>
+        <result property="materialCn" column="MATERIAL_CN"/>
+        <result property="entryReportNo" column="ENTRY_REPORT_NO"/>
+        <result property="planNo" column="PLAN_NO"/>
+        <result property="barcode" column="BARCODE"/>
+        <result property="workstationCode" column="WORKSTATION_CODE"/>
+        <result property="materialCount" column="MATERIAL_COUNT"/>
+        <result property="isUse" column="IS_USE"/>
+    </resultMap>
+
+
+</mapper>

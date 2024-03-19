@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.eps.mapper.IEpsTrcGatherPlcConfigMapper">
+
+    <resultMap type="com.ca.mfd.prc.eps.entity.EpsTrcGatherPlcConfigEntity" id="epsTrcGatherPlcConfigMap">
+        <result property="id" column="PRC_EPS_TRC_GATHER_PLC_CONFIG_ID"/>
+        <result property="workstationName" column="WORKSTATION_NAME"/>
+        <result property="workstationCode" column="WORKSTATION_CODE"/>
+        <result property="plcIp" column="PLC_IP"/>
+        <result property="gatherDb" column="GATHER_DB"/>
+        <result property="nowBarcode" column="NOW_BARCODE"/>
+        <result property="execResult" column="EXEC_RESULT"/>
+        <result property="errorMessage" column="ERROR_MESSAGE"/>
+    </resultMap>
+
+
+</mapper>

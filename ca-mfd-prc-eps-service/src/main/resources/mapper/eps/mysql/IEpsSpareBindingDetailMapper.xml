@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.eps.mapper.IEpsSpareBindingDetailMapper">
+
+    <resultMap type="com.ca.mfd.prc.eps.entity.EpsSpareBindingDetailEntity" id="epsSpareBindingDetailMap">
+        <result property="id" column="PRC_EPS_SPARE_BINDING_DETAIL_ID"/>
+        <result property="prcEpsBodySparePartTrackId" column="PRC_EPS_BODY_SPARE_PART_TRACK_ID"/>
+        <result property="partVirtualVin" column="PART_VIRTUAL_VIN"/>
+        <result property="spareVin" column="SPARE_VIN"/>
+        <result property="materialName" column="MATERIAL_NAME"/>
+        <result property="materialCode" column="MATERIAL_CODE"/>
+        <result property="aviQueueCode" column="AVI_QUEUE_CODE"/>
+    </resultMap>
+
+
+</mapper>

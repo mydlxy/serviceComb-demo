@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.eps.mapper.IEpsAssembleSetMapper">
+
+    <resultMap type="com.ca.mfd.prc.eps.entity.EpsAssembleSetEntity" id="epsAssembleSetMap">
+        <result property="tplCode" column="TPL_CODE"/>
+        <result property="tplName" column="TPL_NAME"/>
+        <result property="remark" column="REMARK"/>
+        <result property="col" column="COL"/>
+    </resultMap>
+
+
+</mapper>

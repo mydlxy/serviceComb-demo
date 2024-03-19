@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.eps.mapper.IEpsVehicleWoDataMapper">
+
+
+    <select id="getPageVehicleDatas" resultType="com.ca.mfd.prc.eps.entity.EpsVehicleWoDataEntity">
+        select * from (
+        select k.PRC_EPS_VEHICLE_WO_DATA_ID as id,k.SN,
+        k.LINE_NAME,k.LINE_CODE,k.WORKSHOP_NAME,
+        k.WORKSHOP_CODE,k.WORKSTATION_NAME,k.WORKSTATION_CODE,
+        k.DECVICE_NAME,k.DATA_TABLE_NAME,k.PRC_EPS_VEHICLE_WO_ID,
+        k.IS_DELETE, k.CREATED_BY, k.CREATED_USER, k.CREATION_DATE,
+        k.LAST_UPDATED_USER,k.LAST_UPDATED_BY,k.LAST_UPDATE_DATE,
+        j.BARCODE from PRC_EPS_VEHICLE_WO_DATA k
+        left OUTER join PRC_PPS_ORDER j on k.SN=j.SN AND j.IS_DELETE = 0
+        ) c
+        <include refid="com.ca.mfd.prc.common.CommMapper.wheresql">
+            <property name="where" value="pms.where_a"/>
+        </include>
+        <if test='pms.order !=null and pms.order.size()>0'>
+            ${@com.ca.mfd.prc.common.utils.MpSqlUtils@getSortStr(pms.order)}
+        </if>
+
+    </select>
+
+    <select id="getCurrentData" resultType="com.ca.mfd.prc.eps.entity.EpsVehicleEqumentDataEntity">
+        select DISPLAY_NO    as disPlayNo,
+               WO_NAME       as woName,
+               WO_CODE       as woCode,
+               WO_UPLIMIT    as woUplimit,
+               WO_DOWNLIMIT  as woDownlimit,
+               WO_STANDARD   as woStandard,
+               WO_VALUE      as woValue,
+               WO_RESULT     as woResult,
+               WO_UNIT       as woUnit,
+               CREATION_DATE as creationDate
+        from ${dataTableName}
+        where IS_DELETE = 0
+          AND PRC_EPS_VEHICLE_WO_DATA_ID = #{vehicleWoDataId}
+    </select>
+
+    <select id="getVehicleDataByVin" resultType="com.ca.mfd.prc.eps.entity.EpsVehicleWoDataEntity">
+        SELECT t3.*,t3.PRC_EPS_VEHICLE_WO_DATA_ID as id,t1.REMARK FROM PRC_PM_WO t1 JOIN PRC_PM_WORK_STATION t2 ON
+        t1.PRC_PM_WORKSTATION_ID=t2.PRC_PM_WORK_STATION_ID AND t1.VERSION=0 AND t2.VERSION=0
+        and t1.IS_DELETE = 0 and t2.IS_DELETE = 0
+        inner join PRC_EPS_VEHICLE_WO_DATA t3 on t3.WORKSTATION_CODE=t2.WORKSTATION_CODE and t3.SN=#{vin}
+        inner join PRC_EPS_VEHICLE_WO t4 on t3.PRC_EPS_VEHICLE_WO_ID=t4.PRC_EPS_VEHICLE_WO_ID and t1.WO_CODE=t4.WO_CODE
+        WHERE t1.IS_DELETE=0 and t2.IS_DELETE=0 and t3.IS_DELETE=0 and t4.IS_DELETE=0
+    </select>
+
+    <select id="getPageTrcVehicleDatas" resultType="com.ca.mfd.prc.eps.dto.EpsVehicleWoDataTrcInfo">
+        SELECT * FROM (SELECT
+        W.WORKSHOP_NAME as workshopName,
+        W.LINE_NAME as lineName, W.LINE_CODE as lineCode,
+        W.WORKSTATION_NAME as workstationName,
+        K.WORKSHOP_CODE as workshopCode,K.WORKSTATION_CODE as workstationCode,
+        J.MODEL as model,K.SN as sn,
+        K.WO_CODE as woCode,K.WO_DESCRIPTION as woDescription,
+        P.BARCODE as barcode,K.RESULT as result,
+        K.OPER_USER_NAME as createdUser,K.OPER_DT as creationDate
+        FROM PRC_EPS_VEHICLE_WO K
+        JOIN PRC_PPS_ORDER J ON K.SN = J.SN AND J.IS_DELETE=0
+        JOIN PRC_EPS_VEHICLE_WO_DATA_TRC P ON P.PRC_EPS_VEHICLE_WO_ID = K.PRC_EPS_VEHICLE_WO_ID
+        JOIN PRC_EPS_VEHICLE_WO_DATA W ON W.PRC_EPS_VEHICLE_WO_ID = K.PRC_EPS_VEHICLE_WO_ID
+        WHERE K.IS_DELETE = 0 AND P.IS_DELETE = 0 AND W.IS_DELETE=0 ) c
+        <include refid="com.ca.mfd.prc.common.CommMapper.wheresql">
+            <property name="where" value="pms.where_a"/>
+        </include>
+        <if test='pms.order !=null and pms.order.size()>0'>
+            ${@com.ca.mfd.prc.common.utils.MpSqlUtils@getSortStr(pms.order)}
+        </if>
+
+    </select>
+</mapper>

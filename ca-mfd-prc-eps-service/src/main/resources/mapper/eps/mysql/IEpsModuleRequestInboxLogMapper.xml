@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.eps.mapper.IEpsModuleRequestInboxLogMapper">
+
+    <resultMap type="com.ca.mfd.prc.eps.entity.EpsModuleRequestInboxLogEntity" id="epsModuleRequestInboxLogMap">
+        <result property="id" column="PRC_EPS_MODULE_REQUEST_INBOX_LOG_ID"/>
+        <result property="prcEpsModuleGelatinizeLogId" column="PRC_EPS_MODULE_GELATINIZE_LOG_ID"/>
+        <result property="rin" column="RIN"/>
+        <result property="gelatinizeStationCode" column="GELATINIZE_STATION_CODE"/>
+        <result property="gelatinizeTime" column="GELATINIZE_TIME"/>
+        <result property="inboxStation" column="INBOX_STATION"/>
+        <result property="inboxTime" column="INBOX_TIME"/>
+        <result property="validIntervalTime" column="VALID_INTERVAL_TIME"/>
+        <result property="actualIntervalTime" column="ACTUAL_INTERVAL_TIME"/>
+        <result property="isOvertime" column="IS_OVERTIME"/>
+    </resultMap>
+
+
+</mapper>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.eps.mapper.IEpsHkskLightCheckDataMapper">
+
+    <resultMap type="com.ca.mfd.prc.eps.entity.EpsHkskLightCheckDataEntity" id="epsHkskLightCheckDataMap">
+        <result property="id" column="PRC_EPS_HKSK_LIGHT_CHECK_DATA_ID"/>
+        <result property="barcode" column="BARCODE"/>
+        <result property="workstationCode" column="WORKSTATION_CODE"/>
+        <result property="qcUser" column="QC_USER"/>
+        <result property="ewFlag" column="EW_FLAG"/>
+        <result property="ewItem" column="EW_ITEM"/>
+        <result property="alarmFlag" column="ALARM_FLAG"/>
+        <result property="alarmItem" column="ALARM_ITEM"/>
+        <result property="i2Result" column="I2_RESULT"/>
+        <result property="keyPointResult" column="KEY_POINT_RESULT"/>
+        <result property="result" column="RESULT"/>
+        <result property="inspectDt" column="INSPECT_DT"/>
+        <result property="inspectTime" column="INSPECT_TIME"/>
+    </resultMap>
+
+
+</mapper>

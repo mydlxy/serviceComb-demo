@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.eps.mapper.IEpsModuleRelationMapper">
+
+    <resultMap type="com.ca.mfd.prc.eps.entity.EpsModuleRelationEntity" id="epsModuleRelationMap">
+        <result property="id" column="PRC_EPS_MODULE_RELATION_ID"/>
+        <result property="moduleCode" column="MODULE_CODE"/>
+        <result property="moduleBarcode" column="MODULE_BARCODE"/>
+        <result property="unitCode" column="UNIT_CODE"/>
+        <result property="unitBarcode" column="UNIT_BARCODE"/>
+        <result property="cellCode" column="CELL_CODE"/>
+        <result property="cellBarcode" column="CELL_BARCODE"/>
+        <result property="cellType" column="CELL_TYPE"/>
+    </resultMap>
+
+
+</mapper>

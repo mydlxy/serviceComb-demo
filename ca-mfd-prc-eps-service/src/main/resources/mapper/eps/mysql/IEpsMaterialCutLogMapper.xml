@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.eps.mapper.IEpsMaterialCutLogMapper">
+
+    <resultMap type="com.ca.mfd.prc.eps.entity.EpsMaterialCutLogEntity" id="epsMaterialCutLogMap">
+        <result property="id" column="PRC_EPS_MATERIAL_CUT_LOG_ID"/>
+        <result property="workstationName" column="WORKSTATION_NAME"/>
+        <result property="workstationCode" column="WORKSTATION_CODE"/>
+        <result property="oldMaterialNo" column="OLD_MATERIAL_NO"/>
+        <result property="newMaterialNo" column="NEW_MATERIAL_NO"/>
+        <result property="isInform" column="IS_INFORM"/>
+    </resultMap>
+
+
+</mapper>

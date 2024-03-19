@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.eps.mapper.IEpsModuleElementScrapMapper">
+
+    <resultMap type="com.ca.mfd.prc.eps.entity.EpsModuleElementScrapEntity" id="epsModuleElementScrapMap">
+        <result property="id" column="PRC_EPS_MODULE_ELEMENT_SCRAP_ID"/>
+        <result property="elementType" column="ELEMENT_TYPE"/>
+        <result property="elementBarcode" column="ELEMENT_BARCODE"/>
+    </resultMap>
+
+
+</mapper>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.eps.mapper.IEpsRivetFcLogMapper">
+
+    <resultMap type="com.ca.mfd.prc.eps.entity.EpsRivetFcLogEntity" id="epsRivetFcLogMap">
+        <result property="id" column="PRC_EPS_RIVET_FC_LOG_ID"/>
+        <result property="orificeBarcode" column="ORIFICE_BARCODE"/>
+        <result property="materialBarcode" column="MATERIAL_BARCODE"/>
+        <result property="orificeLocation" column="ORIFICE_LOCATION"/>
+        <result property="materialName" column="MATERIAL_NAME"/>
+        <result property="materialCode" column="MATERIAL_CODE"/>
+    </resultMap>
+
+
+</mapper>

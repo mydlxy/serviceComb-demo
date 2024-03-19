@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.eps.mapper.IEpsLmsCallButtonMapper">
+
+    <resultMap type="com.ca.mfd.prc.eps.entity.EpsLmsCallButtonEntity" id="epsLmsCallButtonMap">
+        <result property="id" column="PRC_EPS_LMS_CALL_BUTTON_ID"/>
+        <result property="workstationCode" column="WORKSTATION_CODE"/>
+        <result property="routeCode" column="ROUTE_CODE"/>
+        <result property="routeName" column="ROUTE_NAME"/>
+        <result property="callType" column="CALL_TYPE"/>
+        <result property="plcType" column="PLC_TYPE"/>
+        <result property="plcConnection" column="PLC_CONNECTION"/>
+        <result property="db" column="DB"/>
+        <result property="targetType" column="TARGET_TYPE"/>
+        <result property="isSend" column="IS_SEND"/>
+    </resultMap>
+
+
+</mapper>

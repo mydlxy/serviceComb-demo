@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.eps.mapper.IEpsTraceCodeRuleMapper">
+
+    <resultMap type="com.ca.mfd.prc.eps.entity.EpsTraceCodeRuleEntity" id="epsTraceCodeRuleMap">
+        <result property="id" column="PRC_EPS_TRACE_CODE_RULE_ID"/>
+        <result property="traceComponentCode" column="TRACE_COMPONENT_CODE"/>
+        <result property="traceComponentDescription" column="TRACE_COMPONENT_DESCRIPTION"/>
+        <result property="matchBom" column="MATCH_BOM"/>
+        <result property="template" column="TEMPLATE"/>
+        <result property="ruleName" column="RULE_NAME"/>
+        <result property="sequence" column="SEQUENCE"/>
+        <result property="remark" column="REMARK"/>
+        <result property="length" column="LENGTH"/>
+        <result property="partsBeginIndex" column="PARTS_BEGIN_INDEX"/>
+        <result property="partsPathLength" column="PARTS_PATH_LENGTH"/>
+        <result property="categoryBeginIndex" column="CATEGORY_BEGIN_INDEX"/>
+        <result property="categoryPathLength" column="CATEGORY_PATH_LENGTH"/>
+        <result property="serialBeginIndex" column="SERIAL_BEGIN_INDEX"/>
+        <result property="serialPathLength" column="SERIAL_PATH_LENGTH"/>
+        <result property="batchBeginIndex" column="BATCH_BEGIN_INDEX"/>
+        <result property="batchPathLength" column="BATCH_PATH_LENGTH"/>
+        <result property="vendorBeginIndex" column="VENDOR_BEGIN_INDEX"/>
+        <result property="vendorPathLength" column="VENDOR_PATH_LENGTH"/>
+        <result property="isCcc" column="IS_CCC"/>
+        <result property="featureCode" column="FEATURE_CODE"/>
+    </resultMap>
+
+
+</mapper>

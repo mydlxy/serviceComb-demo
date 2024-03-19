@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.eps.mapper.IEpsSmartCutInoroutRelevanceMapper">
+
+    <resultMap type="com.ca.mfd.prc.eps.entity.EpsSmartCutInoroutRelevanceEntity" id="epsSmartCutInoroutRelevanceMap">
+        <result property="id" column="PRC_EPS_SMART_CUT_INOROUT_RELEVANCE_ID"/>
+        <result property="lastAviCode" column="LAST_AVI_CODE"/>
+        <result property="workstationCodes" column="WORKSTATION_CODES"/>
+        <result property="nextAviCode" column="NEXT_AVI_CODE"/>
+    </resultMap>
+
+
+</mapper>

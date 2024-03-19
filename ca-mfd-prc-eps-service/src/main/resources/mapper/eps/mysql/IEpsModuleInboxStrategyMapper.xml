@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.eps.mapper.IEpsModuleInboxStrategyMapper">
+
+    <resultMap type="com.ca.mfd.prc.eps.entity.EpsModuleInboxStrategyEntity" id="epsModuleInboxStrategyMap">
+        <result property="id" column="PRC_EPS_MODULE_INBOX_STRATEGY_ID"/>
+        <result property="strategySign" column="STRATEGY_SIGN"/>
+        <result property="packModel" column="PACK_MODEL"/>
+        <result property="strategyDescription" column="STRATEGY_DESCRIPTION"/>
+        <result property="l1LineCode" column="L1_LINE_CODE"/>
+        <result property="l2LineCode" column="L2_LINE_CODE"/>
+        <result property="l3LineCode" column="L3_LINE_CODE"/>
+        <result property="l4LineCode" column="L4_LINE_CODE"/>
+        <result property="l5LineCode" column="L5_LINE_CODE"/>
+        <result property="l6LineCode" column="L6_LINE_CODE"/>
+        <result property="l7LineCode" column="L7_LINE_CODE"/>
+        <result property="l8LineCode" column="L8_LINE_CODE"/>
+        <result property="r1LineCode" column="R1_LINE_CODE"/>
+        <result property="r2LineCode" column="R2_LINE_CODE"/>
+        <result property="r3LineCode" column="R3_LINE_CODE"/>
+        <result property="r4LineCode" column="R4_LINE_CODE"/>
+        <result property="r5LineCode" column="R5_LINE_CODE"/>
+        <result property="r6LineCode" column="R6_LINE_CODE"/>
+        <result property="r7LineCode" column="R7_LINE_CODE"/>
+        <result property="r8LineCode" column="R8_LINE_CODE"/>
+        <result property="l1ModuleCode" column="L1_MODULE_CODE"/>
+        <result property="l3ModuleCode" column="L3_MODULE_CODE"/>
+        <result property="l2ModuleCode" column="L2_MODULE_CODE"/>
+        <result property="l4ModuleCode" column="L4_MODULE_CODE"/>
+        <result property="l5ModuleCode" column="L5_MODULE_CODE"/>
+        <result property="l6ModuleCode" column="L6_MODULE_CODE"/>
+        <result property="l7ModuleCode" column="L7_MODULE_CODE"/>
+        <result property="l8ModuleCode" column="L8_MODULE_CODE"/>
+        <result property="r1ModuleCode" column="R1_MODULE_CODE"/>
+        <result property="r2ModuleCode" column="R2_MODULE_CODE"/>
+        <result property="r3ModuleCode" column="R3_MODULE_CODE"/>
+        <result property="r4ModuleCode" column="R4_MODULE_CODE"/>
+        <result property="r5ModuleCode" column="R5_MODULE_CODE"/>
+        <result property="r6ModuleCode" column="R6_MODULE_CODE"/>
+        <result property="r7ModuleCode" column="R7_MODULE_CODE"/>
+        <result property="r8ModuleCode" column="R8_MODULE_CODE"/>
+        <result property="isEnable" column="IS_ENABLE"/>
+        <result property="inBoxJson" column="IN_BOX_JSON"/>
+        <result property="gluingJobJson" column="GLUING_JOB_JSON"/>
+        <result property="routeSign" column="ROUTE_SIGN"/>
+    </resultMap>
+
+
+</mapper>

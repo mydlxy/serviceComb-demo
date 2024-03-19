@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.eps.mapper.IEpsBodySparePartTrackLogMapper">
+
+    <resultMap type="com.ca.mfd.prc.eps.entity.EpsBodySparePartTrackLogEntity" id="epsBodySparePartTrackLogMap">
+        <result property="id" column="PRC_EPS_BODY_SPARE_PART_TRACK_LOG_ID"/>
+        <result property="prcEpsBodySparePartTrackId" column="PRC_EPS_BODY_SPARE_PART_TRACK_ID"/>
+        <result property="virtualVin" column="VIRTUAL_VIN"/>
+        <result property="trackStatus" column="TRACK_STATUS"/>
+        <result property="opTime" column="OP_TIME"/>
+    </resultMap>
+
+
+</mapper>

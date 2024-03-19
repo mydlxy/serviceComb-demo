@@ -1,0 +1,89 @@
+package com.ca.mfd.prc.eps.entity;
+
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import com.ca.mfd.prc.common.constant.Constant;
+import com.ca.mfd.prc.common.convert.JsonDeserializeDefault;
+import com.ca.mfd.prc.common.convert.JsonDeserializeLong;
+import com.ca.mfd.prc.common.entity.BaseEntity;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
+import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import org.apache.commons.lang3.StringUtils;
+
+/**
+ * @author inkelink
+ * @Description: 铆钉防错日志实体
+ * @date 2023年08月29日
+ * @变更说明 BY inkelink At 2023年08月29日
+ */
+@Data
+@EqualsAndHashCode(callSuper = true)
+@Schema(description = "铆钉防错日志")
+@TableName("PRC_EPS_RIVET_FC_LOG")
+public class EpsRivetFcLogEntity extends BaseEntity {
+
+    /**
+     * 主键
+     */
+    @Schema(title = "主键")
+    @TableId(value = "PRC_EPS_RIVET_FC_LOG_ID", type = IdType.INPUT)
+    @JsonSerialize(using = ToStringSerializer.class)
+    @JsonDeserialize(using = JsonDeserializeLong.class)
+    private Long id = Constant.DEFAULT_ID;
+
+
+    /**
+     * 料口条码
+     */
+    @Schema(title = "料口条码")
+    @TableField("ORIFICE_BARCODE")
+    private String orificeBarcode = StringUtils.EMPTY;
+
+
+    /**
+     * 物料条码
+     */
+    @Schema(title = "物料条码")
+    @TableField("MATERIAL_BARCODE")
+    private String materialBarcode = StringUtils.EMPTY;
+
+
+    /**
+     * 料口位置
+     */
+    @Schema(title = "料口位置")
+    @TableField("ORIFICE_LOCATION")
+    private String orificeLocation = StringUtils.EMPTY;
+
+
+    /**
+     * 物料名称
+     */
+    @Schema(title = "物料名称")
+    @TableField("MATERIAL_NAME")
+    private String materialName = StringUtils.EMPTY;
+
+
+    /**
+     * 物料编码
+     */
+    @Schema(title = "物料编码")
+    @TableField("MATERIAL_CODE")
+    private String materialCode = StringUtils.EMPTY;
+
+    /**
+     * 匹配结果
+     */
+    @Schema(title = "匹配结果")
+    @TableField("VERIFY_RESULT")
+    @JsonDeserialize(using = JsonDeserializeDefault.class)
+    private Boolean verifyResult = false;
+
+
+}

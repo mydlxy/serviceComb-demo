@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.eps.mapper.IEpsVehicleEqumentConfigMapper">
+
+    <resultMap type="com.ca.mfd.prc.eps.entity.EpsVehicleEqumentConfigEntity" id="epsVehicleEqumentConfigMap">
+        <result property="id" column="PRC_EPS_VEHICLE_EQUMENT_CONFIG_ID"/>
+        <result property="equmentName" column="EQUMENT_NMAE"/>
+        <result property="equmentNo" column="EQUMENT_NO"/>
+        <result property="woAre" column="WO_ARE"/>
+        <result property="woCode" column="WO_CODE"/>
+        <result property="workstationCode" column="WORKSTATION_CODE"/>
+        <result property="collectType" column="COLLECT_TYPE"/>
+        <result property="collectCycle" column="COLLECT_CYCLE"/>
+        <result property="collectUrl" column="COLLECT_URL"/>
+        <result property="eswichToken" column="ESWICH_TOKEN"/>
+        <result property="equmentTableenum" column="EQUMENT_TABLEENUM"/>
+        <result property="isCollectVin" column="IS_COLLECT_VIN"/>
+    </resultMap>
+
+
+</mapper>

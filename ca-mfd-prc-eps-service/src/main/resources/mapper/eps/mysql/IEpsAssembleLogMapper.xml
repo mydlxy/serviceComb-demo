@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.eps.mapper.IEpsAssembleLogMapper">
+
+    <resultMap type="com.ca.mfd.prc.eps.entity.EpsAssembleLogEntity" id="epsAssembleLogMap">
+        <result property="sn" column="SN"/>
+        <result property="tplCode" column="TPL_CODE"/>
+        <result property="keyTitle" column="KEY_TITLE"/>
+        <result property="keyContent" column="KEY_CONTENT"/>
+        <result property="displayNo" column="DISPLAY_NO"/>
+        <result property="workstationName" column="WORKSTATION_NAME"/>
+    </resultMap>
+
+    <select id="getAssemble" resultType="com.ca.mfd.prc.eps.dto.GetAssembleDataInfo" parameterType="java.util.Map"
+            statementType="CALLABLE">
+        call spGetAssemblyDetail( #{sn,mode=IN,jdbcType=VARCHAR},
+            #{tplCode,mode=IN,jdbcType=VARCHAR}
+            )
+    </select>
+
+</mapper>

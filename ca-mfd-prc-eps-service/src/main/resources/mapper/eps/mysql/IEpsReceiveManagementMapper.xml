@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.eps.mapper.IEpsReceiveManagementMapper">
+
+    <resultMap type="com.ca.mfd.prc.eps.entity.EpsReceiveManagementEntity" id="epsReceiveManagementMap">
+        <result property="id" column="PRC_EPS_RECEIVE_MANAGEMENT_ID"/>
+        <result property="sn" column="SN"/>
+        <result property="receiveTime" column="RECEIVE_TIME"/>
+        <result property="backTime" column="BACK_TIME"/>
+        <result property="predictBackTime" column="PREDICT_BACK_TIME"/>
+        <result property="vehicleModel" column="VEHICLE_MODEL"/>
+        <result property="materialCn" column="MATERIAL_CN"/>
+        <result property="useDescription" column="USE_DESCRIPTION"/>
+        <result property="receiveUser" column="RECEIVE_USER"/>
+    </resultMap>
+
+
+</mapper>

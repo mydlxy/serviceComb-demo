@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.eps.mapper.IEpsVehicleWoMapper">
+
+    <select id="getPageVehicleDatas" resultType="com.ca.mfd.prc.eps.entity.EpsVehicleWoEntity">
+        select * from (
+        select k.PRC_EPS_VEHICLE_WO_ID as id,k.SN,k.ENTRY_NO,
+        k.WORKSTATION_CODE,
+        k.WO_CODE,k.WO_DESCRIPTION,
+        k.WO_GROUP,k.WO_TYPE,
+        k.OPER_USER_ID,k.TRC_BY_GROUP,k.OPER_USER_NAME,
+        k.OPER_DT,k.RESULT,j.BARCODE,
+        k.IS_DELETE, k.CREATED_USER, k.CREATED_BY,
+        k.CREATION_DATE ,k.LAST_UPDATED_USER,
+        k.LAST_UPDATED_BY,k.LAST_UPDATE_DATE
+        from PRC_EPS_VEHICLE_WO k
+        inner join PRC_PPS_ORDER j on k.SN=j.SN
+        where k.IS_DELETE=0 and j.IS_DELETE=0
+        ) a
+        <include refid="com.ca.mfd.prc.common.CommMapper.wheresql">
+            <property name="where" value="pms.where_a"/>
+        </include>
+        <if test='pms.order !=null and pms.order.size()>0'>
+            ${@com.ca.mfd.prc.common.utils.MpSqlUtils@getSortStr(pms.order)}
+        </if>
+
+    </select>
+
+</mapper>

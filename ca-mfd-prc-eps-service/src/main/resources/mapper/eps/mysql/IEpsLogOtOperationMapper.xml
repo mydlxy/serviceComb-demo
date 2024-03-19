@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.eps.mapper.IEpsLogOtOperationMapper">
+
+    <resultMap type="com.ca.mfd.prc.eps.entity.EpsLogOtOperationEntity" id="epsLogOtOperationMap">
+        <result property="id" column="PRC_EPS_LOG_OT_OPERATION_ID"/>
+        <result property="workshopCode" column="WORKSHOP_CODE"/>
+        <result property="lineCode" column="LINE_CODE"/>
+        <result property="workstationCode" column="WORKSTATION_CODE"/>
+        <result property="operationUser" column="OPERATION_USER"/>
+        <result property="operation" column="OPERATION"/>
+        <result property="oprerationTime" column="OPRERATION_TIME"/>
+        <result property="operationLever" column="OPERATION_LEVER"/>
+        <result property="pmWorkplaceName" column="PM_WORKPLACE_NAME"/>
+        <result property="pmWorkplaceId" column="PM_WORKPLACE_ID"/>
+    </resultMap>
+
+
+</mapper>

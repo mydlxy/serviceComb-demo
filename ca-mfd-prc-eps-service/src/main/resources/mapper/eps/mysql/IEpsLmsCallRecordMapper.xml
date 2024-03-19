@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.eps.mapper.IEpsLmsCallRecordMapper">
+
+    <resultMap type="com.ca.mfd.prc.eps.entity.EpsLmsCallRecordEntity" id="epsLmsCallRecordMap">
+        <result property="id" column="PRC_EPS_LMS_CALL_RECORD_ID"/>
+        <result property="targetType" column="TARGET_TYPE"/>
+        <result property="callType" column="CALL_TYPE"/>
+        <result property="routeCode" column="ROUTE_CODE"/>
+        <result property="routeName" column="ROUTE_NAME"/>
+        <result property="callDt" column="CALL_DT"/>
+        <result property="isSend" column="IS_SEND"/>
+        <result property="sendDt" column="SEND_DT"/>
+        <result property="source" column="SOURCE"/>
+    </resultMap>
+
+
+</mapper>

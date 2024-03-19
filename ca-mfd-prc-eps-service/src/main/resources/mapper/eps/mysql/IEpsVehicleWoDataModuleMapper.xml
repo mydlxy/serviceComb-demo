@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.eps.mapper.IEpsVehicleWoDataModuleMapper">
+
+    <resultMap type="com.ca.mfd.prc.eps.entity.EpsVehicleWoDataModuleEntity" id="epsVehicleWoDataModuleMap">
+        <result property="id" column="PRC_EPS_VEHICLE_WO_DATA_MODULE_ID"/>
+        <result property="prcEpsVehicleWoDataId" column="PRC_EPS_VEHICLE_WO_DATA_ID"/>
+        <result property="prcEpsVehicleWoId" column="PRC_EPS_VEHICLE_WO_ID"/>
+        <result property="rin" column="RIN"/>
+        <result property="workstationCode" column="WORKSTATION_CODE"/>
+        <result property="moduleCode" column="MODULE_CODE"/>
+        <result property="moduleBarcode" column="MODULE_BARCODE"/>
+        <result property="moduleLocation" column="MODULE_LOCATION"/>
+    </resultMap>
+
+
+</mapper>
