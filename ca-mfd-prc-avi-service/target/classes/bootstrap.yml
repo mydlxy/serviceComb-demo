@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: ca-mfd-prc-avi-service
+  cloud:
+    servicecomb:
+      service:
+        # 微服务名称和spring.application.name一致
+        name: ${spring.application.name}
+        version: ${CAS_INSTANCE_VERSION:0.0.1}
+        application: ${CAS_APPLICATION_NAME:ca-mfd-mom}
+        # 环境变量：可取值 developemnt, testing, acceptance, production
+        environment: ${CAS_ENV:development}
+      discovery:
+        enabled: true
+        watch: false
+        #address: ${PAAS_CSE_SC_ENDPOINT:https://10.59.90.211:30100,https://10.59.90.59:30100}
+        address: ${PAAS_CSE_SC_ENDPOINT:http://10.23.1.152:30100}
+        health-check-interval: 10
+        poll-interval: 15000
+        wait-time-for-shut-down-in-millis: 15000
+      config:
+        enabled: ${PAAS_CSE_CC_ENABLED:true}
+        #serverAddr: ${PAAS_CSE_CC_ENDPOINT:https://10.59.90.211:30110,https://10.59.90.59:30110}
+        serverAddr: ${PAAS_CSE_CC_ENDPOINT:http://10.23.1.152:30110}
+        #fileSource: web.yml
+        #kie:
+        #  customLabel: ${CAS_APPLICATION_LABEL:app}
+        #  customLabelValue: ${CAS_APPLICATION_NAME:ca-mfd-mom}
+        serverType: kie #config-center
+      #If CSE opens security check. The following configuration is required
+      credentials:
+        account:
+          name: ${CSE_ACCOUNT_NAME:}
+          password: ${CSE_ACCOUNT_PASSWORD:}
+#          cipher: default
+      dashboard:
+        enabled: ${PAAS_CSE_DASHBOARD_ENABLED:false}
+        address: ${PAAS_CSE_DASHBOARD_ENDPOINT:http://10.23.1.152:30109}
+        invocationProviderEnabled: true
+        governanceProviderEnabled: true

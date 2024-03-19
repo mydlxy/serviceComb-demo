@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.avi.mapper.IAviQueueReleaseSetMapper">
+
+    <resultMap type="com.ca.mfd.prc.avi.entity.AviQueueReleaseSetEntity" id="aviQueueReleaseSetMap">
+        <result property="id" column="PRC_AVI_QUEUE_RELEASE_SET_ID"/>
+        <result property="queueCode" column="QUEUE_CODE"/>
+        <result property="queueName" column="QUEUE_NAME"/>
+        <result property="aviCode" column="AVI_CODE"/>
+        <result property="aviName" column="AVI_NAME"/>
+        <result property="plcIp" column="PLC_IP"/>
+        <result property="plcMode" column="PLC_MODE"/>
+        <result property="dbName" column="DB_NAME"/>
+    </resultMap>
+
+
+</mapper>

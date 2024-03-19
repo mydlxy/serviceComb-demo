@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.avi.mapper.IAviTrackingRecordMapper">
+
+    <resultMap type="com.ca.mfd.prc.avi.entity.AviTrackingRecordEntity" id="aviTrackingRecordMap">
+        <result property="id" column="PRC_AVI_TRACKING_RECORD_ID"/>
+        <result property="sn" column="SN"/>
+        <result property="orderCategory" column="ORDER_CATEGORY"/>
+        <result property="insertDt" column="INSERT_DT"/>
+        <result property="aviTrackIngRecordType" column="AVI_TRACKING_RECORD_TYPE"/>
+        <result property="prcPpsShcShiftId" column="PRC_PPS_SHC_SHIFT_ID"/>
+        <result property="isProcess" column="IS_PROCESS"/>
+        <result property="mode" column="MODE"/>
+        <result property="workshopCode" column="WORKSHOP_CODE"/>
+        <result property="lineCode" column="LINE_CODE"/>
+        <result property="aviName" column="AVI_NAME"/>
+        <result property="aviCode" column="AVI_CODE"/>
+    </resultMap>
+
+    <select id="getVehiceOrderPageDatas" resultType="com.ca.mfd.prc.avi.entity.AviTrackingRecordEntity">
+        select a.PRC_AVI_TRACKING_RECORD_ID as
+        ID,a.SN,a.ORDER_CATEGORY,a.INSERT_DT,a.AVI_TRACKING_RECORD_TYPE,a.IS_PROCESS,a.MODE,a.FLAG,a.CREATION_DATE,a.CREATED_BY,a.LAST_UPDATE_DATE,a.LAST_UPDATED_TRACEID,
+        a.LAST_UPDATED_BY,a.WORKSHOP_CODE,a.LINE_CODE,a.AVI_NAME,a.AVI_CODE,
+        b.BARCODE,b.SEQUENCE_NO as
+        SeqNo,b.CHARACTERISTIC1,b.CHARACTERISTIC2,b.CHARACTERISTIC3,b.CHARACTERISTIC4,b.PLAN_NO,b.ORDER_NO
+        from (select * from PRC_AVI_TRACKING_RECORD
+        <include refid="com.ca.mfd.prc.common.CommMapper.wheresql">
+            <property name="where" value="pms.where_a"/>
+        </include>
+        ) a
+        inner join ( select * from PRC_PPS_ORDER
+        <include refid="com.ca.mfd.prc.common.CommMapper.wheresql">
+            <property name="where" value="pms.where_b"/>
+        </include>
+        ) b on a.SN=b.SN
+        where a.IS_DELETE = 0 and b.IS_DELETE = 0
+        <if test='pms.order !=null and pms.order.size()>0'>
+            ${@com.ca.mfd.prc.common.utils.MpSqlUtils@getSortStr(pms.order)}
+        </if>
+    </select>
+
+    <select id="getAviTrackingRecordInfo" resultType="com.ca.mfd.prc.avi.entity.AviTrackingRecordEntity">
+        select a.PRC_PPS_SHC_SHIFT_ID,a.PRC_AVI_TRACKING_RECORD_ID as
+        ID,a.SN,a.ORDER_CATEGORY,a.INSERT_DT,a.AVI_TRACKING_RECORD_TYPE,a.IS_PROCESS,a.MODE,a.FLAG,a.CREATION_DATE,a.CREATED_BY,a.LAST_UPDATE_DATE,
+        a.LAST_UPDATED_BY,a.LAST_UPDATED_TRACEID,a.WORKSHOP_CODE,a.LINE_CODE,a.AVI_NAME,a.AVI_CODE,
+        b.BARCODE,b.SEQUENCE_NO as
+        SeqNo,b.CHARACTERISTIC1,b.CHARACTERISTIC2,b.CHARACTERISTIC3,b.CHARACTERISTIC4,b.PLAN_NO,b.ORDER_NO
+        from PRC_AVI_TRACKING_RECORD a
+        inner join PRC_PPS_ORDER b on a.SN=b.SN
+        <include refid="com.ca.mfd.prc.common.CommMapper.wheresql">
+            <property name="where" value="pms.wheresa"/>
+        </include>
+        and a.IS_DELETE = 0 and b.IS_DELETE = 0
+        <if test='pms.order !=null and pms.order.size()>0'>
+            ${@com.ca.mfd.prc.common.utils.MpSqlUtils@getSortStr(pms.order)}
+        </if>
+    </select>
+
+    <select id="getAviPassedRecord" resultType="com.ca.mfd.prc.avi.dto.AviPassedRecordDTO">
+        select a.SN         as TpsCode,
+               a.AVI_CODE   as aviCode,
+               a.INSERT_DT  as PassDate,
+               b.BARCODE    as Vin,
+               a.CREATED_BY as RecordUser
+        from PRC_AVI_TRACKING_RECORD a
+                 left join PRC_PPS_ORDER b on a.SN = b.SN
+        where a.AVI_CODE = #{aviCode}
+          and a.IS_DELETE = 0
+          and b.IS_DELETE = 0
+        order by a.INSERT_DT desc
+    </select>
+
+</mapper>

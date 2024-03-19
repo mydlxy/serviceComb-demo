@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.avi.mapper.IAviCutOutRelationMapper">
+    <resultMap type="com.ca.mfd.prc.avi.entity.AviCutOutRelationEntity" id="aviCutOutRelationMap">
+        <result property="id" column="PRC_AVI_CUT_OUT_RELATION_ID"/>
+        <result property="aviCode" column="AVI_CODE"/>
+        <result property="aviName" column="AVI_NAME"/>
+        <result property="aviSublineAviId" column="AVI_SUBLINE_AVI_ID"/>
+        <result property="aviSublineAviCode" column="AVI_SUBLINE_AVI_CODE"/>
+        <result property="aviSublineAviName" column="AVI_SUBLINE_AVI_NAME"/>
+    </resultMap>
+</mapper>

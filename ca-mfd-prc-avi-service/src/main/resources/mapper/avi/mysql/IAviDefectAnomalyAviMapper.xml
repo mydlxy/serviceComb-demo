@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.avi.mapper.IAviDefectAnomalyAviMapper">
+
+    <resultMap type="com.ca.mfd.prc.avi.entity.AviDefectAnomalyAviEntity" id="aviDefectAnomalyAviMap">
+        <result property="id" column="PRC_AVI_DEFECT_ANOMALY_AVI_ID"/>
+        <result property="pqsDefectAnomalyCode" column="PQS_DEFECT_ANOMALY_CODE"/>
+        <result property="pqsDefectAnomalyDescription" column="PQS_DEFECT_ANOMALY_DESCRIPTION"/>
+        <result property="aviCode" column="AVI_CODE"/>
+        <result property="aviName" column="AVI_NAME"/>
+    </resultMap>
+
+
+</mapper>
