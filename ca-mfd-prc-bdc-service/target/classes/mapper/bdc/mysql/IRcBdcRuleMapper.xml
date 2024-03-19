@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.bdc.mapper.IRcBdcRuleMapper">
+
+    <resultMap type="com.ca.mfd.prc.bdc.entity.RcBdcRuleEntity" id="rcBdcRuleMap">
+        <result property="id" column="PRC_BDC_RULE_ID"/>
+        <result property="ruleCode" column="RULE_CODE"/>
+        <result property="ruleName" column="RULE_NAME"/>
+        <result property="ruleType" column="RULE_TYPE"/>
+        <result property="paramName" column="PARAM_NAME"/>
+        <result property="paramRequired" column="PARAM_REQUIRED"/>
+        <result property="paramType" column="PARAM_TYPE"/>
+    </resultMap>
+
+
+</mapper>

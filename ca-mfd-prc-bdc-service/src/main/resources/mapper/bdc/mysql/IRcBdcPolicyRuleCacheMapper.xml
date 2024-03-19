@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.bdc.mapper.IRcBdcPolicyRuleCacheMapper">
+
+    <resultMap type="com.ca.mfd.prc.bdc.entity.RcBdcPolicyRuleCacheEntity" id="rcBdcPolicyRuleCacheMap">
+        <result property="id" column="PRC_BDC_POLICY_RULE_CACHE_ID"/>
+        <result property="prcBdcRouteAreaId" column="PRC_BDC_ROUTE_AREA_ID"/>
+        <result property="prcBdcRoutePointId" column="PRC_BDC_ROUTE_POINT_ID"/>
+        <result property="pointType" column="POINT_TYPE"/>
+        <result property="prcBdcPolicyRuleId" column="PRC_BDC_POLICY_RULE_ID"/>
+        <result property="paramValue" column="PARAM_VALUE"/>
+        <result property="dynamicValue" column="DYNAMIC_VALUE"/>
+        <result property="reqNo" column="REQ_NO"/>
+    </resultMap>
+
+
+</mapper>

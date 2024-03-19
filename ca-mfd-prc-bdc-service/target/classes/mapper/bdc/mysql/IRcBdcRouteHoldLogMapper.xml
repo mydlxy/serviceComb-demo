@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.bdc.mapper.IRcBdcRouteHoldLogMapper">
+
+    <resultMap type="com.ca.mfd.prc.bdc.entity.RcBdcRouteHoldLogEntity" id="rcBdcRouteHoldLogMap">
+        <result property="id" column="PRC_BDC_ROUTE_HOLD_LOG_ID"/>
+        <result property="prcBdcRouteAreaId" column="PRC_BDC_ROUTE_AREA_ID"/>
+        <result property="bufferCode" column="BUFFER_CODE"/>
+        <result property="areaCode" column="AREA_CODE"/>
+        <result property="areaName" column="AREA_NAME"/>
+        <result property="holdReason" column="HOLD_REASON"/>
+        <result property="holdDt" column="HOLD_DT"/>
+        <result property="holdId" column="HOLD_ID"/>
+        <result property="holdName" column="HOLD_NAME"/>
+        <result property="cancelReason" column="CANCEL_REASON"/>
+        <result property="cancelDt" column="CANCEL_DT"/>
+        <result property="cancelId" column="CANCEL_ID"/>
+        <result property="cancelName" column="CANCEL_NAME"/>
+        <result property="sn" column="SN"/>
+    </resultMap>
+
+
+</mapper>
