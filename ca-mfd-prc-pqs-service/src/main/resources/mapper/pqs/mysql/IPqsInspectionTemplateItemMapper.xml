@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pqs.mapper.IPqsInspectionTemplateItemMapper">
+
+    <resultMap type="com.ca.mfd.prc.pqs.entity.PqsInspectionTemplateItemEntity" id="pqsInspectionTemplateItemMap">
+        <result property="id" column="PRC_PQS_INSPECTION_TEMPLATE_ITEM_ID"/>
+        <result property="prcPqsInspectionTemplateId" column="PRC_PQS_INSPECTION_TEMPLATE_ID"/>
+        <result property="groupName" column="GROUP_NAME"/>
+        <result property="displayNo" column="DISPLAY_NO"/>
+        <result property="itemTypeCode" column="ITEM_TYPE_CODE"/>
+        <result property="itemTypeName" column="ITEM_TYPE_NAME"/>
+        <result property="standard" column="STANDARD"/>
+        <result property="itemCode" column="ITEM_CODE"/>
+        <result property="itemName" column="ITEM_NAME"/>
+        <result property="target" column="TARGET"/>
+        <result property="lowerLimit" column="LOWER_LIMIT"/>
+        <result property="upperLimit" column="UPPER_LIMIT"/>
+        <result property="unit" column="UNIT"/>
+        <result property="remark" column="REMARK"/>
+    </resultMap>
+
+    <select id="getTempalteDetail" resultType="com.ca.mfd.prc.pqs.dto.PqsInspectionTemplateItemDto">
+        select templateDetail.PRC_PQS_INSPECTION_TEMPLATE_ITEM_ID as id,
+               templateDetail.PRC_PQS_INSPECTION_TEMPLATE_ID      as inspectTemplateId,
+               templateDetail.GROUP_NAME                          as groupName,
+               templateDetail.DISPLAY_NO                          as displayNo,
+               -- inspectItem.INSPECTION_ITEM_ID as InspectItemId,
+               inspectItem.ITEM_CODE                              as code,
+               inspectItem.ITEM_NAME                              as name,
+               inspectItem.STANDARD                               as standard,
+               -- templateDetail.CHECK_WAY as CheckWay,
+               -- templateDetail.CHECK_ATTRIBUTE as CheckAttribute,
+               templateDetail.REMARK                              as remark,
+               inspectItem.RESULT_TYPE                            as ResultType,
+               inspectItem.LOWER_LIMIT                            as LowerLimit,
+               inspectItem.UPPER_LIMIT                            as UpperLimit,
+               inspectItem.TARGET                                 as Target,
+               inspectItem.UNIT                                   as Unit
+        from PRC_PQS_INSPECTION_TEMPLATE_ITEM templateDetail
+                 inner join PQS_INSPECTION_ITEM inspectItem
+                            on inspectItem.INSPECTION_ITEM_ID = templateDetail.PQS_INSPECTION_ITEM_ID
+        where templateDetail.PQS_INSPECTION_TEMPLATE_ID = #{templateId}
+          and templateDetail.FLAGS = 1
+          and inspectItem.FLAGS = 1
+        order by templateDetail.DISPLAY_NO
+    </select>
+
+</mapper>

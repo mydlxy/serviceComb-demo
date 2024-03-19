@@ -1,0 +1,1579 @@
+[{
+	"featureName": "featureName",
+	"lowerLimit": 1.0,
+	"upperLimit": 5.0,
+	"featureValueList": [	
+        {
+ "conditionValue":"2017-03-02 12:47:08",
+ "featureValue": 6.724,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 12:49:30",
+ "featureValue": 5.6172,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 12:50:33",
+ "featureValue": 6.5383,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 12:51:31",
+ "featureValue": 6.4421,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 12:52:41",
+ "featureValue": 5.624,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 12:53:40",
+ "featureValue": 5.4848,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 12:55:06",
+ "featureValue": 5.8457,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 12:55:57",
+ "featureValue": 6.2067,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 12:57:01",
+ "featureValue": 5.392,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 12:58:06",
+ "featureValue": 6.1001,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 12:58:51",
+ "featureValue": 6.4163,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 12:59:35",
+ "featureValue": 6.1671,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:00:43",
+ "featureValue": 5.8457,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:02:20",
+ "featureValue": 6.2393,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:03:24",
+ "featureValue": 5.6309,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:04:20",
+ "featureValue": 5.7925,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:05:28",
+ "featureValue": 5.6292,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:07:14",
+ "featureValue": 6.3905,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:08:10",
+ "featureValue": 6.2135,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:09:05",
+ "featureValue": 6.351,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:09:57",
+ "featureValue": 5.9609,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:11:55",
+ "featureValue": 5.7409,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:12:51",
+ "featureValue": 5.9059,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:13:46",
+ "featureValue": 5.9334,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:14:05",
+ "featureValue": 6.5366,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:14:42",
+ "featureValue": 5.6962,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:15:32",
+ "featureValue": 5.7581,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:16:25",
+ "featureValue": 5.5192,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:17:29",
+ "featureValue": 6.1946,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:18:21",
+ "featureValue": 5.9987,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:19:43",
+ "featureValue": 7.2292,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:20:36",
+ "featureValue": 6.4971,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:21:31",
+ "featureValue": 5.8698,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:22:27",
+ "featureValue": 5.8939,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:23:20",
+ "featureValue": 6.1637,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:23:50",
+ "featureValue": 6.2833,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:24:33",
+ "featureValue": 6.0846,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:25:39",
+ "featureValue": 5.8131,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:26:35",
+ "featureValue": 6.815,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:27:33",
+ "featureValue": 6.6105,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:28:37",
+ "featureValue": 6.7618,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:30:02",
+ "featureValue": 6.2427,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:30:57",
+ "featureValue": 6.1345,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:32:08",
+ "featureValue": 6.1035,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:33:20",
+ "featureValue": 5.7478,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:34:17",
+ "featureValue": 5.7014,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:35:16",
+ "featureValue": 5.9764,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:35:43",
+ "featureValue": 6.2342,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:36:14",
+ "featureValue": 6.2187,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:37:02",
+ "featureValue": 6.5461,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:38:06",
+ "featureValue": 6.1259,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:39:18",
+ "featureValue": 5.722,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:39:58",
+ "featureValue": 5.4264,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:40:39",
+ "featureValue": 6.4095,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:41:24",
+ "featureValue": 6.3441,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:42:38",
+ "featureValue": 6.4902,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:43:32",
+ "featureValue": 6.0365,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:44:25",
+ "featureValue": 5.5295,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:45:23",
+ "featureValue": 5.8182,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:46:49",
+ "featureValue": 6.3562,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:47:45",
+ "featureValue": 6.418,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:48:54",
+ "featureValue": 6.3699,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:49:18",
+ "featureValue": 6.4473,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:49:55",
+ "featureValue": 5.6889,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:50:01",
+ "featureValue": 6.284,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:51:01",
+ "featureValue": 12.1909,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:51:57",
+ "featureValue": 5.7478,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:53:03",
+ "featureValue": 5.4642,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:53:45",
+ "featureValue": 6.1035,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:54:25",
+ "featureValue": 5.8612,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:55:05",
+ "featureValue": 6.1774,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:55:57",
+ "featureValue": 6.7085,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:56:47",
+ "featureValue": 6.0795,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:57:39",
+ "featureValue": 6.162,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 13:58:30",
+ "featureValue": 5.9609,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 14:01:12",
+ "featureValue": 5.9987,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 14:02:20",
+ "featureValue": 5.9386,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 14:03:10",
+ "featureValue": 5.655,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 14:03:20",
+ "featureValue": 5.9764,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 14:04:13",
+ "featureValue": 6.3304,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 14:05:43",
+ "featureValue": 5.8079,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 14:06:27",
+ "featureValue": 5.9007,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 14:07:26",
+ "featureValue": 6.3321,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 14:08:23",
+ "featureValue": 5.985,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 14:09:30",
+ "featureValue": 5.9351,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 14:11:33",
+ "featureValue": 5.6894,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 14:11:56",
+ "featureValue": 56.3402,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 14:12:14",
+ "featureValue": 13.8327,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 14:12:21",
+ "featureValue": 6.1139,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 14:14:33",
+ "featureValue": 6.241,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 14:15:32",
+ "featureValue": 6.6174,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 14:16:24",
+ "featureValue": 6.5796,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 14:17:15",
+ "featureValue": 6.2015,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 14:18:06",
+ "featureValue": 5.6189,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 14:18:58",
+ "featureValue": 5.8148,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 14:19:49",
+ "featureValue": 5.7598,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 14:20:50",
+ "featureValue": 5.9317,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 14:21:50",
+ "featureValue": 5.7736,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 14:38:15",
+ "featureValue": 6.4009,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 14:38:56",
+ "featureValue": 6.1242,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 14:40:08",
+ "featureValue": 6.1413,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 14:41:49",
+ "featureValue": 5.6378,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 14:42:35",
+ "featureValue": 5.6412,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 14:44:23",
+ "featureValue": 5.8612,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 14:45:20",
+ "featureValue": 5.734,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 14:46:06",
+ "featureValue": 5.7753,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 14:46:51",
+ "featureValue": 6.3355,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 14:47:37",
+ "featureValue": 6.0795,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 14:51:30",
+ "featureValue": 6.0503,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 14:52:11",
+ "featureValue": 6.0778,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 14:52:52",
+ "featureValue": 6.1551,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 14:53:32",
+ "featureValue": 5.7392,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 14:53:32",
+ "featureValue": 5.9643,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 14:54:12",
+ "featureValue": 6.4043,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 14:56:00",
+ "featureValue": 5.7959,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 14:56:41",
+ "featureValue": 5.9282,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 14:57:21",
+ "featureValue": 6.052,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 14:58:02",
+ "featureValue": 5.4831,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 14:59:01",
+ "featureValue": 5.7598,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 14:59:53",
+ "featureValue": 5.9901,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 15:00:45",
+ "featureValue": 5.8028,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 15:01:36",
+ "featureValue": 6.2256,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 15:02:27",
+ "featureValue": 5.6155,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 15:03:21",
+ "featureValue": 6.3184,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 15:04:16",
+ "featureValue": 6.2857,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 15:05:17",
+ "featureValue": 5.6017,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 15:06:11",
+ "featureValue": 6.1534,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 15:07:06",
+ "featureValue": 6.504,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 15:08:00",
+ "featureValue": 5.3559,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 15:08:51",
+ "featureValue": 6.2118,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 15:10:22",
+ "featureValue": 6.461,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 15:11:19",
+ "featureValue": 6.0296,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 15:12:06",
+ "featureValue": 6.2307,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 15:12:53",
+ "featureValue": 5.6859,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 15:13:37",
+ "featureValue": 6.1637,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 15:14:22",
+ "featureValue": 15.5576,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 15:14:28",
+ "featureValue": 6.0503,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 15:15:45",
+ "featureValue": 6.1981,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 15:17:19",
+ "featureValue": 5.8389,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 15:18:48",
+ "featureValue": 5.6017,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 15:20:19",
+ "featureValue": 5.5209,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 15:25:19",
+ "featureValue": 6.1534,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 15:26:02",
+ "featureValue": 5.5106,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 15:26:49",
+ "featureValue": 6.241,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 15:28:00",
+ "featureValue": 5.9351,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 15:31:08",
+ "featureValue": 5.6326,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 15:32:05",
+ "featureValue": 6.2462,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 15:32:59",
+ "featureValue": 5.7701,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 15:34:03",
+ "featureValue": 6.0984,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 15:36:30",
+ "featureValue": 6.3046,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 15:38:49",
+ "featureValue": 5.6378,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 15:39:43",
+ "featureValue": 6.5555,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 15:42:27",
+ "featureValue": 5.8165,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 15:45:32",
+ "featureValue": 6.1001,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 15:47:10",
+ "featureValue": 6.2874,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 15:48:06",
+ "featureValue": 5.8664,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 15:49:40",
+ "featureValue": 6.0451,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 15:49:56",
+ "featureValue": 6.4902,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 15:49:59",
+ "featureValue": 17.015,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 15:50:56",
+ "featureValue": 6.4954,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 15:51:57",
+ "featureValue": 6.174,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 15:53:06",
+ "featureValue": 5.679,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 15:54:07",
+ "featureValue": 5.7186,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 15:55:03",
+ "featureValue": 6.5865,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 15:55:47",
+ "featureValue": 6.4009,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 15:57:32",
+ "featureValue": 6.5126,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 15:58:42",
+ "featureValue": 6.3218,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 15:59:43",
+ "featureValue": 6.1276,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 16:00:43",
+ "featureValue": 6.2101,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 16:02:33",
+ "featureValue": 6.1912,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 16:03:34",
+ "featureValue": 6.2496,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 16:05:11",
+ "featureValue": 5.7169,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 16:05:50",
+ "featureValue": 6.2462,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 16:06:30",
+ "featureValue": 5.7169,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 16:07:13",
+ "featureValue": 9.2434,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 16:09:56",
+ "featureValue": 5.8492,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 16:11:09",
+ "featureValue": 6.0073,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 16:11:51",
+ "featureValue": 6.0881,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 16:12:42",
+ "featureValue": 6.1792,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 16:14:10",
+ "featureValue": 5.7873,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 16:16:01",
+ "featureValue": 6.0331,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 16:16:54",
+ "featureValue": 6.2204,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 16:17:50",
+ "featureValue": 5.7633,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 16:20:16",
+ "featureValue": 8.9616,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 16:20:56",
+ "featureValue": 5.9076,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 16:21:37",
+ "featureValue": 5.722,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 16:22:18",
+ "featureValue": 5.8698,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 16:23:00",
+ "featureValue": 5.9695,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 16:24:58",
+ "featureValue": 5.5433,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 16:25:59",
+ "featureValue": 5.6275,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 16:30:27",
+ "featureValue": 5.5003,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 16:31:07",
+ "featureValue": 5.6275,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 16:31:48",
+ "featureValue": 5.8715,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 16:32:28",
+ "featureValue": 5.6395,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 16:33:12",
+ "featureValue": 5.7908,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 16:34:02",
+ "featureValue": 5.6808,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 16:34:50",
+ "featureValue": 5.7186,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 16:35:41",
+ "featureValue": 5.5691,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 16:35:50",
+ "featureValue": 5.8337,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 16:36:34",
+ "featureValue": 5.9815,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 16:37:25",
+ "featureValue": 5.6533,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 16:38:15",
+ "featureValue": 5.478,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 16:39:01",
+ "featureValue": 6.296,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 16:39:49",
+ "featureValue": 5.8578,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 16:40:47",
+ "featureValue": 5.3353,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 16:42:31",
+ "featureValue": 5.7169,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 16:43:21",
+ "featureValue": 5.9025,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 16:44:12",
+ "featureValue": 5.5484,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 16:46:25",
+ "featureValue": 5.8028,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 16:47:37",
+ "featureValue": 6.0485,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 16:48:42",
+ "featureValue": 5.5897,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 16:49:38",
+ "featureValue": 6.2067,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 16:50:23",
+ "featureValue": 6.1895,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 16:50:32",
+ "featureValue": 5.4797,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 16:51:28",
+ "featureValue": 6.0451,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 16:52:24",
+ "featureValue": 5.8543,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 16:54:56",
+ "featureValue": 5.7598,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 16:55:36",
+ "featureValue": 5.9506,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 16:56:17",
+ "featureValue": 5.71,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 16:56:57",
+ "featureValue": 5.82,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 16:57:43",
+ "featureValue": 56.3419,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 16:58:38",
+ "featureValue": 6.901,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 17:08:42",
+ "featureValue": 6.7515,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 17:09:41",
+ "featureValue": 5.5725,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 17:10:37",
+ "featureValue": 6.3046,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 17:11:33",
+ "featureValue": 6.0537,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 17:13:38",
+ "featureValue": 6.2221,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 17:14:34",
+ "featureValue": 5.5519,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 17:15:27",
+ "featureValue": 6.0503,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 17:16:08",
+ "featureValue": 5.8973,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 17:17:16",
+ "featureValue": 6.724,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 17:18:30",
+ "featureValue": 5.9007,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 17:20:37",
+ "featureValue": 6.2651,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 17:21:17",
+ "featureValue": 5.7443,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 17:22:21",
+ "featureValue": 5.9351,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 17:23:43",
+ "featureValue": 5.8887,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 17:24:23",
+ "featureValue": 45.6195,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 17:28:21",
+ "featureValue": 6.6346,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 17:28:28",
+ "featureValue": 5.5759,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 17:29:15",
+ "featureValue": 5.7822,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 17:29:57",
+ "featureValue": 6.382,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 17:30:44",
+ "featureValue": 5.8028,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 17:31:24",
+ "featureValue": 6.2891,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 17:32:21",
+ "featureValue": 6.2496,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 17:33:22",
+ "featureValue": 5.9179,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 17:34:35",
+ "featureValue": 5.6756,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 17:35:29",
+ "featureValue": 6.1053,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 17:36:33",
+ "featureValue": 5.8028,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 17:37:27",
+ "featureValue": 5.9506,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 17:38:31",
+ "featureValue": 5.777,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 17:49:11",
+ "featureValue": 49.9229,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 17:50:57",
+ "featureValue": 6.2359,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 17:51:54",
+ "featureValue": 5.9179,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 17:52:36",
+ "featureValue": 6.0193,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 17:53:21",
+ "featureValue": 5.7787,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 17:54:09",
+ "featureValue": 5.7014,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 17:54:59",
+ "featureValue": 6.7325,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 17:55:42",
+ "featureValue": 5.8887,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 17:56:42",
+ "featureValue": 5.5622,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 17:57:29",
+ "featureValue": 7.7482,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 17:58:13",
+ "featureValue": 6.583,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 17:58:55",
+ "featureValue": 6.2342,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 17:59:55",
+ "featureValue": 5.8904,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 18:01:55",
+ "featureValue": 5.7014,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 18:02:56",
+ "featureValue": 6.0932,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 18:03:39",
+ "featureValue": 5.9386,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 18:04:34",
+ "featureValue": 6.1654,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 18:05:16",
+ "featureValue": 5.2941,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 18:08:10",
+ "featureValue": 6.0296,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 18:09:17",
+ "featureValue": 8.3257,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 18:10:03",
+ "featureValue": 5.7684,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 18:11:18",
+ "featureValue": 5.9093,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 18:14:16",
+ "featureValue": 5.7822,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 18:15:34",
+ "featureValue": 6.0399,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 18:16:23",
+ "featureValue": 6.5366,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 18:17:06",
+ "featureValue": 6.4559,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 18:17:49",
+ "featureValue": 5.6876,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 18:19:35",
+ "featureValue": 6.1104,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 18:20:16",
+ "featureValue": 6.0881,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 18:21:45",
+ "featureValue": 6.0107,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 18:22:27",
+ "featureValue": 6.284,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 18:25:41",
+ "featureValue": 5.4934,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 18:26:22",
+ "featureValue": 6.2204,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 18:27:04",
+ "featureValue": 5.7736,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 18:27:45",
+ "featureValue": 6.1637,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 18:28:25",
+ "featureValue": 6.0073,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 18:29:05",
+ "featureValue": 6.2977,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 18:29:46",
+ "featureValue": 6.3596,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 18:30:33",
+ "featureValue": 6.1035,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 18:31:31",
+ "featureValue": 6.5246,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 18:32:27",
+ "featureValue": 6.0606,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 18:33:12",
+ "featureValue": 5.8286,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 18:33:47",
+ "featureValue": 6.0193,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 18:34:43",
+ "featureValue": 6.0348,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 18:36:19",
+ "featureValue": 6.3046,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 18:37:18",
+ "featureValue": 5.6739,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 18:38:03",
+ "featureValue": 5.624,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 18:39:07",
+ "featureValue": 6.0984,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 18:40:27",
+ "featureValue": 5.4539,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 18:41:39",
+ "featureValue": 5.5742,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 18:42:19",
+ "featureValue": 5.9592,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 18:43:04",
+ "featureValue": 6.7738,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 18:44:02",
+ "featureValue": 5.734,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 18:45:49",
+ "featureValue": 5.6584,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 18:46:29",
+ "featureValue": 5.9832,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 18:47:04",
+ "featureValue": 17.1972,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 18:47:12",
+ "featureValue": 56.3763,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 18:48:58",
+ "featureValue": 6.473,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 18:50:05",
+ "featureValue": 5.875,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 18:50:58",
+ "featureValue": 5.6773,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 18:51:46",
+ "featureValue": 5.4006,
+  "isSpcParam": true
+        },
+        {
+ "conditionValue":"2017-03-02 18:52:32",
+ "featureValue": 5.7993,
+  "isSpcParam": true
+        },
+      {
+        "conditionValue":"2017-03-02 18:52:32",
+        "featureValue": 7.7654,
+        "isSpcParam": true
+      },
+      {
+        "conditionValue":"2017-03-02 18:52:32",
+        "featureValue": 6.2806,
+        "isSpcParam": true
+      }
+	],
+	"unit": "mm",
+	"fileType": "json"
+}]

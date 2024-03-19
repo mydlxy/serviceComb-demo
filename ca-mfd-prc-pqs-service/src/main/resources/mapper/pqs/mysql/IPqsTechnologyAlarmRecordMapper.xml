@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pqs.mapper.IPqsTechnologyAlarmRecordMapper">
+
+    <resultMap type="com.ca.mfd.prc.pqs.entity.PqsTechnologyAlarmRecordEntity" id="pqsTechnologyAlarmRecordMap">
+        <result property="id" column="PRC_PQS_TECHNOLOGY_ALARM_RECORD_ID"/>
+        <result property="policyNo" column="POLICY_NO"/>
+        <result property="controlProperty" column="CONTROL_PROPERTY"/>
+        <result property="aera" column="AERA"/>
+        <result property="pointCode" column="POINT_CODE"/>
+        <result property="yzd" column="YZD"/>
+        <result property="pdyg" column="PDYG"/>
+        <result property="tcd" column="TCD"/>
+        <result property="rpn" column="RPN"/>
+        <result property="isOverproof" column="IS_OVERPROOF"/>
+        <result property="isStop" column="IS_STOP"/>
+        <result property="counter" column="COUNTER"/>
+        <result property="handleMethod" column="HANDLE_METHOD"/>
+        <result property="remark" column="REMARK"/>
+        <result property="resultValue" column="RESULT_VALUE"/>
+        <result property="upperLimit" column="UPPER_LIMIT"/>
+        <result property="lowerLimit" column="LOWER_LIMIT"/>
+        <result property="alarmDt" column="ALARM_DT"/>
+        <result property="isSend" column="IS_SEND"/>
+        <result property="sendDate" column="SEND_DATE"/>
+    </resultMap>
+
+
+</mapper>

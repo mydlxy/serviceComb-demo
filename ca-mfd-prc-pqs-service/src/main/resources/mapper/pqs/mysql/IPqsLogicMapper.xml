@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pqs.mapper.IPqsLogicMapper">
+
+
+    <select id="getAnomalyWpByWorkPlaceAndSn" resultType="com.ca.mfd.prc.pqs.dto.GetAnomalyWpByWorkPlaceAndSnInfo">
+        select pda.PRC_PQS_DEFECT_ANOMALY_ID  as anomalyId,
+               pda.DEFECT_ANOMALY_DESCRIPTION as description,
+               0                              as isActivate
+        from PRC_PQS_DEFECT_ANOMALY_WP paw
+                 inner join PRC_PQS_DEFECT_ANOMALY pda on paw.DEFECT_ANOMALY_CODE = pda.DEFECT_ANOMALY_CODE
+        where paw.WORKSTATION_CODE = #{workplaceId}
+          and paw.IS_DELETE = 0
+          and pda.IS_DELETE = 0
+    </select>
+
+    <select id="getQualityGateByWorkplaceId" resultType="com.ca.mfd.prc.common.model.base.dto.ComboInfoDTO">
+        select pqg.ITEM_NAME as Text,
+               pqg.PRC_PQS_QUALITY_GATE_ID as Value
+        from PRC_PQS_QUALITY_GATE_WORKSTATION pqgw
+            inner join PRC_PQS_QUALITY_GATE pqg
+        on pqgw.PRC_PQS_QUALITY_GATE_ID = pqg.PRC_PQS_QUALITY_GATE_ID
+        where pqgw.WORKSTATION_CODE = #{workplaceId}
+          and pqg.MODELS like concat('%'
+            , #{model}
+            , '%')
+          and pqgw.IS_DELETE = 0
+          and pqg.IS_DELETE= 0
+        order by pqg.ITEM_NAME desc
+    </select>
+
+    <select id="getAnomalyListByWorkPlaceId" resultType="com.ca.mfd.prc.pqs.dto.DefectShowInfo">
+        select pdaw.PQS_DEFECT_ANOMALY_ID     as Id,
+               pda.DEFECT_ANOMALY_CODE        as Code,
+               pda.DEFECT_ANOMALY_DESCRIPTION as Description
+        from PRC_PQS_DEFECT_ANOMALY_WP pdaw
+                 inner join PRC_PQS_DEFECT_ANOMALY pda on pdaw.DEFECT_ANOMALY_CODE = pda.DEFECT_ANOMALY_CODE
+        where pdaw.WORKSTATION_CODE = #{workplaceId}
+          and pdaw.IS_DELETE = 0
+          and pda.IS_DELETE = 0
+        order by pda.DEFECT_ANOMALY_DESCRIPTION desc
+    </select>
+
+    <select id="getAnomalyComponent" resultType="com.ca.mfd.prc.common.model.base.dto.ComboInfoDTO">
+        select distinct pdc.DEFECT_COMPONENT_CODE as Value,
+        concat(pdc.GROUP_NAME,'_',pdc.SUB_GROUP_NAME,'_',pdc.DEFECT_COMPONENT_DESCRIPTION) as Text
+        from PRC_PQS_DEFECT_COMPONENT pdc
+        inner join PRC_PQS_DEFECT_ANOMALY pcc on pdc.DEFECT_COMPONENT_CODE = pcc.COMPONENT_CODE
+        where pdc.IS_DELETE = 0 and pcc.IS_DELETE= 0
+        <if test="key != ''">
+            and (pdc.DEFECT_COMPONENT_CODE like concat('%',#{key},'%') or pdc.DEFECT_COMPONENT_DESCRIPTION like
+            concat('%',#{key},'%')
+            or pdc.GROUP_NAME like concat('%',#{key},'%') or pdc.SUB_GROUP_NAME like concat('%',#{key},'%'))
+        </if>
+        order by concat(pdc.GROUP_NAME,'_',pdc.SUB_GROUP_NAME,'_',pdc.DEFECT_COMPONENT_DESCRIPTION) desc limit 20
+    </select>
+
+    <select id="getAnomalyPosition" resultType="com.ca.mfd.prc.common.model.base.dto.ComboInfoDTO">
+        select distinct pdp.DEFECT_POSITION_CODE as Value,
+            concat(pdp.GROUP_NAME,'_',pdp.SUB_GROUP_NAME,'_',pdp.DEFECT_POSITION_DESCRIPTION) as Text
+        from PRC_PQS_DEFECT_POSITION pdp
+            inner join (select * from PRC_PQS_DEFECT_ANOMALY where COMPONENT_CODE=#{componentCode}) pda
+        on pdp.DEFECT_POSITION_CODE = pda.POSITION_CODE
+        where pdp.IS_DELETE = 0 and pda.IS_DELETE= 0
+        order by concat(pdp.GROUP_NAME, '_', pdp.SUB_GROUP_NAME, '_', pdp.DEFECT_POSITION_DESCRIPTION) desc
+    </select>
+
+    <select id="getAnomalyCode" resultType="com.ca.mfd.prc.common.model.base.dto.ComboInfoDTO">
+        select pda.PRC_PQS_DEFECT_ANOMALY_ID as Value,
+            concat(pdc.GROUP_NAME,'_',pdc.SUB_GROUP_NAME,'_',pdc.DEFECT_COMPONENT_DESCRIPTION) as Text
+        from PRC_PQS_DEFECT_ANOMALY pda
+            inner join PRC_PQS_DEFECT_CODE pdc
+        on pda.COMPONENT_CODE = pdc.DEFECT_COMPONENT_CODE
+        where pda.COMPONENT_CODE = #{componentCode}
+          and pda.POSITION_CODE = #{positionCode}
+          and pda.IS_DELETE = 0
+          and pdc.IS_DELETE= 0
+        order by concat(pdc.GROUP_NAME, '_', pdc.SUB_GROUP_NAME, '_', pdc.DEFECT_COMPONENT_DESCRIPTION) desc
+    </select>
+
+    <select id="getGateAnomalyListInfo" resultType="com.ca.mfd.prc.pqs.dto.GetGateAnomalyListInfo">
+        select pda.COMPONENT_CODE            as ComponentCode,
+               pda.POSITION_CODE             as PositionCode,
+               pda.PRC_PQS_DEFECT_ANOMALY_ID as Id
+        from PRC_PQS_QUALITY_GATE_ANOMALY pqga
+                 inner join PRC_PQS_DEFECT_ANOMALY pda on pqga.DEFECT_ANOMALY_CODE = pda.DEFECT_ANOMALY_CODE
+        where pqga.PRC_PQS_QUALITY_GATE_BLANK_ID = #{gateBlankId}
+          and pqga.IS_DELETE = 0
+          and pda.IS_DELETE = 0
+    </select>
+
+    <select id="getDefectAnomalyWpListInfo" resultType="com.ca.mfd.prc.pqs.dto.DefectAnomalyDto">
+        select pda.DEFECT_ANOMALY_CODE        as defectAnomalyCode,
+               pda.DEFECT_ANOMALY_DESCRIPTION as defectAnomalyDescription,
+               pda.GRADE_CODE                 as gradeCode,
+               pda.GRADE_NAME                 as gradeName,
+               pda.RESPONSIBLE_DEPT_CODE      as responsibleDeptCode,
+               pda.RESPONSIBLE_DEPT_NAME      as responsibleDeptName,
+               pda.SHORT_CODE                 as shortCode
+        from PRC_PQS_DEFECT_ANOMALY_WP pdaw
+                 inner join PRC_PQS_DEFECT_ANOMALY pda on pdaw.DEFECT_ANOMALY_CODE = pda.DEFECT_ANOMALY_CODE
+        where pdaw.WORKSTATION_CODE = #{workstationCode}
+          and pdaw.IS_DELETE = 0
+          and pda.IS_DELETE = 0
+        order by pda.DEFECT_ANOMALY_DESCRIPTION desc
+    </select>
+
+    <select id="getQualityGateByWorkstationCode" resultType="com.ca.mfd.prc.common.model.base.dto.ComboInfoDTO">
+        select pqg.PRC_PQS_QUALITY_GATE_ID as Value,
+            pqg.ITEM_NAME as Text
+        from PRC_PQS_QUALITY_GATE_WORKSTATION pqgw
+            inner join PRC_PQS_QUALITY_GATE pqg
+        on pqgw.PRC_PQS_QUALITY_GATE_ID = pqg.PRC_PQS_QUALITY_GATE_ID
+            inner join PRC_PQS_QUALITY_GATE_TC tc on pqg.PRC_PQS_QUALITY_GATE_ID = tc.PRC_PQS_QUALITY_GATE_ID
+        where pqgw.WORKSTATION_CODE = #{workstationCode}
+          and tc.MODEL = #{model}
+          and pqgw.IS_DELETE = 0
+          and pqg.IS_DELETE = 0
+          and tc.IS_DELETE = 0
+        order by pqg.DISPLAY_NO desc
+    </select>
+
+    <select id="getGateAnomalyByGateBlankIdAndSn" resultType="com.ca.mfd.prc.pqs.dto.DefectAnomalyDto">
+        select pda.DEFECT_ANOMALY_CODE        as defectAnomalyCode,
+               pda.DEFECT_ANOMALY_DESCRIPTION as defectAnomalyDescription,
+               pda.GRADE_CODE                 as gradeCode,
+               pda.GRADE_NAME                 as gradeName,
+               pda.RESPONSIBLE_DEPT_CODE      as responsibleDeptCode,
+               pda.RESPONSIBLE_DEPT_NAME      as responsibleDeptName,
+               pda.SHORT_CODE                 as shortCode,
+               (CASE WHEN pvda.PRC_PQS_PRODUCT_DEFECT_ANOMALY_ID IS NULL THEN FALSE ELSE TRUE END)   as isActived
+        from PRC_PQS_QUALITY_GATE_ANOMALY pqga
+                 inner join PRC_PQS_DEFECT_ANOMALY pda on pqga.DEFECT_ANOMALY_CODE = pda.DEFECT_ANOMALY_CODE
+                 left join (SELECT *
+                            FROM PRC_PQS_PRODUCT_DEFECT_ANOMALY
+                            WHERE STATUS != 4 AND SN = #{sn} AND IS_DELETE = 0) pvda
+                           on pqga.DEFECT_ANOMALY_CODE = pvda.DEFECT_ANOMALY_CODE
+        where pqga.PRC_PQS_QUALITY_GATE_BLANK_ID = #{qualityGateBlankId}
+          and pqga.IS_DELETE = 0
+          and pda.IS_DELETE = 0
+        order by pda.DEFECT_ANOMALY_DESCRIPTION desc
+    </select>
+
+    <select id="getQualityMatrikByWorkstationCode" resultType="com.ca.mfd.prc.common.model.base.dto.ComboInfoDTO">
+        select pqm.PRC_PQS_QUALITY_MATRIK_ID as Value,
+            pqm.ITEM_NAME as Text
+        from PRC_PQS_QUALITY_MATRIK pqm
+            inner join PRC_PQS_QUALITY_MATRIK_WORKSTATION pqmw
+        on pqm.PRC_PQS_QUALITY_MATRIK_ID = pqmw.PRC_PQS_QUALITY_MATRIK_ID
+            inner join PRC_PQS_QUALITY_MATRIK_TC tc on pqm.PRC_PQS_QUALITY_MATRIK_ID = tc.PRC_PQS_QUALITY_MATRIK_ID
+        where pqmw.WORKSTATION_CODE = #{workstationCode}
+          and tc.MODEL = #{model}
+          and pqm.IS_DELETE = 0
+          and pqmw.IS_DELETE = 0
+          and tc.IS_DELETE = 0
+        order by pqm.DISPLAY_NO desc
+    </select>
+
+    <select id="getShowQGMatrikDataBySn" resultType="com.ca.mfd.prc.pqs.dto.DefectAnomalyDto">
+        select pda.DEFECT_ANOMALY_CODE        as defectAnomalyCode,
+               pda.DEFECT_ANOMALY_DESCRIPTION as defectAnomalyDescription,
+               pda.GRADE_CODE                 as gradeCode,
+               pda.GRADE_NAME                 as gradeName,
+               pda.RESPONSIBLE_DEPT_CODE      as responsibleDeptCode,
+               pda.RESPONSIBLE_DEPT_NAME      as responsibleDeptName,
+               pda.SHORT_CODE                 as shortCode,
+               (CASE WHEN pvda.PRC_PQS_PRODUCT_DEFECT_ANOMALY_ID IS NULL THEN FALSE ELSE TRUE END)   as isActived
+        from PRC_PQS_QUALITY_MATRIK_ANOMALY pqma
+                 inner join PRC_PQS_DEFECT_ANOMALY pda on pqma.DEFECT_ANOMALY_CODE = pda.DEFECT_ANOMALY_CODE
+                 left join (SELECT *
+                            FROM PRC_PQS_PRODUCT_DEFECT_ANOMALY
+                            WHERE STATUS != 4 AND SN = #{sn} AND IS_DELETE = 0) pvda
+                           on pqma.DEFECT_ANOMALY_CODE = pvda.DEFECT_ANOMALY_CODE
+        where pqma.PRC_PQS_QUALITY_MATRIK_ID = #{qualityMatrikId}
+          and pqma.IS_DELETE = 0
+          and pda.IS_DELETE = 0
+        order by pda.DEFECT_ANOMALY_DESCRIPTION desc
+    </select>
+
+    <select id="getShowQgCheckListBySn" resultType="com.ca.mfd.prc.pqs.dto.ShowQgCheckListDto">
+        select pqcl.PRC_PQS_QG_CHECK_LIST_ID as id,
+               pqcl.DISPLAY_NO               as displayNo,
+               pqcl.GROUP                    as `group`,
+               pqcl.CONTENT                  as content,
+               (CASE WHEN ppqcl.PRC_PQS_PRODUCT_QG_CHECK_LIST_RECORD_ID IS NULL THEN 0 ELSE ppqcl.RESULT END)   as result
+        from PRC_PQS_QG_CHECK_LIST pqcl
+                 left join (SELECT * FROM PRC_PQS_PRODUCT_QG_CHECK_LIST_RECORD WHERE SN = #{sn} AND IS_DELETE = 0) ppqcl
+                           on pqcl.PRC_PQS_QG_CHECK_LIST_ID = ppqcl.PRC_PQS_QG_CHECK_LIST_ID
+        where pqcl.WORKSTATION_CODE = #{workstationCode}
+          and pqcl.MODEL = #{model}
+          and pqcl.IS_DELETE = 0
+        order by pqcl.GROUP, pqcl.DISPLAY_NO desc
+    </select>
+
+    <select id="getQgGateVarificationsResult" resultType="com.ca.mfd.prc.pqs.dto.QgGateVarificationDto"
+            parameterType="java.util.Map"
+            statementType="CALLABLE">
+        call sp_pqs_qg_gate_query( #{sn,mode=IN,jdbcType=VARCHAR},
+            #{workstationCode,mode=IN,jdbcType=VARCHAR}
+            )
+    </select>
+
+    <select id="getDefectAnomalyList"
+            resultType="com.ca.mfd.prc.pqs.dto.DefectAnomalyDto">
+        (select
+                 PRC_PQS_DEFECT_ANOMALY_ID as id,
+                 DEFECT_ANOMALY_CODE as defectAnomalyCode,
+                 DEFECT_ANOMALY_DESCRIPTION as defectAnomalyDescription,
+                 GRADE_CODE as gradeCode,
+                 GRADE_NAME as gradeName,
+                 RESPONSIBLE_DEPT_CODE as responsibleDeptCode,
+                 RESPONSIBLE_DEPT_NAME as responsibleDeptName,
+                 SHORT_CODE as shortCode,
+                 ATTRIBUTE1 as description
+        from PRC_PQS_DEFECT_ANOMALY
+        where 1=1 and IS_DELETE = 0
+            <if test="para.defectAnomalyCodes != null and para.defectAnomalyCodes.size() >0">
+                and DEFECT_ANOMALY_CODE in
+                <foreach collection="para.defectAnomalyCodes" item="supplierId" index="index" separator="," open="("
+                         close=")">
+                    #{para.defectAnomalyCodes[${index}]}
+                </foreach>
+            </if>
+            order by DEFECT_CODE_DESCRIPTION)
+        union all
+        select
+                PRC_PQS_DEFECT_ANOMALY_ID as id,
+                DEFECT_ANOMALY_CODE as defectAnomalyCode,
+                DEFECT_ANOMALY_DESCRIPTION as defectAnomalyDescription,
+                GRADE_CODE as gradeCode,
+                GRADE_NAME as gradeName,
+                RESPONSIBLE_DEPT_CODE as responsibleDeptCode,
+                RESPONSIBLE_DEPT_NAME as responsibleDeptName,
+                SHORT_CODE as shortCode,
+                ATTRIBUTE1 as description
+        from PRC_PQS_DEFECT_ANOMALY
+        where 1=1 and IS_DELETE = 0
+            <if test="para.defectAnomalyCodes != null and para.defectAnomalyCodes.size() >0">
+                and DEFECT_ANOMALY_CODE not in
+                <foreach collection="para.defectAnomalyCodes" item="supplierId" index="index" separator="," open="("
+                         close=")">
+                    #{para.defectAnomalyCodes[${index}]}
+                </foreach>
+            </if>
+            <if test="para.key != null and para.key !=''">
+                and (SHORT_CODE like CONCAT('%', #{para.key}, '%')
+                or
+                DEFECT_ANOMALY_CODE like CONCAT('%', #{para.key}, '%')
+                or
+                DEFECT_ANOMALY_DESCRIPTION like CONCAT('%', #{para.key}, '%')
+                )
+            </if>
+    </select>
+</mapper>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pqs.mapper.IPqsEntryStockInMapper">
+
+    <resultMap type="com.ca.mfd.prc.pqs.entity.PqsEntryStockInEntity" id="pqsEntryStockInMap">
+        <result property="id" column="PRC_PQS_ENTRY_STOCK_IN_ID"/>
+        <result property="inspectionNo" column="INSPECTION_NO"/>
+        <result property="entryType" column="ENTRY_TYPE"/>
+        <result property="wharehouseCode" column="WHAREHOUSE_CODE"/>
+        <result property="status" column="STATUS"/>
+        <result property="productImg" column="PRODUCT_IMG"/>
+        <result property="finalResult" column="FINAL_RESULT"/>
+        <result property="isTp" column="IS_TP"/>
+        <result property="remark" column="REMARK"/>
+        <result property="applyDt" column="APPLY_DT"/>
+        <result property="applyUserName" column="APPLY_USER_NAME"/>
+        <result property="qcDt" column="QC_DT"/>
+        <result property="qcUser" column="QC_USER"/>
+        <result property="outerNo" column="OUTER_NO"/>
+        <result property="wmsInStockNo" column="WMS_IN_STOCK_NO"/>
+        <result property="lotNo" column="LOT_NO"/>
+        <result property="materialNo" column="MATERIAL_NO"/>
+        <result property="materialName" column="MATERIAL_NAME"/>
+        <result property="inspectionType" column="INSPECTION_TYPE"/>
+        <result property="inspectionTypeDesc" column="INSPECTION_TYPE_DESC"/>
+        <result property="deliverierCode" column="DELIVERIER_CODE"/>
+        <result property="deliverierName" column="DELIVERIER_NAME"/>
+        <result property="firstResult" column="FIRST_RESULT"/>
+        <result property="specialCheckDt" column="SPECIAL_CHECK_DT"/>
+        <result property="specialCheckResult" column="SPECIAL_CHECK_RESULT"/>
+        <result property="specialCheckUser" column="SPECIAL_CHECK_USER"/>
+        <result property="specialCheckRemark" column="SPECIAL_CHECK_REMARK"/>
+        <result property="qty" column="QTY"/>
+        <result property="checkQty" column="CHECK_QTY"/>
+        <result property="unpassQty" column="UNPASS_QTY"/>
+        <result property="finalAcceptQty" column="FINAL_ACCEPT_QTY"/>
+        <result property="finalUnpassQty" column="FINAL_UNPASS_QTY"/>
+    </resultMap>
+
+
+</mapper>

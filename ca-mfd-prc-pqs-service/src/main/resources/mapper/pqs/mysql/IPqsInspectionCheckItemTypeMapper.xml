@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pqs.mapper.IPqsInspectionCheckItemTypeMapper">
+
+    <resultMap type="com.ca.mfd.prc.pqs.entity.PqsInspectionCheckItemTypeEntity" id="pqsInspectionCheckItemTypeMap">
+        <result property="id" column="PRC_PQS_INSPECTION_CHECK_ITEM_TYPE_ID"/>
+        <result property="typeCode" column="TYPE_CODE"/>
+        <result property="typeName" column="TYPE_NAME"/>
+        <result property="displayNo" column="DISPLAY_NO"/>
+        <result property="remark" column="REMARK"/>
+    </resultMap>
+
+
+</mapper>

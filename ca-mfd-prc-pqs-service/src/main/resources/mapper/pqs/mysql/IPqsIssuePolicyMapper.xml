@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pqs.mapper.IPqsIssuePolicyMapper">
+
+    <resultMap type="com.ca.mfd.prc.pqs.entity.PqsIssuePolicyEntity" id="pqsIssuePolicyMap">
+        <result property="id" column="PRC_PQS_ISSUE_POLICY_ID"/>
+        <result property="policyNo" column="POLICY_NO"/>
+        <result property="model" column="MODEL"/>
+        <result property="gradeCode" column="GRADE_CODE"/>
+        <result property="gradeName" column="GRADE_NAME"/>
+        <result property="defectAnomalyCode" column="DEFECT_ANOMALY_CODE"/>
+        <result property="defectAnomalyDescription" column="DEFECT_ANOMALY_DESCRIPTION"/>
+        <result property="counter" column="COUNTER"/>
+        <result property="isEnabled" column="IS_ENABLED"/>
+        <result property="remark" column="REMARK"/>
+    </resultMap>
+
+
+</mapper>

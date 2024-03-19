@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pqs.mapper.IPqsProductDefectAnomalyLogMapper">
+
+    <resultMap type="com.ca.mfd.prc.pqs.entity.PqsProductDefectAnomalyLogEntity" id="pqsProductDefectAnomalyLogMap">
+        <result property="id" column="PRC_PQS_PRODUCT_DEFECT_ANOMALY_LOG_ID"/>
+        <result property="prcPqsProductDefectAnomalyId" column="PRC_PQS_PRODUCT_DEFECT_ANOMALY_ID"/>
+        <result property="remark" column="REMARK"/>
+        <result property="status" column="STATUS"/>
+    </resultMap>
+
+
+</mapper>

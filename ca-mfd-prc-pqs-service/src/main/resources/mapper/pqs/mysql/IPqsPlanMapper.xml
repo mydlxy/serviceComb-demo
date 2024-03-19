@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pqs.mapper.IPqsPlanMapper">
+
+    <resultMap type="com.ca.mfd.prc.pqs.entity.PqsPlanEntity" id="pqsPlanMap">
+        <result property="id" column="PRC_PQS_PLAN_ID"/>
+        <result property="displayNo" column="DISPLAY_NO"/>
+        <result property="isEnabled" column="IS_ENABLED"/>
+        <result property="workstationCode" column="WORKSTATION_CODE"/>
+        <result property="workstationName" column="WORKSTATION_NAME"/>
+        <result property="inspectionEntryType" column="INSPECTION_ENTRY_TYPE"/>
+        <result property="inspectionEntryTypeDescprition" column="INSPECTION_ENTRY_TYPE_DESCPRITION"/>
+        <result property="triggerType" column="TRIGGER_TYPE"/>
+        <result property="triggerValue" column="TRIGGER_VALUE"/>
+        <result property="currentValue" column="CURRENT_VALUE"/>
+        <result property="nextTriggerCondition" column="NEXT_TRIGGER_CONDITION"/>
+        <result property="remark" column="REMARK"/>
+    </resultMap>
+
+
+</mapper>

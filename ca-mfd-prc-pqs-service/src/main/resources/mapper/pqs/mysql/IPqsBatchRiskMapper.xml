@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pqs.mapper.IPqsBatchRiskMapper">
+
+    <resultMap type="com.ca.mfd.prc.pqs.entity.PqsBatchRiskEntity" id="pqsBatchRiskMap">
+        <result property="id" column="PRC_PQS_BATCH_RISK_ID"/>
+        <result property="planNo" column="PLAN_NO"/>
+        <result property="entryNo" column="ENTRY_NO"/>
+        <result property="remark" column="REMARK"/>
+        <result property="startBy" column="START_BY"/>
+        <result property="startDt" column="START_DT"/>
+        <result property="closeBy" column="CLOSE_BY"/>
+        <result property="closeDt" column="CLOSE_DT"/>
+        <result property="closeRemark" column="CLOSE_REMARK"/>
+        <result property="status" column="STATUS"/>
+        <result property="isSendLms" column="IS_SEND_LMS"/>
+    </resultMap>
+
+
+</mapper>

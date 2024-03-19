@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pqs.mapper.IPqsProductQgCheckListRecordMapper">
+
+    <resultMap type="com.ca.mfd.prc.pqs.entity.PqsProductQgCheckListRecordEntity" id="pqsProductQgCheckListRecordMap">
+        <result property="id" column="PRC_PQS_PRODUCT_QG_CHECK_LIST_RECORD_ID"/>
+        <result property="prcPqsQgCheckListId" column="PRC_PQS_QG_CHECK_LIST_ID"/>
+        <result property="group" column="GROUP"/>
+        <result property="displayNo" column="DISPLAY_NO"/>
+        <result property="sn" column="SN"/>
+        <result property="workstationCode" column="WORKSTATION_CODE"/>
+        <result property="workstationName" column="WORKSTATION_NAME"/>
+        <result property="content" column="CONTENT"/>
+        <result property="result" column="RESULT"/>
+    </resultMap>
+
+
+</mapper>

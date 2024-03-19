@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pqs.mapper.IPqsQgWorkstationConfigMapper">
+
+    <resultMap type="com.ca.mfd.prc.pqs.entity.PqsQgWorkstationConfigEntity" id="pqsQgWorkstationConfigMap">
+        <result property="id" column="PRC_PQS_QG_WORKSTATION_CONFIG_ID"/>
+        <result property="workstationCode" column="WORKSTATION_CODE"/>
+        <result property="workstationName" column="WORKSTATION_NAME"/>
+        <result property="pqsFunction" column="PQS_FUNCTION"/>
+        <result property="allowBypass" column="ALLOW_BYPASS"/>
+        <result property="remark" column="REMARK"/>
+    </resultMap>
+
+
+</mapper>

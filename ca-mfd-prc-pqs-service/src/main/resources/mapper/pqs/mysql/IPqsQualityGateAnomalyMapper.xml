@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pqs.mapper.IPqsQualityGateAnomalyMapper">
+
+    <resultMap type="com.ca.mfd.prc.pqs.entity.PqsQualityGateAnomalyEntity" id="pqsQualityGateAnomalyMap">
+        <result property="id" column="PRC_PQS_QUALITY_GATE_ANOMALY_ID"/>
+        <result property="prcPqsQualityGateBlankId" column="PRC_PQS_QUALITY_GATE_BLANK_ID"/>
+        <result property="defectAnomalyCode" column="DEFECT_ANOMALY_CODE"/>
+        <result property="defectAnomalyDescription" column="DEFECT_ANOMALY_DESCRIPTION"/>
+        <result property="shortCode" column="SHORT_CODE"/>
+    </resultMap>
+
+    <select id="getAnomalyByQualityGateBlankId"
+            resultType="com.ca.mfd.prc.pqs.dto.GetAnomalyByQualityGateBlankIdInfo">
+        SELECT pda.DEFECT_POSITION_CODE                                                   as AnomalyId,
+               pda.DEFECT_POSITION_DESCRIPTION                                            as Description,
+               case
+                   when pvda.ACTIVATE_TIME IS NULL then ''
+                   else DATE_FORMAT(pvda.ACTIVATE_TIME, '%Y-%m-%d %H:%i:%s') end          as
+                                                                                             CreateTime,
+               case when pvda.PRC_PQS_PRODUCT_DEFECT_ANOMALY_ID IS NULL then 0 else 1 end as IsActivate
+        FROM PRC_PQS_QUALITY_GATE_ANOMALY pqga
+                 inner join PRC_PQS_DEFECT_ANOMALY pda on pqga.DEFECT_ANOMALY_CODE = pda.DEFECT_ANOMALY_CODE
+                 left join PRC_PQS_PRODUCT_DEFECT_ANOMALY pvda ON pqga.DEFECT_ANOMALY_CODE = pvda.DEFECT_ANOMALY_CODE
+            and pvda.`STATUS` &lt;&gt; 4 and pvda.SN = #{tpsCode}
+        WHERE pqga.PRC_PQS_QUALITY_GATE_BLANK_ID = #{qualityGateBlankId}
+          AND pqga.FLAGS = 1
+          and pda.FLAGS = 1
+          and pvda.FLAGS = 1
+    </select>
+</mapper>

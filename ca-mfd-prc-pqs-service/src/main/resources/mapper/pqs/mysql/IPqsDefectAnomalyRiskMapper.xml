@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pqs.mapper.IPqsDefectAnomalyRiskMapper">
+
+    <resultMap type="com.ca.mfd.prc.pqs.entity.PqsDefectAnomalyRiskEntity" id="pqsDefectAnomalyRiskMap">
+        <result property="id" column="PRC_PQS_DEFECT_ANOMALY_RISK_ID"/>
+        <result property="riskNo" column="RISK_NO"/>
+        <result property="model" column="MODEL"/>
+        <result property="category" column="CATEGORY"/>
+        <result property="defectAnomalyCode" column="DEFECT_ANOMALY_CODE"/>
+        <result property="defectAnomalyDescription" column="DEFECT_ANOMALY_DESCRIPTION"/>
+        <result property="remark" column="REMARK"/>
+        <result property="startBy" column="START_BY"/>
+        <result property="startDt" column="START_DT"/>
+        <result property="closeBy" column="CLOSE_BY"/>
+        <result property="closeDt" column="CLOSE_DT"/>
+        <result property="status" column="STATUS"/>
+    </resultMap>
+
+
+    <select id="getProductList" resultType="com.ca.mfd.prc.pqs.dto.RiskProductFilterDto" parameterType="java.util.Map"
+            statementType="CALLABLE">
+        call sp_pqs_risk_product_query( #{aviCode,mode=IN,jdbcType=VARCHAR},
+            #{startDt,mode=IN,jdbcType=DATE},
+            #{endDt,mode=IN,jdbcType=DATE},
+            #{model,mode=IN,jdbcType=VARCHAR},
+            #{materialNo,mode=IN,jdbcType=VARCHAR},
+            #{category,mode=IN,jdbcType=INTEGER}
+            )
+    </select>
+
+</mapper>

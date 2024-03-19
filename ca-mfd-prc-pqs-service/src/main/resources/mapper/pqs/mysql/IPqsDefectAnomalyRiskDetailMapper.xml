@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pqs.mapper.IPqsDefectAnomalyRiskDetailMapper">
+
+    <resultMap type="com.ca.mfd.prc.pqs.entity.PqsDefectAnomalyRiskDetailEntity" id="pqsDefectAnomalyRiskDetailMap">
+        <result property="id" column="PRC_PQS_DEFECT_ANOMALY_RISK_DETAIL_ID"/>
+        <result property="riskNo" column="RISK_NO"/>
+        <result property="sn" column="SN"/>
+        <result property="defectAnomalyCode" column="DEFECT_ANOMALY_CODE"/>
+        <result property="defectAnomalyDescription" column="DEFECT_ANOMALY_DESCRIPTION"/>
+        <result property="riskRemark" column="RISK_REMARK"/>
+        <result property="startBy" column="START_BY"/>
+        <result property="startDt" column="START_DT"/>
+        <result property="closeRemark" column="CLOSE_REMARK"/>
+        <result property="closeBy" column="CLOSE_BY"/>
+        <result property="closeDt" column="CLOSE_DT"/>
+        <result property="isActived" column="IS_ACTIVED"/>
+        <result property="activeBy" column="ACTIVE_BY"/>
+        <result property="activeDt" column="ACTIVE_DT"/>
+        <result property="dmsCheck" column="DMS_CHECK"/>
+        <result property="dmsSendStatus" column="DMS_SEND_STATUS"/>
+        <result property="inventoryCheck" column="INVENTORY_CHECK"/>
+        <result property="inventorySendStatus" column="INVENTORY_SEND_STATUS"/>
+        <result property="status" column="STATUS"/>
+        <result property="category" column="CATEGORY"/>
+    </resultMap>
+
+
+</mapper>

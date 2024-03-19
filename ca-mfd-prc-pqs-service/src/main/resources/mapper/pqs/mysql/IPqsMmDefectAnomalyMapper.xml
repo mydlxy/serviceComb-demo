@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pqs.mapper.IPqsMmDefectAnomalyMapper">
+
+    <resultMap type="com.ca.mfd.prc.pqs.entity.PqsMmDefectAnomalyEntity" id="pqsMmDefectAnomalyMap">
+        <result property="id" column="PRC_PQS_MM_DEFECT_ANOMALY_ID"/>
+        <result property="inspectionNo" column="INSPECTION_NO"/>
+        <result property="repairNo" column="REPAIR_NO"/>
+        <result property="sn" column="SN"/>
+        <result property="img" column="IMG"/>
+        <result property="defectAnomalyCode" column="DEFECT_ANOMALY_CODE"/>
+        <result property="defectAnomalyDescription" column="DEFECT_ANOMALY_DESCRIPTION"/>
+        <result property="remark" column="REMARK"/>
+        <result property="gradeCode" column="GRADE_CODE"/>
+        <result property="gradeName" column="GRADE_NAME"/>
+        <result property="source" column="SOURCE"/>
+        <result property="status" column="STATUS"/>
+        <result property="organizationCode" column="ORGANIZATION_CODE"/>
+        <result property="orderCategory" column="ORDER_CATEGORY"/>
+        <result property="workshopCode" column="WORKSHOP_CODE"/>
+        <result property="workshopName" column="WORKSHOP_NAME"/>
+        <result property="workstationCode" column="WORKSTATION_CODE"/>
+        <result property="workstationName" column="WORKSTATION_NAME"/>
+        <result property="prcPpsShcShiftId" column="PRC_PPS_SHC_SHIFT_ID"/>
+        <result property="processCode" column="PROCESS_CODE"/>
+        <result property="processName" column="PROCESS_NAME"/>
+        <result property="responsibleDeptCode" column="RESPONSIBLE_DEPT_CODE"/>
+        <result property="responsibleDeptName" column="RESPONSIBLE_DEPT_NAME"/>
+        <result property="responsibleTeamNo" column="RESPONSIBLE_TEAM_NO"/>
+        <result property="activateUser" column="ACTIVATE_USER"/>
+        <result property="activateTime" column="ACTIVATE_TIME"/>
+        <result property="repairUser" column="REPAIR_USER"/>
+        <result property="repairWay" column="REPAIR_WAY"/>
+        <result property="repairTime" column="REPAIR_TIME"/>
+        <result property="recheckUser" column="RECHECK_USER"/>
+        <result property="recheckTime" column="RECHECK_TIME"/>
+        <result property="repairSpendTime" column="REPAIR_SPEND_TIME"/>
+        <result property="repairRemark" column="REPAIR_REMARK"/>
+        <result property="jsonData" column="JSON_DATA"/>
+    </resultMap>
+
+    <select id="getVehicleMmDefectAnomalyList" resultType="com.ca.mfd.prc.pqs.dto.ProductDefectAnomalyReponse">
+        SELECT
+        PR.PRC_PQS_MM_DEFECT_ANOMALY_ID as dataId,
+        PR.WORKSTATION_NAME as workstationName,
+        PR.DEFECT_ANOMALY_CODE as defectAnomalyCode,
+        PR.DEFECT_ANOMALY_DESCRIPTION as defectAnomalyDescription,
+        PR.JSON_DATA as jsonData,
+        PR.SOURCE as source,
+        PR.GRADE_CODE as gradeCode,
+        PR.GRADE_NAME as gradeName,
+        (CASE WHEN PR.IMG IS NULL THEN '' ELSE PR.IMG END) as img,
+        PR.`STATUS` as status,
+        PR.RESPONSIBLE_DEPT_CODE as responsibleDeptCode,
+        PR.RESPONSIBLE_DEPT_NAME as responsibleDeptName,
+        PR.CREATION_DATE as creationDate
+        FROM PRC_PQS_MM_DEFECT_ANOMALY PR
+        <where>
+            1=1 AND PR.IS_DELETE = 0
+            <if test="para.sn != null and para.sn !=''">
+                and PR.SN = #{para.sn}
+            </if>
+            <if test="para.inspectionNo != null and para.inspectionNo !=''">
+                and PR.INSPECTION_NO = #{para.inspectionNo}
+            </if>
+            <if test="para.shopCode != null and para.shopCode !=''">
+                and PR.WORKSHOP_CODE like CONCAT('%', #{para.shopCode}, '%')
+            </if>
+            <if test="para.workstation != null and para.workstation !=''">
+                and (PR.WORKSHOP_CODE like CONCAT('%', #{para.workstation}, '%')
+                or
+                PR.WORKSTATION_NAME like CONCAT('%', #{para.workstation}, '%')
+                )
+            </if>
+            <if test="para.workstationCodes != null and para.workstationCodes.size() >0">
+                and PR.WORKSHOP_CODE in
+                <foreach collection="para.workstationCodes" item="supplierId" index="index" separator="," open="("
+                         close=")">
+                    #{para.workstationCodes[${index}]}
+                </foreach>
+            </if>
+            <if test="para.status!=0">
+                and PR.STATUS=#{para.status}
+            </if>
+
+            <if test="para.dutyDeptCode != null and para.dutyDeptCode !=''">
+                and PR.RESPONSIBLE_DEPT_CODE = #{para.dutyDeptCode}
+            </if>
+            <if test="para.gradeCode != null and para.gradeCode !=''">
+                and PR.GRADE_CODE = #{para.gradeCode}
+            </if>
+
+            <if test="para.description !=null and para.description!=''">
+                and PR.DEFECT_ANOMALY_DESCRIPTION like CONCAT('%', #{para.description}, '%')
+            </if>
+
+        </where>
+        ORDER BY PR.STATUS, PR.CREATION_DATE DESC
+    </select>
+
+</mapper>

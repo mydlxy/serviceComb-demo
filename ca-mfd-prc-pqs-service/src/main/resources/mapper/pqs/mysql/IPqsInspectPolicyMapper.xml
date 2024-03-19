@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pqs.mapper.IPqsInspectPolicyMapper">
+
+    <resultMap type="com.ca.mfd.prc.pqs.entity.PqsInspectPolicyEntity" id="pqsInspectPolicyMap">
+        <result property="id" column="PRC_PQS_INSPECT_POLICY_ID"/>
+        <result property="triggerPolicyDesc" column="TRIGGER_POLICY_DESC"/>
+        <result property="processCode" column="PROCESS_CODE"/>
+        <result property="processName" column="PROCESS_NAME"/>
+        <result property="projectCode" column="PROJECT_CODE"/>
+        <result property="projectName" column="PROJECT_NAME"/>
+        <result property="triggerType" column="TRIGGER_TYPE"/>
+        <result property="periodType" column="PERIOD_TYPE"/>
+        <result property="periodQty" column="PERIOD_QTY"/>
+        <result property="startDt" column="START_DT"/>
+        <result property="checkRequest" column="CHECK_REQUEST"/>
+        <result property="isEnabled" column="IS_ENABLED"/>
+        <result property="remark" column="REMARK"/>
+    </resultMap>
+
+
+</mapper>

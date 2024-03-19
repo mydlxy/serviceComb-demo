@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pqs.mapper.IPqsInspectionTemplateMapper">
+
+    <resultMap type="com.ca.mfd.prc.pqs.entity.PqsInspectionTemplateEntity" id="pqsInspectionTemplateMap">
+        <result property="id" column="PRC_PQS_INSPECTION_TEMPLATE_ID"/>
+        <result property="displayNo" column="DISPLAY_NO"/>
+        <result property="materialNo" column="MATERIAL_NO"/>
+        <result property="materialCn" column="MATERIAL_CN"/>
+        <result property="templateCode" column="TEMPLATE_CODE"/>
+        <result property="templateName" column="TEMPLATE_NAME"/>
+        <result property="processCode" column="PROCESS_CODE"/>
+        <result property="processName" column="PROCESS_NAME"/>
+        <result property="entryType" column="ENTRY_TYPE"/>
+        <result property="entryTypeDesc" column="ENTRY_TYPE_DESC"/>
+        <result property="isEnabled" column="IS_ENABLED"/>
+        <result property="remark" column="REMARK"/>
+    </resultMap>
+    <select id="getExcelData" resultType="com.ca.mfd.prc.pqs.entity.PqsInspectionTemplateEntity">
+        SELECT a.DISPLAY_NO      as displayNo,
+               a.MATERIAL_NO     as materialNo,
+               a.MATERIAL_CN     as materialCn,
+               a.TEMPLATE_CODE   as templateCode,
+               a.TEMPLATE_NAME   as templateName,
+               a.ENTRY_TYPE      as entryType,
+               a.ENTRY_TYPE_DESC as entryTypeDesc,
+               a.IS_ENABLED      as isEnabled,
+               a.REMARK          as remark,
+               b.GROUP_NAME      as groupName,
+               b.DISPLAY_NO      as displayNo1,
+               b.ITEM_TYPE_CODE  as itemTypeCode,
+               b.ITEM_TYPE_NAME  as itemTypeName,
+               b.STANDARD        as standard,
+               b.ITEM_CODE       as itemCode,
+               b.ITEM_NAME       as itemName,
+               b.TARGET          as target,
+               b.LOWER_LIMIT     as lowerLimit,
+               b.UPPER_LIMIT     as upperLimit,
+               b.UNIT            as unit,
+               b.REMARK          as remark1
+        FROM `PRC_PQS_INSPECTION_TEMPLATE` a
+                 LEFT JOIN `PRC_PQS_INSPECTION_TEMPLATE_ITEM` b
+                           on a.PRC_PQS_INSPECTION_TEMPLATE_ID = b.PRC_PQS_INSPECTION_TEMPLATE_ID
+        where a.IS_DELETE = 0
+          and b.IS_DELETE = 0
+
+
+    </select>
+
+
+    <select id="getExcelDataMa" resultType="com.ca.mfd.prc.pqs.entity.PqsInspectionTemplateEntity">
+        SELECT a.DISPLAY_NO      as displayNo,
+               a.MATERIAL_NO     as materialNo,
+               a.MATERIAL_CN     as materialCn,
+               a.TEMPLATE_CODE   as templateCode,
+               a.TEMPLATE_NAME   as templateName,
+               a.ENTRY_TYPE      as entryType,
+               a.ENTRY_TYPE_DESC as entryTypeDesc,
+               a.IS_ENABLED      as isEnabled,
+               a.REMARK          as remark,
+               b.GROUP_NAME      as groupName,
+               b.DISPLAY_NO      as displayNo1,
+               b.ITEM_TYPE_CODE  as itemTypeCode,
+               b.ITEM_TYPE_NAME  as itemTypeName,
+               b.STANDARD        as standard,
+               b.ITEM_CODE       as itemCode,
+               b.ITEM_NAME       as itemName,
+               b.TARGET          as target,
+               b.LOWER_LIMIT     as lowerLimit,
+               b.UPPER_LIMIT     as upperLimit,
+               b.UNIT            as unit,
+               b.REMARK          as remark1,
+               b.ATTRIBUTE1      as attribute1,
+               b.ATTRIBUTE2      as attribute2,
+               b.ATTRIBUTE3      as attribute3,
+               b.ATTRIBUTE4      as attribute4,
+               b.ATTRIBUTE5      as attribute5
+        FROM `PRC_PQS_INSPECTION_TEMPLATE` a
+                 LEFT JOIN `PRC_PQS_INSPECTION_TEMPLATE_ITEM` b
+                           on a.PRC_PQS_INSPECTION_TEMPLATE_ID = b.PRC_PQS_INSPECTION_TEMPLATE_ID
+        where a.IS_DELETE = 0
+          and b.IS_DELETE = 0
+
+
+    </select>
+
+
+</mapper>

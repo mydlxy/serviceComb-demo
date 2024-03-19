@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pqs.mapper.IPqsEntryCheckItemMapper">
+
+    <resultMap type="com.ca.mfd.prc.pqs.entity.PqsEntryCheckItemEntity" id="pqsEntryCheckItemMap">
+        <result property="id" column="PRC_PQS_ENTRY_CHECK_ITEM_ID"/>
+        <result property="inspectionNo" column="INSPECTION_NO"/>
+        <result property="displayNo" column="DISPLAY_NO"/>
+        <result property="groupName" column="GROUP_NAME"/>
+        <result property="standard" column="STANDARD"/>
+        <result property="itemTypeCode" column="ITEM_TYPE_CODE"/>
+        <result property="itemTypeName" column="ITEM_TYPE_NAME"/>
+        <result property="itemCode" column="ITEM_CODE"/>
+        <result property="itemName" column="ITEM_NAME"/>
+        <result property="target" column="TARGET"/>
+        <result property="lowerLimit" column="LOWER_LIMIT"/>
+        <result property="upperLimit" column="UPPER_LIMIT"/>
+        <result property="unit" column="UNIT"/>
+        <result property="checkValue" column="CHECK_VALUE"/>
+        <result property="checkResult" column="CHECK_RESULT"/>
+        <result property="remark" column="REMARK"/>
+    </resultMap>
+
+    <select id="getNewPqsEntryCheckItem" resultType="com.ca.mfd.prc.pqs.entity.PqsEntryCheckItemEntity">
+        select item.DISPLAY_NO as displayNo,
+               item.GROUP_NAME as groupName,
+               item.ITEM_TYPE_CODE as itemTypeCode,
+               item.ITEM_TYPE_NAME as itemTypeName,
+               item.ITEM_CODE as itemCode,
+               item.ITEM_NAME as itemName,
+               item.STANDARD as standard,
+               item.LOWER_LIMIT as lowerLimit,
+               item.UPPER_LIMIT as upperLimit,
+               item.TARGET as target,
+               item.UNIT as unit,
+               item.REMARK as remark
+        from PRC_PQS_INSPECTION_TEMPLATE_ITEM item                                                                                                                                  inner join PRC_PQS_INSPECTION_TEMPLATE template on item.PRC_PQS_INSPECTION_TEMPLATE_ID = template.PRC_PQS_INSPECTION_TEMPLATE_ID
+        where item.PRC_PQS_INSPECTION_TEMPLATE_ID = #{templateId}
+          and item.IS_DELETE = 0
+          and template.IS_DELETE = 0
+    </select>
+</mapper>

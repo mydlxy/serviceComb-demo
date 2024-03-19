@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pqs.mapper.IPqsProductDefectAnomalyMapper">
+
+    <resultMap type="com.ca.mfd.prc.pqs.entity.PqsProductDefectAnomalyEntity" id="pqsProductDefectAnomalyMap">
+        <result property="id" column="PRC_PQS_PRODUCT_DEFECT_ANOMALY_ID"/>
+        <result property="sn" column="SN"/>
+        <result property="img" column="IMG"/>
+        <result property="defectAnomalyCode" column="DEFECT_ANOMALY_CODE"/>
+        <result property="defectAnomalyDescription" column="DEFECT_ANOMALY_DESCRIPTION"/>
+        <result property="gradeCode" column="GRADE_CODE"/>
+        <result property="gradeName" column="GRADE_NAME"/>
+        <result property="prcEpsProductWoId" column="PRC_EPS_PRODUCT_WO_ID"/>
+        <result property="source" column="SOURCE"/>
+        <result property="status" column="STATUS"/>
+        <result property="organizationCode" column="ORGANIZATION_CODE"/>
+        <result property="workshopCode" column="WORKSHOP_CODE"/>
+        <result property="workshopName" column="WORKSHOP_NAME"/>
+        <result property="prcPpsShcShiftId" column="PRC_PPS_SHC_SHIFT_ID"/>
+        <result property="workstationCode" column="WORKSTATION_CODE"/>
+        <result property="workstationName" column="WORKSTATION_NAME"/>
+        <result property="qgWorkstationCode" column="QG_WORKSTATION_CODE"/>
+        <result property="qgWorkstationName" column="QG_WORKSTATION_NAME"/>
+        <result property="responsibleDeptCode" column="RESPONSIBLE_DEPT_CODE"/>
+        <result property="responsibleDeptName" column="RESPONSIBLE_DEPT_NAME"/>
+        <result property="responsibleTeamNo" column="RESPONSIBLE_TEAM_NO"/>
+        <result property="activateUser" column="ACTIVATE_USER"/>
+        <result property="activateTime" column="ACTIVATE_TIME"/>
+        <result property="repairUser" column="REPAIR_USER"/>
+        <result property="repairWay" column="REPAIR_WAY"/>
+        <result property="repairTime" column="REPAIR_TIME"/>
+        <result property="repairSpendTime" column="REPAIR_SPEND_TIME"/>
+        <result property="repairRemark" column="REPAIR_REMARK"/>
+        <result property="remark" column="REMARK"/>
+        <result property="recheckUser" column="RECHECK_USER"/>
+        <result property="recheckTime" column="RECHECK_TIME"/>
+        <result property="jsonData" column="JSON_DATA"/>
+    </resultMap>
+
+    <select id="getPageVehicleDatas" resultType="com.ca.mfd.prc.pqs.entity.PqsProductDefectAnomalyEntity">
+        select
+        a.PRC_PQS_PRODUCT_DEFECT_ANOMALY_ID as id,
+        a.SN as sn,
+        a.IMG as img,
+        a.DEFECT_ANOMALY_CODE as defectAnomalyCode,
+        a.DEFECT_ANOMALY_DESCRIPTION as defectAnomalyDescription,
+        a.GRADE_CODE as gradeCode,
+        a.GRADE_NAME as gradeName,
+        a.PRC_EPS_PRODUCT_WO_ID as prcEpsProductWoId,
+        a.STATUS as status,
+        a.SOURCE as source,
+        a.ORGANIZATION_CODE as organizationCode,
+        a.WORKSHOP_CODE as workshopCode,
+        a.WORKSHOP_NAME as workshopName,
+        a.PRC_PPS_SHC_SHIFT_ID as prcPpsShcShiftId,
+        a.WORKSTATION_CODE as workstationCode,
+        a.WORKSTATION_NAME as workstationName,
+        a.QG_WORKSTATION_CODE as qgWorkstationCode,
+        a.QG_WORKSTATION_NAME as qgWorkstationName,
+        a.RESPONSIBLE_DEPT_CODE as responsibleDeptCode,
+        a.RESPONSIBLE_DEPT_NAME as responsibleDeptName,
+        a.RESPONSIBLE_TEAM_NO as responsibleTeamNo,
+        a.ACTIVATE_USER as activateUser,
+        a.ACTIVATE_TIME as activateTime,
+        a.REPAIR_USER as repairUser,
+        a.REPAIR_WAY as repairWay,
+        a.REPAIR_TIME as repairTime,
+        a.REPAIR_SPEND_TIME as repairSpendTime,
+        a.REPAIR_REMARK as repairRemark,
+        a.RECHECK_USER as recheckUser,
+        a.RECHECK_TIME as recheckTime,
+        a.JSON_DATA as jsonData
+        from (select * from PRC_PQS_PRODUCT_DEFECT_ANOMALY
+        <include refid="com.ca.mfd.prc.common.CommMapper.wheresql">
+            <property name="where" value="pms.where_a"/>
+        </include>
+        ) a
+        where a.FLAG = 1
+        <if test='pms.order !=null and pms.order.size()>0'>
+            ${@com.ca.mfd.prc.common.utils.MpSqlUtils@getSortStr(pms.order)}
+        </if>
+    </select>
+
+    <select id="getVehicleDefectAnomalyList" resultType="com.ca.mfd.prc.pqs.dto.ProductDefectAnomalyReponse">
+        SELECT
+        PR.PRC_PQS_PRODUCT_DEFECT_ANOMALY_ID as dataId,
+        PR.WORKSTATION_NAME as workstationName,
+        -- PR.PQS_DEFECT_ANOMALY_ID as anomalyId,
+        PR.DEFECT_ANOMALY_CODE as defectAnomalyCode,
+        PR.DEFECT_ANOMALY_DESCRIPTION as defectAnomalyDescription,
+        PR.JSON_DATA as jsonData,
+        PR.SOURCE as source,
+        PR.GRADE_CODE as gradeCode,
+        PR.GRADE_NAME as gradeName,
+        (CASE WHEN PR.IMG IS NULL THEN '' ELSE PR.IMG END) as img,
+        PR.`STATUS` as status,
+        PR.PRC_EPS_PRODUCT_WO_ID as woId,
+        PR.RESPONSIBLE_DEPT_CODE as responsibleDeptCode,
+        PR.RESPONSIBLE_DEPT_NAME as responsibleDeptName,
+        PR.CREATION_DATE as creationDate
+        FROM PRC_PQS_PRODUCT_DEFECT_ANOMALY PR
+        <where>
+            1=1 AND PR.IS_DELETE = 0
+            <if test="para.sn != null and para.sn !=''">
+                and PR.SN = #{para.sn}
+            </if>
+            <if test="para.shopCode != null and para.shopCode !=''">
+                and PR.WORKSHOP_CODE = #{para.shopCode}
+            </if>
+            <if test="para.qgWorkstationCode != null and para.qgWorkstationCode !=''">
+                and PR.QG_WORKSTATION_CODE like CONCAT('%', #{para.qgWorkstationCode}, '%')
+            </if>
+            <if test="para.workstation != null and para.workstation !=''">
+                and (PR.WORKSHOP_CODE like CONCAT('%', #{para.workstation}, '%')
+                    or
+                    PR.WORKSTATION_NAME like CONCAT('%', #{para.workstation}, '%')
+                )
+            </if>
+            <if test="para.workstationCodes != null and para.workstationCodes.size() >0">
+                and PR.WORKSTATION_CODE in
+                <foreach collection="para.workstationCodes" item="supplierId" index="index" separator="," open="("
+                         close=")">
+                    #{para.workstationCodes[${index}]}
+                </foreach>
+            </if>
+            <if test="para.status!=0">
+                and PR.STATUS=#{para.status}
+            </if>
+
+            <if test="para.dutyDeptCode != null and para.dutyDeptCode !=''">
+                and PR.RESPONSIBLE_DEPT_CODE = #{para.dutyDeptCode}
+            </if>
+            <if test="para.gradeCode != null and para.gradeCode !=''">
+                and PR.GRADE_CODE = #{para.gradeCode}
+            </if>
+
+            <if test="para.description !=null and para.description!=''">
+                and PR.DEFECT_ANOMALY_DESCRIPTION like CONCAT('%', #{para.description}, '%')
+            </if>
+
+        </where>
+        ORDER BY PR.CREATION_DATE DESC
+    </select>
+
+    <select id="getProductDefectAnomaly" resultType="com.ca.mfd.prc.pqs.communication.dto.ProductDefectAnomalyDto">
+        select
+            a.PRC_PQS_PRODUCT_DEFECT_ANOMALY_ID as prcPqsProductDefectAnomalyId,
+            a.SN as sn,
+            <!--b.MODEL as model,-->
+            a.WORKSHOP_CODE as workshopCode,
+            a.WORKSHOP_NAME as workshopName,
+            a.WORKSTATION_CODE as workstationCode,
+            a.WORKSTATION_NAME as workstationName,
+            a.GRADE_CODE as gradeCode,
+            a.GRADE_NAME as gradeName,
+            <!--c.POSITION_CODE as positionCode,
+            c.POSITION_DESCRIPTION as positionDescription,-->
+            a.DEFECT_ANOMALY_CODE as defectAnomalyCode,
+            a.DEFECT_ANOMALY_CODE as defectAnomalyDescription,
+            a.ACTIVATE_TIME as activateTime
+        from PRC_PQS_PRODUCT_DEFECT_ANOMALY a
+        <!--left join PRC_PPS_ORDER b on (a.sn = b.sn or a.sn = b.BARCODE) and b.IS_DELETE = 0
+        left join PRC_PQS_DEFECT_ANOMALY c on a.DEFECT_ANOMALY_CODE = c.DEFECT_ANOMALY_CODE and c.IS_DELETE = 0-->
+        where a.IS_DELETE = 0 and a.STATUS not in(0,3)
+    </select>
+</mapper>

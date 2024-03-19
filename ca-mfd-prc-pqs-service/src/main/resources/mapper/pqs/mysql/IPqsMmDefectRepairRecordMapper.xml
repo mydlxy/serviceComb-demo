@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pqs.mapper.IPqsMmDefectRepairRecordMapper">
+
+    <resultMap type="com.ca.mfd.prc.pqs.entity.PqsMmDefectRepairRecordEntity" id="pqsMmDefectRepairRecordMap">
+        <result property="id" column="PRC_PQS_MM_DEFECT_REPAIR_RECORD_ID"/>
+        <result property="repairNo" column="REPAIR_NO"/>
+        <result property="orderCategory" column="ORDER_CATEGORY"/>
+        <result property="planNo" column="PLAN_NO"/>
+        <result property="lotNo" column="LOT_NO"/>
+        <result property="status" column="STATUS"/>
+        <result property="barcode" column="BARCODE"/>
+        <result property="materialNo" column="MATERIAL_NO"/>
+        <result property="materialCn" column="MATERIAL_CN"/>
+        <result property="acceptQty" column="ACCEPT_QTY"/>
+        <result property="scrapQty" column="SCRAP_QTY"/>
+        <result property="workHours" column="WORK_HOURS"/>
+        <result property="repairPerson" column="REPAIR_PERSON"/>
+        <result property="repairDt" column="REPAIR_DT"/>
+        <result property="remark" column="REMARK"/>
+    </resultMap>
+
+
+</mapper>

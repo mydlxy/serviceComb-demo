@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pqs.mapper.IPqsProductDefectBlockPolicyMapper">
+
+    <resultMap type="com.ca.mfd.prc.pqs.entity.PqsProductDefectBlockPolicyEntity" id="pqsProductDefectBlockPolicyMap">
+        <result property="id" column="PRC_PQS_PRODUCT_DEFECT_BLOCK_POLICY_ID"/>
+        <result property="workstationCode" column="WORKSTATION_CODE"/>
+        <result property="workstationName" column="WORKSTATION_NAME"/>
+        <result property="category" column="CATEGORY"/>
+        <result property="enabled" column="ENABLED"/>
+        <result property="blockNote" column="BLOCK_NOTE"/>
+        <result property="defectAnomalyCode" column="DEFECT_ANOMALY_CODE"/>
+        <result property="defectAnomalyDescription" column="DEFECT_ANOMALY_DESCRIPTION"/>
+    </resultMap>
+
+
+</mapper>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pqs.mapper.IPqsMmScrapRecordMapper">
+
+    <resultMap type="com.ca.mfd.prc.pqs.entity.PqsMmScrapRecordEntity" id="pqsMmScrapRecordMap">
+        <result property="id" column="PRC_PQS_MM_SCRAP_RECORD_ID"/>
+        <result property="inspectionNo" column="INSPECTION_NO"/>
+        <result property="scrapType" column="SCRAP_TYPE"/>
+        <result property="recordDt" column="RECORD_DT"/>
+        <result property="sendUser" column="SEND_USER"/>
+        <result property="recieveUser" column="RECIEVE_USER"/>
+        <result property="plateNo" column="PLATE_NO"/>
+        <result property="emptyWeight" column="EMPTY_WEIGHT"/>
+        <result property="finalWeight" column="FINAL_WEIGHT"/>
+        <result property="realWeight" column="REAL_WEIGHT"/>
+        <result property="unit" column="UNIT"/>
+        <result property="remark" column="REMARK"/>
+    </resultMap>
+
+
+</mapper>

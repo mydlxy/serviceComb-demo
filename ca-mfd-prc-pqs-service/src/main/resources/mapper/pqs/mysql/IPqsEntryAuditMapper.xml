@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pqs.mapper.IPqsEntryAuditMapper">
+
+    <resultMap type="com.ca.mfd.prc.pqs.entity.PqsEntryAuditEntity" id="pqsEntryAuditMap">
+        <result property="id" column="PRC_PQS_ENTRY_AUDIT_ID"/>
+        <result property="inspectionNo" column="INSPECTION_NO"/>
+        <result property="areaCode" column="AREA_CODE"/>
+        <result property="entryType" column="ENTRY_TYPE"/>
+        <result property="status" column="STATUS"/>
+        <result property="qcDt" column="QC_DT"/>
+        <result property="qcUser" column="QC_USER"/>
+        <result property="remark" column="REMARK"/>
+        <result property="materialNo" column="MATERIAL_NO"/>
+        <result property="materialName" column="MATERIAL_NAME"/>
+        <result property="checkQty" column="CHECK_QTY"/>
+        <result property="unpassQty" column="UNPASS_QTY"/>
+        <result property="acceptQty" column="ACCEPT_QTY"/>
+        <result property="scrapQty" column="SCRAP_QTY"/>
+        <result property="redoQty" column="REDO_QTY"/>
+    </resultMap>
+
+
+</mapper>

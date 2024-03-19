@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pqs.mapper.IPqsEntryAttchmentMapper">
+
+    <resultMap type="com.ca.mfd.prc.pqs.entity.PqsEntryAttchmentEntity" id="pqsEntryAttchmentMap">
+        <result property="id" column="PRC_PQS_ENTRY_ATTCHMENT_ID"/>
+        <result property="inspectionNo" column="INSPECTION_NO"/>
+        <result property="attchmentName" column="ATTCHMENT_NAME"/>
+        <result property="address" column="ADDRESS"/>
+        <result property="remark" column="REMARK"/>
+    </resultMap>
+
+
+</mapper>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pqs.mapper.IPqsPartsScrapMapper">
+
+    <resultMap type="com.ca.mfd.prc.pqs.entity.PqsPartsScrapEntity" id="pqsPartsScrapMap">
+        <result property="id" column="PRC_PQS_PARTS_SCRAP_ID"/>
+        <result property="inspectionNo" column="INSPECTION_NO"/>
+        <result property="workstationCode" column="WORKSTATION_CODE"/>
+        <result property="workstationName" column="WORKSTATION_NAME"/>
+        <result property="status" column="STATUS"/>
+        <result property="qcDt" column="QC_DT"/>
+        <result property="qcUser" column="QC_USER"/>
+        <result property="materialNo" column="MATERIAL_NO"/>
+        <result property="materialName" column="MATERIAL_NAME"/>
+        <result property="barcode" column="BARCODE"/>
+        <result property="lotNo" column="LOT_NO"/>
+        <result property="remark" column="REMARK"/>
+        <result property="handleWay" column="HANDLE_WAY"/>
+        <result property="scrapQty" column="SCRAP_QTY"/>
+        <result property="unit" column="UNIT"/>
+    </resultMap>
+
+
+</mapper>

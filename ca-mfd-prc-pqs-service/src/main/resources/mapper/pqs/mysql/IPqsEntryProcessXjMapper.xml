@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pqs.mapper.IPqsEntryProcessXjMapper">
+
+    <resultMap type="com.ca.mfd.prc.pqs.entity.PqsEntryProcessXjEntity" id="pqsEntryProcessXjMap">
+        <result property="id" column="PRC_PQS_ENTRY_PROCESS_XJ_ID"/>
+        <result property="inspectionNo" column="INSPECTION_NO"/>
+        <result property="entryType" column="ENTRY_TYPE"/>
+        <result property="entryTypeDesc" column="ENTRY_TYPE_DESC"/>
+        <result property="remark" column="REMARK"/>
+        <result property="correctiveAction" column="CORRECTIVE_ACTION"/>
+    </resultMap>
+
+
+</mapper>

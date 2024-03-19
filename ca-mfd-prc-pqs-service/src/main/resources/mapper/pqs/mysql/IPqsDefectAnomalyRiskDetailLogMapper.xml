@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pqs.mapper.IPqsDefectAnomalyRiskDetailLogMapper">
+
+    <resultMap type="com.ca.mfd.prc.pqs.entity.PqsDefectAnomalyRiskDetailLogEntity"
+               id="pqsDefectAnomalyRiskDetailLogMap">
+        <result property="id" column="PRC_PQS_DEFECT_ANOMALY_RISK_DETAIL_LOG_ID"/>
+        <result property="prcPqsDefectAnomalyRiskDetailId" column="PRC_PQS_DEFECT_ANOMALY_RISK_DETAIL_ID"/>
+        <result property="riskNo" column="RISK_NO"/>
+        <result property="sn" column="SN"/>
+        <result property="workstationCode" column="WORKSTATION_CODE"/>
+        <result property="workstationName" column="WORKSTATION_NAME"/>
+        <result property="operateRemark" column="OPERATE_REMARK"/>
+        <result property="operateBy" column="OPERATE_BY"/>
+        <result property="operateDt" column="OPERATE_DT"/>
+        <result property="status" column="STATUS"/>
+    </resultMap>
+
+
+</mapper>

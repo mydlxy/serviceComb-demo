@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pqs.mapper.IPqsFunctionMapper">
+
+    <resultMap type="com.ca.mfd.prc.pqs.entity.PqsFunctionEntity" id="pqsFunctionMap">
+        <result property="id" column="PRC_PQS_FUNCTION_ID"/>
+        <result property="pqsEntryType" column="PQS_ENTRY_TYPE"/>
+        <result property="pqsFunction" column="PQS_FUNCTION"/>
+        <result property="remark" column="REMARK"/>
+    </resultMap>
+
+
+</mapper>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pqs.mapper.IPqsQualityGateMapper">
+
+    <resultMap type="com.ca.mfd.prc.pqs.entity.PqsQualityGateEntity" id="pqsQualityGateMap">
+        <result property="id" column="PRC_PQS_QUALITY_GATE_ID"/>
+        <result property="displayNo" column="DISPLAY_NO"/>
+        <result property="itemCode" column="ITEM_CODE"/>
+        <result property="itemName" column="ITEM_NAME"/>
+        <result property="models" column="MODELS"/>
+        <result property="workstationNames" column="WORKSTATION_NAMES"/>
+        <result property="image" column="IMAGE"/>
+        <result property="remark" column="REMARK"/>
+    </resultMap>
+
+
+</mapper>

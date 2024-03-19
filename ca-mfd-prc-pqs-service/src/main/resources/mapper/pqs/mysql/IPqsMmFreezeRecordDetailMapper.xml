@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pqs.mapper.IPqsMmFreezeRecordDetailMapper">
+
+    <resultMap type="com.ca.mfd.prc.pqs.entity.PqsMmFreezeRecordDetailEntity" id="pqsMmFreezeRecordDetailMap">
+        <result property="id" column="PRC_PQS_MM_FREEZE_RECORD_DETAIL_ID"/>
+        <result property="freezeNo" column="FREEZE_NO"/>
+        <result property="barcode" column="BARCODE"/>
+        <result property="lotNo" column="LOT_NO"/>
+        <result property="materialNo" column="MATERIAL_NO"/>
+        <result property="materialName" column="MATERIAL_NAME"/>
+        <result property="drawingNo" column="DRAWING_NO"/>
+        <result property="qty" column="QTY"/>
+        <result property="status" column="STATUS"/>
+        <result property="wmsWarehouseCode" column="WMS_WAREHOUSE_CODE"/>
+        <result property="wmsLocationBin" column="WMS_LOCATION_BIN"/>
+        <result property="remark" column="REMARK"/>
+        <result property="isConsignment" column="IS_CONSIGNMENT"/>
+    </resultMap>
+
+
+</mapper>
