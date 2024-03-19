@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pps.mapper.IPpsBindingTagLogMapper">
+
+    <resultMap type="com.ca.mfd.prc.pps.entity.PpsBindingTagLogEntity" id="prcPpsBindingTagLogMap">
+        <result property="id" column="PRC_PPS_BINDING_TAG_LOG_ID"/>
+        <result property="tagCode" column="TAG_CODE"/>
+        <result property="barcode" column="BARCODE"/>
+        <result property="bindingPointType" column="BINDING_POINT_TYPE"/>
+        <result property="bindingAviCode" column="BINDING_AVI_CODE"/>
+        <result property="bindingType" column="BINDING_TYPE"/>
+    </resultMap>
+
+
+</mapper>

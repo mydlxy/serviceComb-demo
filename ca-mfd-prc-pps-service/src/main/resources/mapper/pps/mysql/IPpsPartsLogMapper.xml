@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pps.mapper.IPpsPartsLogMapper">
+
+    <resultMap type="com.ca.mfd.prc.pps.entity.PpsPartsLogEntity" id="ppsPartsLogMap">
+        <result property="id" column="PRC_PPS_PARTS_LOG_ID"/>
+        <result property="barcode" column="BARCODE"/>
+        <result property="materialNo" column="MATERIAL_NO"/>
+        <result property="materialCn" column="MATERIAL_CN"/>
+        <result property="processCode" column="PROCESS_CODE"/>
+        <result property="processName" column="PROCESS_NAME"/>
+        <result property="reportType" column="REPORT_TYPE"/>
+        <result property="entryReportType" column="ENTRY_REPORT_TYPE"/>
+        <result property="orderCategory" column="ORDER_CATEGORY"/>
+        <result property="workshopCode" column="WORKSHOP_CODE"/>
+        <result property="workshopName" column="WORKSHOP_NAME"/>
+        <result property="lineCode" column="LINE_CODE"/>
+        <result property="lineName" column="LINE_NAME"/>
+        <result property="workstationCode" column="WORKSTATION_CODE"/>
+        <result property="workstationName" column="WORKSTATION_NAME"/>
+        <result property="source" column="SOURCE"/>
+    </resultMap>
+
+
+</mapper>

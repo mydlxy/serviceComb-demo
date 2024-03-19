@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pps.mapper.IPpsVtVinRuleMapper">
+    <resultMap type="com.ca.mfd.prc.pps.entity.PpsVtVinRuleEntity" id="ppsVtVinRuleMap">
+        <result property="id" column="PRC_PPS_VT_VIN_RULE_ID"/>
+        <result property="materialNo" column="MATERIAL_NO"/>
+        <result property="model" column="MODEL"/>
+        <result property="vinCode" column="VIN_CODE"/>
+    </resultMap>
+
+
+</mapper>

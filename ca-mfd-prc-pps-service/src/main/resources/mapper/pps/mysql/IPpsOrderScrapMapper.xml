@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pps.mapper.IPpsOrderScrapMapper">
+
+    <resultMap type="com.ca.mfd.prc.pps.entity.PpsOrderScrapEntity" id="ppsOrderScrapMap">
+        <result property="id" column="PRC_PPS_ORDER_SCRAP_ID"/>
+        <result property="scrapNo" column="SCRAP_NO"/>
+        <result property="orderNo" column="ORDER_NO"/>
+        <result property="qty" column="QTY"/>
+        <result property="remark" column="REMARK"/>
+        <result property="confirmRemark" column="CONFIRM_REMARK"/>
+        <result property="orderSource" column="ORDER_SOURCE"/>
+        <result property="isConfirm" column="IS_CONFIRM"/>
+        <result property="isSend" column="IS_SEND"/>
+    </resultMap>
+
+    <select id="spScrapAffirmDel" resultType="java.lang.String" parameterType="java.util.Map"
+            statementType="CALLABLE">
+        call sp_scrapAffirm_del( #{vsn,mode=IN,jdbcType=VARCHAR}
+            )
+    </select>
+
+</mapper>

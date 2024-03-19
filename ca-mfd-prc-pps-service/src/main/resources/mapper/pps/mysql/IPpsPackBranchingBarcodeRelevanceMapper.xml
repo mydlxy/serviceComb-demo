@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pps.mapper.IPpsPackBranchingBarcodeRelevanceMapper">
+
+    <resultMap type="com.ca.mfd.prc.pps.entity.PpsPackBranchingBarcodeRelevanceEntity" id="ppsPackBranchingBarcodeRelevanceMap">
+        <result property="id" column="PRC_PPS_PACK_BRANCHING_BARCODE_RELEVANCE_ID"/>
+        <result property="lineCode" column="LINE_CODE"/>
+        <result property="workstationCode" column="WORKSTATION_CODE"/>
+        <result property="componentCode" column="COMPONENT_CODE"/>
+        <result property="componentDes" column="COMPONENT_DES"/>
+        <result property="oldBarcode" column="OLD_BARCODE"/>
+        <result property="newBarcode" column="NEW_BARCODE"/>
+        <result property="orderCode" column="ORDER_CODE"/>
+        <result property="orderCategory" column="ORDER_CATEGORY"/>
+    </resultMap>
+
+
+</mapper>

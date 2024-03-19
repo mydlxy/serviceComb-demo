@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pps.mapper.IPpsRinStandardConfigMapper">
+
+    <resultMap type="com.ca.mfd.prc.pps.entity.PpsRinStandardConfigEntity" id="prcPpsRinStandardConfigMap">
+        <result property="id" column="PRC_PPS_RIN_STANDARD_CONFIG_ID"/>
+        <result property="packModel" column="PACK_MODEL"/>
+        <result property="rinCode" column="RIN_CODE"/>
+    </resultMap>
+
+
+</mapper>

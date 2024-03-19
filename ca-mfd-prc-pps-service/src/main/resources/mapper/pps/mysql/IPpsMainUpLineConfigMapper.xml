@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pps.mapper.IPpsMainUpLineConfigMapper">
+
+    <resultMap type="com.ca.mfd.prc.pps.entity.PpsMainUpLineConfigEntity" id="ppsMainUpLineConfigMap">
+        <result property="id" column="PRC_PPS_MAIN_UP_LINE_CONFIG_ID"/>
+        <result property="configCode" column="CONFIG_CODE"/>
+        <result property="workshopCode" column="WORKSHOP_CODE"/>
+        <result property="lineCode" column="LINE_CODE"/>
+        <result property="componentCode" column="COMPONENT_CODE"/>
+        <result property="componentDes" column="COMPONENT_DES"/>
+        <result property="plcAddress" column="PLC_ADDRESS"/>
+        <result property="plcDb" column="PLC_DB"/>
+    </resultMap>
+
+
+</mapper>

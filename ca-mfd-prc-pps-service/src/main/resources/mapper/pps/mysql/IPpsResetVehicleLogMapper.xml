@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pps.mapper.IPpsResetVehicleLogMapper">
+
+    <resultMap type="com.ca.mfd.prc.pps.entity.PpsResetVehicleLogEntity" id="ppsResetVehicleLogMap">
+        <result property="id" column="PRC_PPS_RESET_VEHICLE_LOG_ID"/>
+        <result property="vin" column="VIN"/>
+        <result property="endAviCode" column="END_AVI_CODE"/>
+    </resultMap>
+
+
+</mapper>

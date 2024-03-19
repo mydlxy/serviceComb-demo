@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pps.mapper.IPpsEntryMapper">
+
+    <resultMap type="com.ca.mfd.prc.pps.entity.PpsEntryEntity" id="ppsEntryMap">
+        <result property="id" column="PRC_PPS_ENTRY_ID"/>
+        <result property="prcPpsProductProcessId" column="PRC_PPS_PRODUCT_PROCESS_ID"/>
+        <result property="entryNo" column="ENTRY_NO"/>
+        <result property="productCode" column="PRODUCT_CODE"/>
+        <result property="sn" column="SN"/>
+        <result property="prcPpsOrderId" column="PRC_PPS_ORDER_ID"/>
+        <result property="orderNo" column="ORDER_NO"/>
+        <result property="orderCategory" column="ORDER_CATEGORY"/>
+        <result property="orderSign" column="ORDER_SIGN"/>
+        <result property="planNo" column="PLAN_NO"/>
+        <result property="parentId" column="PARENT_ID"/>
+        <result property="parentNo" column="PARENT_NO"/>
+        <result property="displayNo" column="DISPLAY_NO"/>
+        <result property="status" column="STATUS"/>
+        <result property="workshopCode" column="WORKSHOP_CODE"/>
+        <result property="lineCode" column="LINE_CODE"/>
+        <result property="estimatedStartDt" column="ESTIMATED_START_DT"/>
+        <result property="estimatedEndDt" column="ESTIMATED_END_DT"/>
+        <result property="actualStartDt" column="ACTUAL_START_DT"/>
+        <result property="actualEndDt" column="ACTUAL_END_DT"/>
+        <result property="entryType" column="ENTRY_TYPE"/>
+        <result property="entrySource" column="ENTRY_SOURCE"/>
+        <result property="isCreateWo" column="IS_CREATE_WO"/>
+        <result property="subscriubeCode" column="SUBSCRIUBE_CODE"/>
+        <result property="planQuantity" column="PLAN_QUANTITY"/>
+        <result property="materialCn" column="MATERIAL_CN"/>
+    </resultMap>
+
+    <select id="getNoPrintTpscode" resultType="com.ca.mfd.prc.pps.dto.BodyVehicleDTO">
+        SELECT ppe.DISPLAY_NO as displayNo,
+               ppo.SN,
+               ppo.BARCODE as vin,
+               ppo.MODEL as vehicleModel
+        FROM PRC_PPS_ORDER ppo
+                 JOIN PRC_PPS_ENTRY ppe ON ppe.ORDER_NO = ppo.ORDER_NO
+        WHERE ppe.WORKSHOP_CODE = #{workShop}
+          AND ppe.ENTRY_TYPE = #{entryType}
+          AND ppe.IS_DISPOSE = #{isDispose}
+          AND ppe.`STATUS` = #{status}
+          AND ppe.IS_DELETE = 0
+          and ppo.IS_DELETE = 0
+    </select>
+
+    <select id="getShopPlanMonitorInfos" resultType="java.util.Map">
+        call spPpsEntryWelding( #{req.pageSize,mode=IN},
+            #{req.pageIndex,mode=IN},
+            #{req.shopCode,mode=IN},
+            #{req.planNo,mode=IN},
+            #{req.tpsCode,mode=IN},
+            #{req.status,mode=IN},
+            #{req.pageCount,mode=OUT,jdbcType=BIGINT})
+    </select>
+
+    <select id="gestShopOrders" resultType="com.ca.mfd.prc.pps.dto.OrderEntryInfo">
+        SELECT * from ( SELECT
+        e.DISPLAY_NO as DisplayNo,
+        e.ACTUAL_END_DT as ActualEndDt,
+        e.ACTUAL_START_DT as ActualStartDt,
+        e.ESTIMATED_END_DT as EstimatedEndDt,
+        e.ESTIMATED_START_DT as EstimatedStartDt,
+        e.LINE_CODE as areaCode,
+        e.SN as Barcode,
+        e.`STATUS` as Status,
+        e.PRC_PPS_ENTRY_ID as ID,
+        e.ENTRY_NO as EntryNo,
+        e.PRODUCT_CODE as MaterialNo,
+        e.WORKSHOP_CODE as workshopCode,
+        e.ENTRY_TYPE as EntryType,
+        o.PRODUCTION_NO as ProductionNo,
+        o.BODY_NO as BodyNo,
+        o.PAINT_NO as PaintNo,
+        o.ASSEMBLY_NO as AssemblyNo,
+        e.SUBSCRIUBE_CODE as SubScriubCode,
+        o.ORDER_CATEGORY as orderCategory,
+        o.MODEL as Model,
+        o.PRODUCT_CODE as ProductMaterialNo,
+        o.CHARACTERISTIC1 as Characteristic1,
+        o.CHARACTERISTIC2 as Characteristic2,
+        o.CHARACTERISTIC3 as Characteristic3,
+        o.CHARACTERISTIC4 as Characteristic4,
+        o.CHARACTERISTIC5 as Characteristic5,
+        o.CHARACTERISTIC6 as Characteristic6,
+        o.CHARACTERISTIC7 as Characteristic7,
+        o.CHARACTERISTIC8 as Characteristic8,
+        o.CHARACTERISTIC9 as Characteristic9,
+        o.CHARACTERISTIC10 as Characteristic10,
+        o.ATTRIBUTE1 as attribute1,
+        o.PRC_PPS_ORDER_ID as OrderId,
+        o.ORDER_NO as OrderNo,
+        o.PLAN_NO as PlanNo,
+        o.SN as Sn,
+        o.LAST_UPDATE_DATE as lastUpdateDate,
+        e.LAST_UPDATE_DATE as entryUpdateDate
+        FROM PRC_PPS_ORDER o
+        INNER JOIN PRC_PPS_ENTRY e ON o.PRC_PPS_ORDER_ID = e.PRC_PPS_ORDER_ID
+        where o.IS_DELETE = 0 and e.IS_DELETE = 0
+        ) a
+        <include refid="com.ca.mfd.prc.common.CommMapper.wheresql">
+            <property name="where" value="pms.wheresa"/>
+        </include>
+        <if test='pms.order !=null and pms.order.size()>0'>
+            ${@com.ca.mfd.prc.common.utils.MpSqlUtils@getSortStr(pms.order)}
+        </if>
+    </select>
+
+    <select id="getEntryOrder" resultType="com.ca.mfd.prc.pps.dto.OrderEntryInfo">
+        SELECT * from ( SELECT
+        e.PRC_PPS_ENTRY_ID as ID,
+        e.WORKSHOP_CODE as workshopCode,
+        e.ENTRY_NO as EntryNo,
+        e.ENTRY_TYPE as EntryType,
+        e.`STATUS` as Status,
+        o.PRC_PPS_ORDER_ID as OrderId,
+        o.ORDER_NO as OrderNo,
+        e.DISPLAY_NO as DisplayNo,
+        o.PRODUCTION_NO as ProductionNo,
+        o.BODY_NO as BodyNo,
+        o.PAINT_NO as PaintNo,
+        o.ASSEMBLY_NO as AssemblyNo,
+        o.PRODUCT_CODE as MaterialNo,
+        o.PRODUCT_CODE as ProductMaterialNo,
+        e.ORDER_CATEGORY as orderCategory,
+        o.MODEL as Model,
+        o.SN as Sn,
+        o.BARCODE as Barcode,
+        e.SUBSCRIUBE_CODE as SubScriubCode,
+        e.ACTUAL_END_DT as ActualEndDt,
+        e.ACTUAL_START_DT as ActualStartDt,
+        e.ESTIMATED_END_DT as EstimatedEndDt,
+        e.ESTIMATED_START_DT as EstimatedStartDt,
+        e.LINE_CODE as areaCode,
+        o.CHARACTERISTIC1 as Characteristic1,
+        o.CHARACTERISTIC2 as Characteristic2,
+        o.CHARACTERISTIC3 as Characteristic3,
+        o.CHARACTERISTIC4 as Characteristic4,
+        o.CHARACTERISTIC5 as Characteristic5,
+        o.CHARACTERISTIC6 as Characteristic6,
+        o.CHARACTERISTIC7 as Characteristic7,
+        o.CHARACTERISTIC8 as Characteristic8,
+        o.CHARACTERISTIC9 as Characteristic9,
+        o.CHARACTERISTIC10 as Characteristic10,
+        o.ATTRIBUTE1 as attribute1,
+        e.PLAN_NO as PlanNo,
+        o.LAST_UPDATE_DATE as lastUpdateDate
+        FROM PRC_PPS_ORDER o
+        INNER JOIN PRC_PPS_ENTRY e ON o.ORDER_NO = e.ORDER_NO
+        where o.IS_DELETE = 0 and e.IS_DELETE = 0
+        ) a
+        <include refid="com.ca.mfd.prc.common.CommMapper.wheresql">
+            <property name="where" value="pms.wheresa"/>
+        </include>
+        <if test='pms.order !=null and pms.order.size()>0'>
+            ${@com.ca.mfd.prc.common.utils.MpSqlUtils@getSortStr(pms.order)}
+        </if>
+        limit #{pms.top}
+    </select>
+
+    <select id="getEntryStampingPageDatas" resultType="com.ca.mfd.prc.pps.entity.PpsEntryEntity">
+        SELECT
+        a.ORDER_NO as OrderNo,
+        "00000000-0000-0000-0000-000000000000" as ParentId,
+        "" as ParentNo,
+        a.PLAN_NO as PlanNo,
+        a.PLANT as Plant,
+        a.PRODUCT_PROCESS_ID as ProductProcessId,
+        0 as ActualConTime,
+        a.PM_WORK_CENTER_CODE as areaCode,
+        a.SN as Sn,
+        a.ENTRY_ID as Id,
+        a.DISPLAY_NO as DisplayNo,
+        a.DYNAMCI_START_DT as DynamciStartDt,
+        a.DYNAMCI_END_DT as DynamciEndDt,
+        a.ESTIMATED_START_DT as EstimatedStartDt,
+        a.ESTIMATED_START_DT as EstimatedEndDt,
+        a.ENTRY_NO as EntryNo,
+        a.ENTRY_SOURCE as EntrySource,
+        a.ENTRY_TYPE as EntryType,
+        a.DYNAMCI_END_DT as CalEndDt,
+        a.ESTIMATED_CON_TIME as EstimatedConTime,
+        a.PM_AREA_CODE as workshopCode,
+        a.ORDER_ID as OrderId,
+        a.`STATUS` as Status,
+        a.IS_LOCK_PROCESS as IsLockProcess,
+        a.IS_CREATE_WO as IsCreateWo,
+        a.IS_PRINT_CODE as IsPrintCode,
+        a.ORDER_TYPE as OrderType,
+        a.ORDER_CATEGORY as OrderCategory,
+        a.SUBSCRIUBE_CODE as SubScriubCode,
+        a.MATERIAL_NO as MaterialNo,
+        a.MATERIAL_DES as MaterialDes,
+        a.ENTRY_QUANTITY as EntryQuantity,
+        a.ENTRY_REPROT_COUNT as EntryReprotCount,
+        a.CREATION_DATE,
+        a.CREATED_BY,
+        a.LAST_UPDATED_DATE,
+        a.LAST_UPDATED_TRACEID,
+        b.ORDER_QUANTITY as OrderQuantity,
+        b.QUALIFIED_QUANITIY as QualifiedQuanitiy,
+        b.UNQUALIFIED_QUANITIY as UnqualifiedQuanitiy,
+        b.SCRAP_QUANITIY as ScrapQuanitiy
+        FROM (select * from PPS_ENTRY
+        <include refid="com.ca.mfd.prc.common.CommMapper.wheresql">
+            <property name="where" value="pms.wheresa"/>
+        </include>
+        ) a
+        INNER JOIN PPS_ENTRY_EXPAND b ON a.ENTRY_ID = b.ENTRY_ID
+        where a.IS_DELETE = 0 and b.IS_DELETE = 0
+        <if test='pms.order !=null and pms.order.size()>0'>
+            ${@com.ca.mfd.prc.common.utils.MpSqlUtils@getSortStr(pms.order)}
+        </if>
+    </select>
+
+    <select id="getStampingEntry" resultType="com.ca.mfd.prc.pps.dto.StampingEntryDTO">
+        select pe.ENTRY_ID              as EntryId,
+               pe.PLAN_NO               as PlanNo,
+               pe.ORDER_NO              as OrderNo,
+               pe.ENTRY_NO              as EntryNo,
+               pe.MATERIAL_NO           as MaterialNo,
+               pp.CHARACTERISTIC4       as MaterialDes,
+               pe.ESTIMATED_START_DT    as EstimatedStartDt,
+               pe.ESTIMATED_END_DT      as EstimatedEndDt,
+               pe.ACTUAL_START_DT       as ActualStartDt,
+               pe.ACTUAL_END_DT         as ActualEndDt,
+               pe.ENTRY_QUANTITY        as EntryQuantity,
+               pee.ORDER_QUANTITY       as OrderQuantity,
+               pee.QUALIFIED_QUANITIY   as QualifiedQuanitiy,
+               pee.UNQUALIFIED_QUANITIY as UnqualifiedQuanitiy,
+               pee.SCRAP_QUANITIY       as ScrapQuanitiy,
+               pe.STATUS
+        from PPS_ENTRY pe
+                 inner join PPS_ENTRY_EXPAND pee on pe.ENTRY_ID = pee.ENTRY_ID
+                 inner join PPS_ORDER pp on pe.ORDER_NO = pp.ORDER_NO
+        where pe.PM_WORK_CENTER_CODE = #{areaCode}
+          and pe.STATUS &lt; 4
+          and pe.ORDER_CATEGORY = '2'
+          and pe.IS_DELETE = 0
+          and pee.IS_DELETE = 0
+          and pp.IS_DELETE = 0
+        order by pe.ESTIMATED_START_DT asc
+    </select>
+
+</mapper>

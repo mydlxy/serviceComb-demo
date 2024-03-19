@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pps.mapper.IPpsVehicleExtendMapper">
+
+    <resultMap type="com.ca.mfd.prc.pps.entity.PpsVehicleExtendEntity" id="prcPpsVehicleExtendMap">
+        <result property="id" column="PRC_PPS_VEHICLE_EXTEND_ID"/>
+        <result property="vin" column="VIN"/>
+        <result property="hardwareVersion" column="HARDWARE_VERSION"/>
+        <result property="softwareVersion" column="SOFTWARE_VERSION"/>
+    </resultMap>
+
+
+</mapper>

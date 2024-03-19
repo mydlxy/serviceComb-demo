@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pps.mapper.IPpsPlanMapper">
+
+    <resultMap type="com.ca.mfd.prc.pps.entity.PpsPlanEntity" id="ppsPlanMap">
+        <result property="id" column="PRC_PPS_PLAN_ID"/>
+        <result property="planNo" column="PLAN_NO"/>
+        <result property="productCode" column="PRODUCT_CODE"/>
+        <result property="model" column="MODEL"/>
+        <result property="characteristic1" column="CHARACTERISTIC1"/>
+        <result property="characteristic2" column="CHARACTERISTIC2"/>
+        <result property="characteristic3" column="CHARACTERISTIC3"/>
+        <result property="characteristic4" column="CHARACTERISTIC4"/>
+        <result property="characteristic5" column="CHARACTERISTIC5"/>
+        <result property="characteristic6" column="CHARACTERISTIC6"/>
+        <result property="characteristic7" column="CHARACTERISTIC7"/>
+        <result property="characteristic8" column="CHARACTERISTIC8"/>
+        <result property="characteristic9" column="CHARACTERISTIC9"/>
+        <result property="characteristic10" column="CHARACTERISTIC10"/>
+        <result property="planQty" column="PLAN_QTY"/>
+        <result property="estimatedStartDt" column="ESTIMATED_START_DT"/>
+        <result property="estimatedEndDt" column="ESTIMATED_END_DT"/>
+        <result property="planStatus" column="PLAN_STATUS"/>
+        <result property="planSource" column="PLAN_SOURCE"/>
+        <result property="orderCategory" column="ORDER_CATEGORY"/>
+        <result property="orderSign" column="ORDER_SIGN"/>
+        <result property="isFreeze" column="IS_FREEZE"/>
+        <result property="prcPpsProductProcessId" column="PRC_PPS_PRODUCT_PROCESS_ID"/>
+        <result property="remark" column="REMARK"/>
+        <result property="dmsOrderNo" column="DMS_ORDER_NO"/>
+        <result property="bomVersion" column="BOM_VERSION"/>
+        <result property="characteristicVersion" column="CHARACTERISTIC_VERSION"/>
+    </resultMap>
+
+
+</mapper>

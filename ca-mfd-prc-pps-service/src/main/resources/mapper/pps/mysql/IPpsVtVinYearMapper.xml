@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pps.mapper.IPpsVtVinYearMapper">
+
+    <resultMap type="com.ca.mfd.prc.pps.entity.PpsVtVinYearEntity" id="ppsVtVinYearMap">
+        <result property="id" column="PRC_PPS_VT_VIN_YEAR_ID"/>
+        <result property="year" column="YEAR"/>
+        <result property="vinYearCode" column="VIN_YEAR_CODE"/>
+    </resultMap>
+
+
+</mapper>

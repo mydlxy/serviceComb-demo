@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pps.mapper.IPpsModuleSplitStrategyMapper">
+
+    <resultMap type="com.ca.mfd.prc.pps.entity.PpsModuleSplitStrategyEntity" id="ppsModuleSplitStrategyMap">
+        <result property="id" column="PRC_PPS_MODULE_SPLIT_STRATEGY_ID"/>
+        <result property="strategySign" column="STRATEGY_SIGN"/>
+        <result property="packModel" column="PACK_MODEL"/>
+        <result property="areaCode" column="AREA_CODE"/>
+        <result property="moduleNum" column="MODULE_NUM"/>
+        <result property="structContent" column="STRUCT_CONTENT"/>
+        <result property="strategyDescription" column="STRATEGY_DESCRIPTION"/>
+        <result property="isEnable" column="IS_ENABLE"/>
+        <result property="moduleTypeNum" column="MODULE_TYPE_NUM"/>
+    </resultMap>
+
+
+</mapper>

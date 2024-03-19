@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pps.mapper.IPpsPackStartWorkConfigMapper">
+
+    <resultMap type="com.ca.mfd.prc.pps.entity.PpsPackStartWorkConfigEntity" id="ppsPackStartWorkConfigMap">
+        <result property="id" column="PRC_PPS_PACK_START_WORK_CONFIG_ID"/>
+        <result property="lineCode" column="LINE_CODE"/>
+        <result property="packModel" column="PACK_MODEL"/>
+        <result property="plcAddress" column="PLC_ADDRESS"/>
+        <result property="plcDb" column="PLC_DB"/>
+    </resultMap>
+
+
+</mapper>

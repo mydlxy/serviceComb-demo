@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pps.mapper.IPpsProcessRelationMapper">
+
+    <resultMap type="com.ca.mfd.prc.pps.entity.PpsProcessRelationEntity" id="ppsProcessRelationMap">
+        <result property="id" column="PRC_PPS_PROCESS_RELATION_ID"/>
+        <result property="orderCategory" column="ORDER_CATEGORY"/>
+        <result property="processCode" column="PROCESS_CODE"/>
+        <result property="processName" column="PROCESS_NAME"/>
+        <result property="shopCode" column="SHOP_CODE"/>
+        <result property="lineCode" column="LINE_CODE"/>
+        <result property="lineName" column="LINE_NAME"/>
+        <result property="processType" column="PROCESS_TYPE"/>
+        <result property="isEnabled" column="IS_ENABLED"/>
+        <result property="remark" column="REMARK"/>
+    </resultMap>
+
+
+</mapper>

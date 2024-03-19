@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pps.mapper.IPpsAsAviPointMapper">
+
+    <select id="getNoSendList" resultType="com.ca.mfd.prc.pps.entity.PpsAsAviPointEntity">
+        select distinct  a.*,a.PRC_PPS_AS_AVI_POINT_ID as id from PRC_PPS_AS_AVI_POINT a
+        inner join PRC_PPS_PLAN_AVI c on a.AVI_CODE = c.AVI_CODE
+        where a.AS_SEND_FLAG=0 and a.ORDER_CATEGORY='1' and a.IS_DELETE=0 and c.IS_DELETE=0 limit #{top}
+    </select>
+    
+    <select id="getLmsNoSendList" resultType="com.ca.mfd.prc.pps.communication.dto.MidLmsAviQueueDto">
+        select distinct
+            a.ORG_CODE as orgCode,
+            a.WORKSHOP_CODE as workshopCode,
+            a.LINE_CODE as lineCode,
+            a.VIN as vin,
+            d.PRODUCT_CODE as productCode,
+            a.SCAN_TIME as passTime,
+            a.AVI_CODE as aviCode,
+            d.ORDER_SIGN as orderSign,
+            d.PLAN_NO as vid,
+            d.ASSEMBLY_NO as assemblyNo,
+            a.PRC_PPS_AS_AVI_POINT_ID as uniqueCode
+        from
+           PRC_PPS_AS_AVI_POINT a
+         inner join PRC_PPS_PLAN_AVI c on
+           a.AVI_CODE = c.AVI_CODE
+         inner join PRC_PPS_ORDER d on
+           a.VIN = d.SN
+         where
+           a.LMS_SEND_FLAG = 0 and a.ORDER_CATEGORY = '1' and a.IS_DELETE = 0 and c.IS_DELETE = 0 and d.IS_DELETE = 0
+         limit #{top}
+    </select>
+
+    <select id="getAsSendRpt" resultType="com.ca.mfd.prc.pps.dto.AsSendRptDTO">
+        SELECT
+        SN,-- vin
+        PASS_DT1,-- 焊接上线计划时间
+        INSERT_DT1,-- 焊接上线时间
+        times1,-- 时间差(分钟)
+        PASS_DT2,-- 焊接计划下线时间
+        INSERT_DT2,-- 焊接下线时间
+        times2,-- 时间差(分钟)
+        PASS_DT3,-- 涂装计划上线时间
+        INSERT_DT3,-- 涂装上线时间
+        times3,-- 时间差(分钟)
+        PASS_DT4,-- 涂装计划下线时间
+        INSERT_DT4,-- 涂装下线时间
+        times4,-- 时间差(分钟)
+        PASS_DT5,-- 总装计划上线时间
+        INSERT_DT5,-- 总装上线时间
+        times5,-- 时间差(分钟)
+        PASS_DT6,-- 总装计划下线时间
+        INSERT_DT6,-- 总装下线时间
+        times6 -- 时间差(分钟)
+
+        FROM
+        (
+        SELECT
+        t1.SN,
+        t2.PASS_DT AS PASS_DT1,
+        t2.INSERT_DT AS INSERT_DT1,
+        t2.times AS times1,
+        t3.PASS_DT AS PASS_DT2,
+        t3.INSERT_DT AS INSERT_DT2,
+        t3.times AS times2,
+        t4.PASS_DT AS PASS_DT3,
+        t4.INSERT_DT AS INSERT_DT3,
+        t4.times AS times3,
+        t5.PASS_DT AS PASS_DT4,
+        t5.INSERT_DT AS INSERT_DT4,
+        t5.times AS times4,
+        t6.PASS_DT AS PASS_DT5,
+        t6.INSERT_DT AS INSERT_DT5,
+        t6.times AS times5,
+        t7.PASS_DT AS PASS_DT6,
+        t7.INSERT_DT AS INSERT_DT6,
+        t7.times AS times6
+        FROM
+        (
+        SELECT DISTINCT
+        SN
+        FROM
+        prc_pps_order
+        WHERE
+        IS_DELETE = 0
+        AND ORDER_CATEGORY = 1
+        AND ( length(#{vin}) = 0 OR sn = #{vin} )
+        ) t1
+        LEFT JOIN (
+        SELECT
+        t1.SN,
+        t2.PASS_DT,
+        t1.INSERT_DT,
+        ROUND( ( TIMESTAMPDIFF( SECOND, t2.PASS_DT, t1.INSERT_DT ) * 1.0 / 60 ), 2 ) AS times,
+        t1.AVI_NAME,
+        t1.AVI_CODE
+        FROM
+        PRC_AVI_TRACKING_RECORD t1
+        JOIN (
+        SELECT
+        t1.SN,
+        t2.AVI_CODE,
+        min( t2.PASS_DT ) AS PASS_DT
+        FROM
+        prc_pps_order t1
+        JOIN prc_pps_plan_avi t2 ON t1.PLAN_NO = t2.PLAN_NO
+        WHERE
+        t1.IS_DELETE = 0
+        AND t2.IS_DELETE = 0
+        AND t2.AVI_CODE = 'CQY_WE_LEH_010'
+        GROUP BY
+        t1.SN,
+        t2.AVI_CODE
+        ) t2 ON t1.AVI_CODE = t2.AVI_CODE
+        AND t1.SN = t2.SN
+        WHERE
+        t1.IS_DELETE = 0
+        AND t1.AVI_CODE = 'CQY_WE_LEH_010'
+        AND ( length( #{vin} ) = 0 OR t1.sn = #{vin} )
+        ) t2 ON t1.SN = t2.SN
+        LEFT JOIN (
+        SELECT
+        t1.SN,
+        t2.PASS_DT,
+        t1.INSERT_DT,
+        ROUND( ( TIMESTAMPDIFF( SECOND, t2.PASS_DT, t1.INSERT_DT ) * 1.0 / 60 ), 2 ) AS times,
+        t1.AVI_NAME,
+        t1.AVI_CODE
+        FROM
+        PRC_AVI_TRACKING_RECORD t1
+        JOIN (
+        SELECT
+        t1.SN,
+        t2.AVI_CODE,
+        min( t2.PASS_DT ) AS PASS_DT
+        FROM
+        prc_pps_order t1
+        JOIN prc_pps_plan_avi t2 ON t1.PLAN_NO = t2.PLAN_NO
+        WHERE
+        t1.IS_DELETE = 0
+        AND t2.IS_DELETE = 0
+        AND t2.AVI_CODE = 'CQY_WE_LFA3_100'
+        GROUP BY
+        t1.SN,
+        t2.AVI_CODE
+        ) t2 ON t1.AVI_CODE = t2.AVI_CODE
+        AND t1.SN = t2.SN
+        WHERE
+        t1.IS_DELETE = 0
+        AND t1.AVI_CODE = 'CQY_WE_LFA3_100'
+        AND ( length( #{vin} ) = 0 OR t1.sn = #{vin} )
+        ) t3 ON t1.SN = t3.SN
+        LEFT JOIN (
+        SELECT
+        t1.SN,
+        t2.PASS_DT,
+        t1.INSERT_DT,
+        ROUND( ( TIMESTAMPDIFF( SECOND, t2.PASS_DT, t1.INSERT_DT ) * 1.0 / 60 ), 2 ) AS times,
+        t1.AVI_NAME,
+        t1.AVI_CODE
+        FROM
+        PRC_AVI_TRACKING_RECORD t1
+        JOIN (
+        SELECT
+        t1.SN,
+        t2.AVI_CODE,
+        min( t2.PASS_DT ) AS PASS_DT
+        FROM
+        prc_pps_order t1
+        JOIN prc_pps_plan_avi t2 ON t1.PLAN_NO = t2.PLAN_NO
+        WHERE
+        t1.IS_DELETE = 0
+        AND t2.IS_DELETE = 0
+        AND t2.AVI_CODE = 'PA-LCC01-AVI02'
+        GROUP BY
+        t1.SN,
+        t2.AVI_CODE
+        ) t2 ON t1.AVI_CODE = t2.AVI_CODE
+        AND t1.SN = t2.SN
+        WHERE
+        t1.IS_DELETE = 0
+        AND t1.AVI_CODE = 'PA-LCC01-AVI02'
+        AND ( length( #{vin} ) = 0 OR t1.sn = #{vin} )
+        ) t4 ON t1.SN = t4.SN
+        LEFT JOIN (
+        SELECT
+        t1.SN,
+        t2.PASS_DT,
+        t1.INSERT_DT,
+        ROUND( ( TIMESTAMPDIFF( SECOND, t2.PASS_DT, t1.INSERT_DT ) * 1.0 / 60 ), 2 ) AS times,
+        t1.AVI_NAME,
+        t1.AVI_CODE
+        FROM
+        PRC_AVI_TRACKING_RECORD t1
+        JOIN (
+        SELECT
+        t1.SN,
+        t2.AVI_CODE,
+        min( t2.PASS_DT ) AS PASS_DT
+        FROM
+        prc_pps_order t1
+        JOIN prc_pps_plan_avi t2 ON t1.PLAN_NO = t2.PLAN_NO
+        WHERE
+        t1.IS_DELETE = 0
+        AND t2.IS_DELETE = 0
+        AND t2.AVI_CODE = 'CQY_PA_LCC09_100'
+        GROUP BY
+        t1.SN,
+        t2.AVI_CODE
+        ) t2 ON t1.AVI_CODE = t2.AVI_CODE
+        AND t1.SN = t2.SN
+        WHERE
+        t1.IS_DELETE = 0
+        AND t1.AVI_CODE = 'CQY_PA_LCC09_100'
+        AND ( length( #{vin} ) = 0 OR t1.sn = #{vin} )
+        ) t5 ON t1.SN = t5.SN
+        LEFT JOIN (
+        SELECT
+        t1.SN,
+        t2.PASS_DT,
+        t1.INSERT_DT,
+        ROUND( ( TIMESTAMPDIFF( SECOND, t2.PASS_DT, t1.INSERT_DT ) * 1.0 / 60 ), 2 ) AS times,
+        t1.AVI_NAME,
+        t1.AVI_CODE
+        FROM
+        PRC_AVI_TRACKING_RECORD t1
+        JOIN (
+        SELECT
+        t1.SN,
+        t2.AVI_CODE,
+        min( t2.PASS_DT ) AS PASS_DT
+        FROM
+        prc_pps_order t1
+        JOIN prc_pps_plan_avi t2 ON t1.PLAN_NO = t2.PLAN_NO
+        WHERE
+        t1.IS_DELETE = 0
+        AND t2.IS_DELETE = 0
+        AND t2.AVI_CODE = 'CQY_GA_LPBS_010'
+        GROUP BY
+        t1.SN,
+        t2.AVI_CODE
+        ) t2 ON t1.AVI_CODE = t2.AVI_CODE
+        AND t1.SN = t2.SN
+        WHERE
+        t1.IS_DELETE = 0
+        AND t1.AVI_CODE = 'CQY_GA_LPBS_010'
+        AND ( length( #{vin} ) = 0 OR t1.sn = #{vin} )
+        ) t6 ON t1.SN = t6.SN
+        LEFT JOIN (
+        SELECT
+        t1.SN,
+        t2.PASS_DT,
+        t1.INSERT_DT,
+        ROUND((TIMESTAMPDIFF( SECOND, t2.PASS_DT, t1.INSERT_DT ) * 1.0 / 60 ), 2 ) AS times,
+        t1.AVI_NAME,
+        t1.AVI_CODE
+        FROM
+        PRC_AVI_TRACKING_RECORD t1
+        JOIN (
+        SELECT
+        t1.SN,
+        t2.AVI_CODE,
+        min( t2.PASS_DT ) AS PASS_DT
+        FROM
+        prc_pps_order t1
+        JOIN prc_pps_plan_avi t2 ON t1.PLAN_NO = t2.PLAN_NO
+        WHERE
+        t1.IS_DELETE = 0
+        AND t2.IS_DELETE = 0
+        AND t2.AVI_CODE = 'CQY_GA_LVT_100'
+        GROUP BY
+        t1.SN,
+        t2.AVI_CODE
+        ) t2 ON t1.AVI_CODE = t2.AVI_CODE
+        AND t1.SN = t2.SN
+        WHERE
+        t1.IS_DELETE = 0
+        AND t1.AVI_CODE = 'CQY_GA_LVT_100'
+        AND ( length( #{vin} ) = 0 OR t1.sn = #{vin} )
+        ) t7 ON t1.SN = t7.SN
+        ) t
+
+        <where>
+        <![CDATA[
+         ( #{INSERT_DT1s}  IS NULL OR INSERT_DT1 >= #{INSERT_DT1s} )
+          AND (#{INSERT_DTe} IS NULL OR INSERT_DT1 <= #{INSERT_DT1e} )
+        AND ( #{INSERT_DT2s} IS NULL OR INSERT_DT2 >= #{INSERT_DT2s} )
+        AND ( #{INSERT_DT2e} IS NULL OR INSERT_DT2 <= #{INSERT_DT2e} )
+        AND ( #{INSERT_DT3s} IS NULL OR INSERT_DT3 >= #{INSERT_DT3s} )
+        AND ( #{INSERT_DT3e} IS NULL OR INSERT_DT3 <= #{INSERT_DT3e} )
+        AND ( #{INSERT_DT4s} IS NULL OR INSERT_DT4 >= #{INSERT_DT4s} )
+        AND ( #{INSERT_DT4e} IS NULL OR INSERT_DT4 <= #{INSERT_DT4e} )
+        AND ( #{INSERT_DT5s} IS NULL OR INSERT_DT5 >= #{INSERT_DT5s} )
+        AND ( #{INSERT_DT5e} IS NULL OR INSERT_DT5 <= #{INSERT_DT5e} )
+        AND ( #{INSERT_DT6s} IS NULL OR INSERT_DT6 >= #{INSERT_DT6s} )
+        AND ( #{INSERT_DT6e} IS NULL OR INSERT_DT6 <= #{INSERT_DT6e} )
+        AND ( #{times1s} IS NULL OR times1 >= #{times1s} )
+        AND ( #{times1e} IS NULL OR times1 <= #{times1e} )
+        AND ( #{times2s} IS NULL OR times2 >= #{times2s} )
+        AND ( #{times2e} IS NULL OR times2 <= #{times2e} )
+        AND ( #{times3s} IS NULL OR times3 >= #{times3s} )
+        AND ( #{times3e} IS NULL OR times3 <= #{times3e} )
+        AND ( #{times4s} IS NULL OR times4 >= #{times4s} )
+        AND ( #{times4e} IS NULL OR times4 <= #{times4e} )
+        AND ( #{times5s} IS NULL OR times5 >= #{times5s} )
+        AND ( #{times5e} IS NULL OR times5 <= #{times5e} )
+        AND ( #{times6s} IS NULL OR times6 >= #{times6s} )
+        AND ( #{times6e} IS NULL OR times6 <= #{times6e} )
+        ]]>
+        </where>
+    </select>
+</mapper>

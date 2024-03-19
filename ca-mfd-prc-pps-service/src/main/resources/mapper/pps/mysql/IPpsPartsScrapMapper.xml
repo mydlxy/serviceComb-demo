@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pps.mapper.IPpsPartsScrapMapper">
+
+    <resultMap type="com.ca.mfd.prc.pps.entity.PpsPartsScrapEntity" id="ppsPartsScrapMap">
+        <result property="id" column="PRC_PPS_PARTS_SCRAP_ID"/>
+        <result property="scrapNo" column="SCRAP_NO"/>
+        <result property="entryNo" column="ENTRY_NO"/>
+        <result property="barcode" column="BARCODE"/>
+        <result property="qty" column="QTY"/>
+        <result property="remark" column="REMARK"/>
+        <result property="confirmRemark" column="CONFIRM_REMARK"/>
+        <result property="orderCategory" column="ORDER_CATEGORY"/>
+        <result property="isConfirm" column="IS_CONFIRM"/>
+        <result property="isSend" column="IS_SEND"/>
+    </resultMap>
+
+
+</mapper>

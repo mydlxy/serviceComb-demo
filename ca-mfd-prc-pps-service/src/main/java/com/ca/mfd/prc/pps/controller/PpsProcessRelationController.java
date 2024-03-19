@@ -1,0 +1,31 @@
+package com.ca.mfd.prc.pps.controller;
+
+import com.ca.mfd.prc.common.controller.BaseController;
+import com.ca.mfd.prc.pps.entity.PpsProcessRelationEntity;
+import com.ca.mfd.prc.pps.service.IPpsProcessRelationService;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+/**
+ *
+ * @Description: 工序关联配置Controller
+ * @author inkelink
+ * @date 2023年10月23日
+ * @变更说明 BY inkelink At 2023年10月23日
+ */
+@RestController
+@RequestMapping("ppsprocessrelation")
+@Tag(name = "工序关联配置服务", description = "工序关联配置")
+public class PpsProcessRelationController extends BaseController<PpsProcessRelationEntity> {
+
+    private IPpsProcessRelationService ppsProcessRelationService;
+
+    @Autowired
+    public PpsProcessRelationController(IPpsProcessRelationService ppsProcessRelationService) {
+        this.crudService = ppsProcessRelationService;
+        this.ppsProcessRelationService = ppsProcessRelationService;
+    }
+
+}

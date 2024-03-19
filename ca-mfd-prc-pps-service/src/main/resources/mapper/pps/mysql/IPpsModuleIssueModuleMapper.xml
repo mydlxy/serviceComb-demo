@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ca.mfd.prc.pps.mapper.IPpsModuleIssueModuleMapper">
+
+    <resultMap type="com.ca.mfd.prc.pps.entity.PpsModuleIssueModuleEntity" id="ppsModuleIssueModuleMap">
+        <result property="id" column="PRC_PPS_MODULE_ISSUE_MODULE_ID"/>
+        <result property="prcPpsModuleIssueMainId" column="PRC_PPS_MODULE_ISSUE_MAIN_ID"/>
+        <result property="planNo" column="PLAN_NO"/>
+        <result property="entryNo" column="ENTRY_NO"/>
+        <result property="packModel" column="PACK_MODEL"/>
+        <result property="lineCode" column="LINE_CODE"/>
+        <result property="moduleCode" column="MODULE_CODE"/>
+        <result property="moduleNum" column="MODULE_NUM"/>
+        <result property="status" column="STATUS"/>
+    </resultMap>
+
+
+</mapper>
